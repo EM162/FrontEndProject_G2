@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/checkout.css">
+</head>
+
+<body>
+
+  <!-------------------------------------------- start navbar ----------------------------------------->
+    <nav class="navbar navbar-expand-lg">
+        <!-- Logo -->
+        <div class="logo d-flex align-items-center">
+            <img src="./images/logoImg.png" alt="Logo">
+        </div>
+        <div class="container1">
+            <!-- Toplist -->
+            <ul class="navbar-nav ms-5 d-none d-lg-flex">
+                <li class="nav-item text-white">
+                    <i class="fa fa-phone"></i> +208-6666-0112
+                </li>
+                <li class="nav-item text-white ms-4">
+                    <i class="far fa-envelope"></i> bookery@gmail.com
+                </li>
+                <li class="nav-item text-white ms-4">
+                    <i class="far fa-clock"></i> Sunday - Fri: 9 AM - 6 PM
+                </li>
+                <li class="nav-item text-white" style="margin-left: 500px;"> 
+                    <i class="far fa-user"></i> Login
+                </li>
+                <li class="nav-item text-white ms-4"> 
+                    <i class="far fa-user"></i> Sign In
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Bottom Navigation -->
+    <div class="container mt-1">
+        <div class="bottom-nav d-flex justify-content-between align-items-center">
+            <!-- Links -->
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="categories.html">categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Contact.html">Contact Us</a>
+                </li>
+            </ul>
+
+            <!-- Search Bar and Icons -->
+            <div class="d-flex align-items-center" style="width: 50%;">
+                <div class="search-bar">
+                    <input type="text" class="form-control" placeholder="Book Name">
+                    <i class="fa fa-search"></i>
+                </div>
+                <div class="navbar-icons ms-5">
+                    <a href="#"><i class="fa fa-heart"></i></a>
+                    <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--------------------------------------- section 1----------------------------------->
+
+    <div class="breadcrumb-wrapper" style="background-color: #e6eff2;">
+        <div class="book1">
+            <img src="images/book1.png" alt="book">
+        </div>
+        <div class="book2">
+            <img src="images/book2.png" alt="book">
+        </div>
+        <div class="container3">
+            <div class="page-heading">
+                <h1>Checkout</h1>
+                <div class="page-header">
+                    <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                        <li>
+                            <a href="index.html">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </li>
+                        <li>
+                            Checkout
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ <!--------------------------------------- checkout form ----------------------------------->
+    
+    <div class="container4 my-5 m-auto">
+        <div class="row g-4">
+            <!-- Billing Details -->
+            <div class="col-lg-8">
+                <h2 class="mb-5 ms-5">Billing Details</h2>
+                <form>
+                    <div class="row g-3 ms-5">
+                        <div class="col-md-5 mb-5">
+                            <label for="firstName" class="form-label">First Name*</label>
+                            <input type="text" class="form-control" id="firstName" placeholder="First Name">
+                        </div>
+
+                        <div class="col-md-5 mb-5">
+                            <label for="lastName" class="form-label">Last Name*</label>
+                            <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+                        </div>
+
+                        <div class="col-11 mb-5">
+                            <label for="country" class="form-label">Country*</label>
+                            <input type="text" class="form-control" id="Country" placeholder="Country">
+                        </div>
+
+                        <div class="col-11 mb-5">
+                            <label for="Town" class="form-label">Town/ City*</label>
+                            <input type="text" class="form-control" id="Town" placeholder="City">
+                        </div>
+
+                        <div class="col-11 mb-5">
+                            <label for="Phone" class="form-label">Phone*</label>
+                            <input type="text" class="form-control" id="Phone" placeholder="Phone">
+                        </div>
+
+                        <div class="col-11 mb-5">
+                            <label for="EmailAddress" class="form-label">Email Address*</label>
+                            <input type="email" class="form-control" id="email" placeholder="Email">
+                        </div>
+
+                        <div class="col-11 mb-5">
+                            <label for="notes" class="form-label">order notes (optional)</label><br>
+                            <textarea name="notes" id="notes" placeholder="Notes about your order, e.g special notes for delivery."></textarea>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+ <!--------------------------------------- checkout form ----------------------------------->
+            <div class="col-lg-3">
+                <div class="order-summary">
+                    <div class="d-flex justify-content-between">
+                        <span><b>Product</b></span>
+                        <span><b>Subtotal</b></span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <span><b>Fashion Women's 1</b></span>
+                        <span><b>$29.00</b></span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <span><b>Shipping</b></span>
+                        <div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="shipping" id="freeShipping" checked>
+                                <label class="form-check-label" for="freeShipping"><b>Free Shipping</b></label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="shipping" id="localShipping">
+                                <label class="form-check-label" for="localShipping"><b>Local: $15.00</b></label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="shipping" id="flatRate">
+                                <label class="form-check-label" for="flatRate"><b>Flat Rate: $10.00</b></label>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between total-section">
+                        <span>Total</span>
+                        <span>$55.00</span>
+                    </div>
+                    <hr>
+                    <!-- <h6 class="mt-4">Payment Methods</h6> -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="payment" id="bankTransfer" checked>
+                        <label class="form-check-label" for="bankTransfer">
+                            <!-- <h5>Direct Bank Transfer</h5> -->
+                            <span><b>Direct Bank Transfer</b></span>
+                            <p class="text-muted ">
+                                Make your payment directly into our bank account. Please use your Order ID as the payment reference.
+                            </p>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="payment" id="cashOnDelivery">
+                        <label class="form-check-label" for="cashOnDelivery">
+                            <!-- <h5>Cash On Delivery</h5> -->
+                            <span><b>Cash On Delivery</b></span>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="payment" id="paypal">
+                        <label class="form-check-label" for="paypal">
+                            <!-- <h5>PayPal</h5> -->
+                            <span><b>PayPal</b></span>
+                        </label>
+                        <div class="payment-methods" style="display: inline-block;">
+                            <img src="./images/PayPal.png" alt="PayPal" style="width: 30px;">
+                            <img src="images/GooglePay.png" alt="Google Pay">
+                            <img src="images/Mastercard2.png" alt="Mastercard">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!-------------------------------------------- start footer ----------------------------------------->
+
+    <div class="footer">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="d-flex align-items-center">
+                        <i class="fa fa-phone footerImg"></i>
+                        <div>
+                            <h6>Call Us 24/7</h6>
+                            <h5>+20-1064-55114</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="d-flex align-items-center">
+                        <i class="far fa-envelope footerImg"></i>
+                        <div>
+                            <h6>Make a Quote</h6>
+                            <h5>bookery@gmail.com</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="d-flex align-items-center">
+                        <i class="far fa-clock footerImg"></i>
+                        <div>
+                            <h6>Opening Hour</h6>
+                            <h5>Sunday - Fri: 9 AM - 6 PM</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <p class="copyright">Copyright 2022 - PiTech Solutions</p>
+    </div>
+    
+
+<!-------------------------------------------- end footer ------------------------------------------->
+
+
+</body>
+
+</html>
