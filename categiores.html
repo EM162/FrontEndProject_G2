@@ -494,8 +494,46 @@ input[type="range"] {
         margin-bottom: 20px;
       }
     }
-/*---------------------------------------*/
-    @media (max-width: 1200px) {
+/*----------------------------- footer --------------------------*/
+
+.footer {
+    background-color: #012e4a;
+    color: white;
+    font-size: 14px;
+    padding: 60px 0 20px;
+}
+
+.footer p {
+    color: #8a8a8a;
+    text-align: center;
+}
+
+.footerImg {
+    font-size: 25px;
+    color: white;
+    border: white dashed 2px;
+    padding: 15px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.footer .d-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.footer .row {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+/*----------------------------- edit media -----------------------*/
+
+@media (max-width: 1200px) {
     .breadcrumb-wrapper .book1,
     .breadcrumb-wrapper .book2
     {
@@ -744,6 +782,47 @@ input[type="range"] {
      </div>
     </div>
 </div>
+
+<!-------------------------------------------- start footer ----------------------------------------->
+
+<div class="footer">
+  <div class="container text-center">
+      <div class="row">
+          <div class="col-12 col-md-4">
+              <div class="d-flex align-items-center">
+                  <i class="fa fa-phone footerImg"></i>
+                  <div>
+                      <h6>Call Us 24/7</h6>
+                      <h5>+20-1064-55114</h5>
+                  </div>
+              </div>
+          </div>
+          <div class="col-12 col-md-4">
+              <div class="d-flex align-items-center">
+                  <i class="far fa-envelope footerImg"></i>
+                  <div>
+                      <h6>Make a Quote</h6>
+                      <h5>bookery@gmail.com</h5>
+                  </div>
+              </div>
+          </div>
+          <div class="col-12 col-md-4">
+              <div class="d-flex align-items-center">
+                  <i class="far fa-clock footerImg"></i>
+                  <div>
+                      <h6>Opening Hour</h6>
+                      <h5>Sunday - Fri: 9 AM - 6 PM</h5>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <hr>
+  <p class="copyright">Copyright 2022 - PiTech Solutions</p>
+</div>
+
+
+<!-------------------------------------------- end footer ------------------------------------------->
 
 </body>
 </html>
