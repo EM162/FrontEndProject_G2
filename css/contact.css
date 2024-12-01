@@ -1,0 +1,329 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+/* ------------------------- start navbar -----------------------*/
+
+nav {
+    background-color: #036280;
+    position: relative;
+    z-index: -1;
+    height: 60px;
+}
+
+.logo {
+    background-color: #012e4a;
+    border-right:solid white 20px;
+    border-radius: 0 80px 0 0;
+    height: 150px;
+    width: 16%;
+    z-index: 1;
+    text-align: center;
+    display: inline-block;
+    margin-top: 70px;
+    color: white;
+}
+
+.logo img {
+    width: 75%;
+    margin: auto;
+}
+
+.bottom-nav {
+    background-color: #fff;
+    /* border: 1px solid #ddd; */
+    padding: 7px 20px;
+    display: flex;;
+    width: 100%;
+    margin-left: 200px;
+    position: relative;
+}
+
+.bottom-nav .nav-link {
+    font-weight: bold;
+    color: #012e4a;
+    font-size: 20px;
+    padding-left: 80px;
+}
+
+.bottom-nav .nav-link:hover {
+    color: #036280;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 5px 15px;
+    width: 70%;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    height: 40px;
+}
+
+.navbar-icons a {
+    color: #012e4a;
+    margin: 0 10px;
+}
+
+.navbar-icons a:hover {
+    color: #f8bc3a;
+}
+
+
+@media (max-width: 1400px) {
+    .logo {
+        height: auto;
+        border-right: none;
+        border-radius: 0;
+    }
+
+    .logo img {
+        display: none;
+        width: 100%;
+        margin-bottom: 70px;
+    }
+
+    .container1 {
+        display: none;
+    }
+
+    .bottom-nav {
+        background-color: #fff;
+        /* border: 1px solid #ddd; */
+        padding: 7px 20px;
+        display: flex;;
+        width: 100%;
+        margin-left: 0px;
+        position: relative;
+    }
+
+    .bottom-nav .search-bar {
+        margin-bottom: 10px;
+    }
+
+    .navbar-icons {
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .bottom-nav .nav-link {
+        font-size: 16px;
+        padding: 5px;
+    }
+
+    .navbar-icons {
+        font-size: 14px;
+    }
+
+    .search-bar {
+        width: 90%;
+    }
+}
+
+/*------------------------------end navbar----------------------*/
+
+
+
+/*------------------------------start section1------------------*/
+
+
+.breadcrumb-wrapper {
+    background-color: #e6eff2;
+    position: relative;
+    height: 400px;
+    padding-top: 30px;
+    /* width: 100%; */
+}
+
+.breadcrumb-wrapper .book1 {
+    position: absolute;
+    top: 20%;
+    max-width: 250px;
+}
+
+.breadcrumb-wrapper .book2 {
+    position: absolute;
+    top: 10%;
+    right: 0;
+    max-width: 400px;
+}
+
+.container3 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.page-heading {
+    z-index: 1;
+}
+
+.page-heading h1 {
+    font-size: 2.5rem;
+    color: #012e4a;
+    font-weight: 700;
+    margin-top: 80px;
+}
+
+.page-header .breadcrumb-items {
+    list-style: none;
+    display: inline-flex;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+    color: #036280;
+}
+
+.page-header .breadcrumb-items li a {
+    text-decoration: none;
+    color: #036280;
+    font-weight: 600;
+}
+
+
+/*------------------------------ end section 1 ------------------*/ 
+
+
+/*------------------------------ start form ---------------------*/
+.contact{
+    border: #036280 solid 0px;
+    padding: 70px;
+    box-shadow: 10px 10px 50px #d5e6ec ;
+    border-radius: 15px;
+}
+
+.contact-card {
+    background-color: #006d8b;
+    color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    margin-right: 0px;
+    width: 100%;
+  }
+
+  .contact-card i {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #fff;
+  }
+
+  .contact-card .info {
+    margin-bottom: 20px;
+  }
+
+  .contact-card .info .next{
+    display: inline-block;
+    font-size: large;
+  }
+
+  .contact-card hr {
+    border-top: 1px solid #fff;
+  }
+
+  .placeholder-box {
+    background-color: #ccc;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #000;
+  }
+
+  .form-label .form-control {
+    margin-bottom: 15px;
+  }
+
+  .btn-primary {
+    background-color: #006d8b;
+    border-color: #006d8b;
+    border-radius: 50px 50px;
+    padding: 15px;
+    width: 200px;
+  }
+
+  .btn-primary:hover {
+    background-color: #006d8b;
+    box-shadow: inset 12em 0 0 0 #f1b228; 
+    transition: box-shadow 500ms ease-in-out;
+  }
+
+
+/*------------------------------ end form -----------------------*/
+
+
+
+/*----------------------------- start footer --------------------*/
+
+.footer {
+    background-color: #012e4a;
+    color: white;
+    font-size: 14px;
+    padding: 60px 0 20px;
+}
+
+.footer p {
+    color: #8a8a8a;
+    text-align: center;
+}
+
+.footerImg {
+    font-size: 25px;
+    color: white;
+    border: white dashed 2px;
+    padding: 15px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.footer .d-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.footer .row {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+/*----------------------------- edit media -----------------------*/
+
+@media (max-width: 1200px) {
+    .breadcrumb-wrapper .book1,
+    .breadcrumb-wrapper .book2
+    {
+        display: none;
+    }
+}
+
+@media (max-width: 992px) {
+    .footer .d-flex {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+    }
+    .footerImg {
+        margin-bottom: 30px;
+    }
+}
