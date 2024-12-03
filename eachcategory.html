@@ -4,6 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop Details</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="src/css/variables.css">
+    <link rel="stylesheet" href="src/css/global.css">
+    <link rel="stylesheet" href="src/css/home.css">
+    <link rel="stylesheet" href="src/css/navbar.css">
+
+    
+    <!-- Add Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -434,65 +452,72 @@ input[type="number"]
 }
       </style>
 </head>
-<body>
-    <!-------------------------------------------- start navbar ----------------------------------------->
-  <!-- <nav class="navbar navbar-expand-lg">
-    
-    <div class="logo d-flex align-items-center">
-        <img src="./images/logoImg.png" alt="Logo">
-    </div>
-    <div class="container1">
-        
-        <ul class="navbar-nav ms-5 d-none d-lg-flex">
-            <li class="nav-item text-white">
-                <i class="fa fa-phone"></i> +208-6666-0112
-            </li>
-            <li class="nav-item text-white ms-4">
-                <i class="far fa-envelope"></i> bookery@gmail.com
-            </li>
-            <li class="nav-item text-white ms-4">
-                <i class="far fa-clock"></i> Sunday - Fri: 9 AM - 6 PM
-            </li>
-            <li class="nav-item text-white" style="margin-left: 500px;"> 
-                <i class="far fa-user"></i> Login
-            </li>
-            <li class="nav-item text-white ms-4"> 
-                <i class="far fa-user"></i> Sign In
-            </li>
-        </ul>
-    </div>
-</nav> -->
+<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="100">
 
-
-<!-- <div class="container mt-1">
-    <div class="bottom-nav d-flex justify-content-between align-items-center">
-        
-        <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="categories.html">categories</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Contact.html">Contact Us</a>
-            </li>
-        </ul>
-
-        
-        <div class="d-flex align-items-center" style="width: 50%;">
-            <div class="search-bar">
-                <input type="text" class="form-control" placeholder="Book Name">
-                <i class="fa fa-search"></i>
-            </div>
-            <div class="navbar-icons ms-5">
-                <a href="#"><i class="fa fa-heart"></i></a>
-                <a href="#"><i class="fa fa-shopping-cart"></i></a>
-            </div>
-        </div>
-    </div>
-</div> -->
-<!-- ------------------------------------------------------------------ -->
+    <!-- Top Bar -->
+    <div class="top-bar py-2 text-white">
+      <div class="container">
+          <div class="row align-items-center">
+              <div class="col-md-4">
+                  <a href="tel:+208-6666-0112">
+                      <i class="fas fa-phone me-2"></i>
+                      +208-6666-0112
+                  </a>
+              </div>
+              <div class="col-md-4 text-center">
+                  <a href="mailto:info@example.com">
+                      <i class="fas fa-envelope me-2"></i>
+                      info@example.com
+                  </a>
+              </div>
+              <div class="col-md-4 text-end">
+                  <span>
+                      <i class="far fa-clock me-2"></i>
+                      Sunday - Fri: 9 AM - 6 PM
+                  </span>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg sticky-top py-3 shadow-sm">
+      <div class="container">
+          <a class="navbar-brand fw-bold fs-4" href="index.html">
+              <i class="fas fa-book-reader me-2"></i>BookHaven
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+              <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto align-items-center">
+                  <li class="nav-item">
+                      <a class="nav-link active position-relative" href="#home">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link position-relative" href="#featured">Featured</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link position-relative" href="#categories">Categories</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link position-relative" href="sign-in.html">Sign In</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link btn btn-primary-custom" href="sign-up.html">Sign Up</a>
+                  </li>
+                  <li class="nav-item ms-2">
+                      <a class="nav-link position-relative" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
+                          <i class="fas fa-shopping-cart"></i>
+                          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count">
+                              0
+                          </span>
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+  <!-- -----------------------end nav------------------ -->
 <div class="breadcrumb-wrapper" style="background-color: #e6eff2;">
     <div class="book1">
         <img src="/images2/book1.png" alt="book">
@@ -594,42 +619,94 @@ input[type="number"]
     </div>
     <!-------------------------------------------- start footer ----------------------------------------->
 
-<div class="footer">
-    <div class="container text-center">
-        <div class="row">
-            <div class="col-12 col-md-4">
-                <div class="d-flex align-items-center">
-                    <i class="fa fa-phone footerImg"></i>
-                    <div>
-                        <h6>Call Us 24/7</h6>
-                        <h5>+20-1064-55114</h5>
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-info">
+                        <div class="footer-brand">
+                            <i class="fas fa-book-reader me-2"></i>
+                            <span>BookHaven</span>
+                        </div>
+                        <p class="footer-description">Your ultimate destination for discovering amazing books. We're passionate about connecting readers with their next favorite story.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-md-4">
-                <div class="d-flex align-items-center">
-                    <i class="far fa-envelope footerImg"></i>
-                    <div>
-                        <h6>Make a Quote</h6>
-                        <h5>bookery@gmail.com</h5>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h4 class="footer-title">Quick Links</h4>
+                        <ul class="footer-menu">
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#featured">Featured Books</a></li>
+                            <li><a href="#categories">Categories</a></li>
+                            <li><a href="sign-in.html">Sign In</a></li>
+                            <li><a href="sign-up.html">Sign Up</a></li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-md-4">
-                <div class="d-flex align-items-center">
-                    <i class="far fa-clock footerImg"></i>
-                    <div>
-                        <h6>Opening Hour</h6>
-                        <h5>Sunday - Fri: 9 AM - 6 PM</h5>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-links">
+                        <h4 class="footer-title">Categories</h4>
+                        <ul class="footer-menu">
+                            <li><a href="#">Fiction</a></li>
+                            <li><a href="#">Non-Fiction</a></li>
+                            <li><a href="#">Children's Books</a></li>
+                            <li><a href="#">Academic</a></li>
+                            <li><a href="#">Self-Help</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-links">
+                        <h4 class="footer-title">Contact Us</h4>
+                        <ul class="footer-contact">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>123 Book Street, Reading City, RC 12345</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:info@bookhaven.com">info@bookhaven.com</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <a href="tel:+1234567890">+1 (234) 567-890</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="footer-bottom">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="copyright">&copy; 2024 BookHaven. All rights reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <ul class="footer-legal">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-    <hr>
-    <p class="copyright">Copyright 2022 - PiTech Solutions</p>
-  </div>
-  
+</footer>  
 
 <!-------------------------------------------- end footer ------------------------------------------->  
 </body>

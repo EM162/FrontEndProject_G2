@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/AdminPanel.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+     <!-- Chart.js Library -->
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <!-- JavaScript Code -->
+     <!-- <script>
+         document.addEventListener("DOMContentLoaded", function() {
+             const ctx = document.getElementById('salesChart').getContext('2d');
+             const salesChart = new Chart(ctx, {
+                 type: 'pie', // Change to 'line', 'pie', etc., if needed
+                 data: {
+                     labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                     datasets: [{
+                         label: 'Monthly Sales ($)',
+                         data: [500, 700, 800, 600, 900, 1200],
+                         backgroundColor: [
+                             'rgba(255, 99, 132, 0.2)',
+                             'rgba(54, 162, 235, 0.2)',
+                             'rgba(255, 206, 86, 0.2)',
+                             'rgba(75, 192, 192, 0.2)',
+                             'rgba(153, 102, 255, 0.2)',
+                             'rgba(255, 159, 64, 0.2)'
+                         ],
+                         borderColor: [
+                             'rgba(255, 99, 132, 1)',
+                             'rgba(54, 162, 235, 1)',
+                             'rgba(255, 206, 86, 1)',
+                             'rgba(75, 192, 192, 1)',
+                             'rgba(153, 102, 255, 1)',
+                             'rgba(255, 159, 64, 1)'
+                         ],
+                         borderWidth: 1
+                     }]
+                 },
+                 options: {
+                     scales: {
+                         y: {
+                             beginAtZero: true
+                         }
+                     }
+                 }
+             });
+         });
+     </script> -->
+
+
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2 class="text-center py-3">Admin Panel</h2>
+        <a href="sellerDashboard.html">Seller Dashboard</a>
+        <a href="#users">Manage Users</a>
+        <a href="#products">Manage Products</a>
+        <a href="#orders">Manage Orders</a>
+        <a href="#support">Customer Service</a>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content">
+        <h1 class="mb-4">Admin Dashboard</h1>
+
+        <!-- cards -->
+        <section id="analytics" class="mb-5">
+            <h2>Sales Analytics</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-3">
+                    <div class="card text-center text-white shadow-card-1">
+                        <div class="card-body">
+                            <h3>Total Sales</h3>
+                            <p>$5,000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-3">
+                    <div class="card text-center text-white shadow-card-2">
+                        <div class="card-body">
+                            <h3>Users</h3>
+                            <p>1,200</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-3">
+                    <div class="card text-center text-white shadow-card-3">
+                        <div class="card-body">
+                            <h3>Pending Orders</h3>
+                            <p>35</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-3">
+                    <div class="card text-center text-white shadow-card-4">
+                        <div class="card-body">
+                            <h3>Support Tickets</h3>
+                            <p>10</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Add a chart canvas -->
+            <!-- <div class="mt-5">
+                <canvas id="salesChart" width="170px" height="70px"></canvas>
+            </div> -->
+        </section>
+
+        <!-- Users Section -->
+        <section id="users" class="mb-5">
+            <h2>Manage Users</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>John Doe</td>
+                            <td>30</td>
+                            <td>john@example.com</td>
+                            <td>1234</td>
+                            <td>
+                                <img src="./images/trash.png">
+                                <img src="./images/reset-password.png">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>John Doe</td>
+                            <td>30</td>
+                            <td>john@example.com</td>
+                            <td>1234</td>
+                            <td>
+                                <img src="./images/trash.png">
+                                <img src="./images/reset-password.png">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>John Doe</td>
+                            <td>30</td>
+                            <td>john@example.com</td>
+                            <td>1234</td>
+                            <td>
+                                <img src="./images/trash.png">
+                                <img src="./images/reset-password.png">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>John Doe</td>
+                            <td>30</td>
+                            <td>john@example.com</td>
+                            <td>1234</td>
+                            <td>
+                                <img src="./images/trash.png">
+                                <img src="./images/reset-password.png">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>John Doe</td>
+                            <td>30</td>
+                            <td>john@example.com</td>
+                            <td>1234</td>
+                            <td>
+                                <img src="./images/trash.png">
+                                <img src="./images/reset-password.png">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>John Doe</td>
+                            <td>30</td>
+                            <td>john@example.com</td>
+                            <td>1234</td>
+                            <td>
+                                <img src="./images/trash.png">
+                                <img src="./images/reset-password.png">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>John Doe</td>
+                            <td>30</td>
+                            <td>john@example.com</td>
+                            <td>1234</td>
+                            <td>
+                                <img src="./images/trash.png">
+                                <img src="./images/reset-password.png">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>John Doe</td>
+                            <td>30</td>
+                            <td>john@example.com</td>
+                            <td>1234</td>
+                            <td>
+                                <img src="./images/trash.png">
+                                <img src="./images/reset-password.png">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button class="btn btn-primary mb-3 addNew">Add New User</button>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="mb-5">
+            <h2>Manage Products</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Book Title 1</td>
+                            <td>Author Name</td>
+                            <td>$20</td>
+                            <td>15</td>
+                            <td>
+                                <img src="./images/edit.png">
+                                <img src="./images/trash.png">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Book Title 2</td>
+                            <td>Author Name</td>
+                            <td>$25</td>
+                            <td>10</td>
+                            <td>
+                                <img src="./images/edit.png">
+                                <img src="./images/trash.png">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Book Title 1</td>
+                            <td>Author Name</td>
+                            <td>$20</td>
+                            <td>15</td>
+                            <td>
+                                <img src="./images/edit.png">
+                                <img src="./images/trash.png">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Book Title 2</td>
+                            <td>Author Name</td>
+                            <td>$25</td>
+                            <td>10</td>
+                            <td>
+                                <img src="./images/edit.png">
+                                <img src="./images/trash.png">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Book Title 1</td>
+                            <td>Author Name</td>
+                            <td>$20</td>
+                            <td>15</td>
+                            <td>
+                                <img src="./images/edit.png">
+                                <img src="./images/trash.png">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Book Title 2</td>
+                            <td>Author Name</td>
+                            <td>$25</td>
+                            <td>10</td>
+                            <td>
+                                <img src="./images/edit.png">
+                                <img src="./images/trash.png">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Book Title 1</td>
+                            <td>Author Name</td>
+                            <td>$20</td>
+                            <td>15</td>
+                            <td>
+                                <img src="./images/edit.png">
+                                <img src="./images/trash.png">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Book Title 2</td>
+                            <td>Author Name</td>
+                            <td>$25</td>
+                            <td>10</td>
+                            <td>
+                                <img src="./images/edit.png">
+                                <img src="./images/trash.png">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button class="btn btn-primary mb-3 addNew">Add New Product</button>
+        </section>
+
+        <!-- Orders Section -->
+        <section id="orders" class="mb-5">
+            <h2>Manage Orders</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th>#</th>
+                            <th>Customer</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Jane Smith</td>
+                            <td>2024-12-03</td>
+                            <td>Pending</td>
+                            <td>
+                                <button class="btn btn-success btn-sm">Mark as Shipped</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Jane Smith</td>
+                            <td>2024-12-01</td>
+                            <td>Shipped</td>
+                            <td>
+                                <button class="btn btn-secondary btn-sm" disabled>Shipped</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>John Doe</td>
+                            <td>2024-12-01</td>
+                            <td>Pending</td>
+                            <td>
+                                <button class="btn btn-success btn-sm">Mark as Shipped</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Jane Smith</td>
+                            <td>2024-12-01</td>
+                            <td>Shipped</td>
+                            <td>
+                                <button class="btn btn-secondary btn-sm" disabled>Shipped</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>John Doe</td>
+                            <td>2024-12-01</td>
+                            <td>Pending</td>
+                            <td>
+                                <button class="btn btn-success btn-sm">Mark as Shipped</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Jane Smith</td>
+                            <td>2024-12-01</td>
+                            <td>Shipped</td>
+                            <td>
+                                <button class="btn btn-secondary btn-sm" disabled>Shipped</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>John Doe</td>
+                            <td>2024-12-01</td>
+                            <td>Pending</td>
+                            <td>
+                                <button class="btn btn-success btn-sm">Mark as Shipped</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Jane Smith</td>
+                            <td>2024-12-01</td>
+                            <td>Shipped</td>
+                            <td>
+                                <button class="btn btn-secondary btn-sm" disabled>Shipped</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button class="btn btn-primary mb-3 addNew">Add New Order</button>
+        </section>
+
+
+         <!-- Customer Service Section -->
+         <section id="support" class="mb-5">
+            <h2>Customer Service</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th>#</th>
+                            <th>Customer</th>
+                            <th>Query</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>John Doe</td>
+                            <td>Order not received</td>
+                            <td>Open</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm buttonRespond">Respond</button>
+                                <button class="btn btn-secondary btn-sm">Mark as Resolved</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>John Doe</td>
+                            <td>Order not received</td>
+                            <td>Open</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm buttonRespond">Respond</button>
+                                <button class="btn btn-secondary btn-sm">Mark as Resolved</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>John Doe</td>
+                            <td>Order not received</td>
+                            <td>Open</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm buttonRespond">Respond</button>
+                                <button class="btn btn-secondary btn-sm">Mark as Resolved</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>John Doe</td>
+                            <td>Order not received</td>
+                            <td>Open</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm buttonRespond">Respond</button>
+                                <button class="btn btn-secondary btn-sm">Mark as Resolved</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>John Doe</td>
+                            <td>Order not received</td>
+                            <td>Open</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm buttonRespond">Respond</button>
+                                <button class="btn btn-secondary btn-sm">Mark as Resolved</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>John Doe</td>
+                            <td>Order not received</td>
+                            <td>Open</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm buttonRespond">Respond</button>
+                                <button class="btn btn-secondary btn-sm">Mark as Resolved</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>John Doe</td>
+                            <td>Order not received</td>
+                            <td>Open</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm buttonRespond">Respond</button>
+                                <button class="btn btn-secondary btn-sm">Mark as Resolved</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>John Doe</td>
+                            <td>Order not received</td>
+                            <td>Open</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm buttonRespond">Respond</button>
+                                <button class="btn btn-secondary btn-sm">Mark as Resolved</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+            
+
+    </div>
+
+</body>
+</html>

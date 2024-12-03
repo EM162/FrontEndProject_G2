@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookHaven - Your Creative Book Store</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="src/css/variables.css">
+    <link rel="stylesheet" href="src/css/global.css">
+    <link rel="stylesheet" href="src/css/home.css">
+    <link rel="stylesheet" href="src/css/navbar.css">
+
+    
+    <!-- Add Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="100">
+    <!-- Top Bar -->
+    <div class="top-bar py-2 text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <a href="tel:+208-6666-0112">
+                        <i class="fas fa-phone me-2"></i>
+                        +208-6666-0112
+                    </a>
+                </div>
+                <div class="col-md-4 text-center">
+                    <a href="mailto:info@example.com">
+                        <i class="fas fa-envelope me-2"></i>
+                        info@example.com
+                    </a>
+                </div>
+                <div class="col-md-4 text-end">
+                    <span>
+                        <i class="far fa-clock me-2"></i>
+                        Sunday - Fri: 9 AM - 6 PM
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top py-3 shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4" href="index.html">
+                <i class="fas fa-book-reader me-2"></i>BookHaven
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link active position-relative" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" href="#featured">Featured</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" href="#categories">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" href="sign-in.html">Sign In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary-custom" href="sign-up.html">Sign Up</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="nav-link position-relative" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count">
+                                0
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="display-4 fw-bold mb-3">Discover Your Next <span class="text-accent">Favorite Book</span></h1>
+                        <p class="lead mb-4">Explore our curated collection of books that inspire, educate, and entertain. Find your perfect read today.</p>
+                        <div class="d-flex gap-3">
+                            <a href="#featured" class="btn btn-primary-custom btn-lg me-3">Explore Books</a>
+                            <a href="sign-up.html" class="btn btn-outline-custom btn-lg">Join Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixlib=rb-4.0.3" alt="Books Collection" class="img-fluid rounded-3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Books Section -->
+    <section class="featured-books" id="featured">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2>Featured Books</h2>
+                <p class="text-muted">Handpicked selections just for you</p>
+            </div>
+            <div class="swiper featured-swiper">
+                <div class="swiper-wrapper" id="featured-books-container">
+                    <!-- Books will be dynamically added here -->
+                </div>
+                <!-- Add Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2>Browse Categories</h2>
+                <p class="text-muted">Find books in your favorite genre</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <i class="fas fa-magic category-icon"></i>
+                        <h3>Fiction</h3>
+                        <p>Explore magical worlds and compelling stories</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <i class="fas fa-brain category-icon"></i>
+                        <h3>Non-Fiction</h3>
+                        <p>Expand your knowledge and perspectives</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <i class="fas fa-graduation-cap category-icon"></i>
+                        <h3>Academic</h3>
+                        <p>Essential resources for learning</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-card">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="newsletter-text">
+                                <h2 class="section-title">Stay Connected with BookHaven</h2>
+                                <p class="newsletter-description">Join our community of book lovers! Get weekly curated reading lists, exclusive offers, and literary insights delivered to your inbox.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <form class="newsletter-form">
+                                <div class="form-group">
+                                    <div class="input-group d-flex flex-lg-nowrap">
+                                        <input type="email" class="form-control bg-light" placeholder="Your email address">
+                                        <button class="btn btn-primary-custom" type="submit">
+                                            Subscribe <i class="fas fa-paper-plane ms-2"></i>
+                                        </button>
+                                    </div>
+                                    <small class="form-text">No spam, unsubscribe at any time.</small>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="cartModalLabel">
+                        <i class="fas fa-shopping-bag me-2"></i>Your Shopping Cart
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body px-4 py-3">
+                    <div id="cartItems" class="cart-items"></div>
+                    <div id="emptyCart" class="empty-cart">
+                        <div class="empty-cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h4>Your cart is empty</h4>
+                        <p>Start adding some books to your cart!</p>
+                        <button class="btn btn-outline-primary mt-3" data-bs-dismiss="modal">
+                            Continue Shopping
+                        </button>
+                    </div>
+                    <div class="cart-footer">
+                        <div class="cart-summary">
+                            <div class="cart-total">
+                                <span>Total Amount:</span>
+                                <span class="total-amount">$0.00</span>
+                            </div>
+                            <div class="cart-info">
+                                <i class="fas fa-truck me-2"></i>
+                                <span>Free shipping on orders over $50</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary-custom checkout-btn" disabled>
+                            <i class="fas fa-lock me-2"></i>Proceed to Checkout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-info">
+                            <div class="footer-brand">
+                                <i class="fas fa-book-reader me-2"></i>
+                                <span>BookHaven</span>
+                            </div>
+                            <p class="footer-description">Your ultimate destination for discovering amazing books. We're passionate about connecting readers with their next favorite story.</p>
+                            <div class="social-links">
+                                <a href="#" class="social-icon" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-icon" aria-label="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-icon" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-icon" aria-label="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6">
+                        <div class="footer-links">
+                            <h4 class="footer-title">Quick Links</h4>
+                            <ul class="footer-menu">
+                                <li><a href="#home">Home</a></li>
+                                <li><a href="#featured">Featured Books</a></li>
+                                <li><a href="#categories">Categories</a></li>
+                                <li><a href="sign-in.html">Sign In</a></li>
+                                <li><a href="sign-up.html">Sign Up</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-links">
+                            <h4 class="footer-title">Categories</h4>
+                            <ul class="footer-menu">
+                                <li><a href="#">Fiction</a></li>
+                                <li><a href="#">Non-Fiction</a></li>
+                                <li><a href="#">Children's Books</a></li>
+                                <li><a href="#">Academic</a></li>
+                                <li><a href="#">Self-Help</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-links">
+                            <h4 class="footer-title">Contact Us</h4>
+                            <ul class="footer-contact">
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>123 Book Street, Reading City, RC 12345</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-envelope"></i>
+                                    <a href="mailto:info@bookhaven.com">info@bookhaven.com</a>
+                                </li>
+                                <li>
+                                    <i class="fas fa-phone"></i>
+                                    <a href="tel:+1234567890">+1 (234) 567-890</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="copyright">&copy; 2024 BookHaven. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="footer-legal">
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Add Swiper JS before your scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Cart Management
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            function updateCartCount() {
+                const count = cart.reduce((total, item) => total + item.quantity, 0);
+                $('.cart-count').text(count);
+                
+                // Update checkout button state
+                const total = calculateTotal();
+                $('.checkout-btn').prop('disabled', count === 0);
+                
+                // Show/hide empty cart message
+                if (count === 0) {
+                    $('#emptyCart').show();
+                    $('#cartItems').hide();
+                    $('.cart-footer').hide();
+                } else {
+                    $('#emptyCart').hide();
+                    $('#cartItems').show();
+                    $('.cart-footer').show();
+                }
+            }
+            
+            function calculateTotal() {
+                const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                $('.total-amount').text(`$${total.toFixed(2)}`);
+                return total;
+            }
+            
+            function updateCartDisplay() {
+                const cartItems = $('#cartItems');
+                cartItems.empty();
+                
+                cart.forEach(item => {
+                    cartItems.append(`
+                        <div class="cart-item" data-id="${item.id}">
+                            <div class="cart-item-image">
+                                <img src="${item.imageUrl}" alt="${item.name}">
+                            </div>
+                            <div class="cart-item-details">
+                                <h6 class="cart-item-title">${item.name}</h6>
+                                <p class="cart-item-price">$${item.price}</p>
+                                <div class="cart-item-quantity">
+                                    <button class="btn btn-sm btn-outline-secondary decrease-quantity">-</button>
+                                    <span class="quantity-value">${item.quantity}</span>
+                                    <button class="btn btn-sm btn-outline-secondary increase-quantity">+</button>
+                                    <button class="btn btn-sm btn-outline-danger ms-2 remove-item">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `);
+                });
+                
+                updateCartCount();
+                calculateTotal();
+                
+                // Save to localStorage
+                localStorage.setItem('cart', JSON.stringify(cart));
+            }
+            
+            // Add to Cart Button Click Handler
+            $(document).on('click', '.add-to-cart', function() {
+                const bookCard = $(this).closest('.book-card');
+                const bookId = parseInt(bookCard.data('id'));
+                const book = books.find(b => b.id === bookId);
+                
+                if (book) {
+                    const existingItem = cart.find(item => item.id === bookId);
+                    
+                    if (existingItem) {
+                        existingItem.quantity += 1;
+                    } else {
+                        cart.push({
+                            ...book,
+                            quantity: 1
+                        });
+                    }
+                    //#.com
+                    // Show success toast
+                    const toast = $(`
+                        <div class="toast position-fixed bottom-0 end-0 m-3" role="alert">
+                            <div class="toast-header">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <strong class="me-auto">Success</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+                            </div>
+                            <div class="toast-body">
+                                ${book.name} has been added to your cart!
+                            </div>
+                        </div>
+                    `).appendTo('body');
+                    
+                    const bsToast = new bootstrap.Toast(toast[0]);
+                    bsToast.show();
+                    
+                    // Remove toast after it's hidden
+                    toast.on('hidden.bs.toast', function() {
+                        $(this).remove();
+                    });
+                    
+                    updateCartDisplay();
+                }
+            });
+            
+            // Quantity Controls
+            $(document).on('click', '.increase-quantity', function() {
+                const cartItem = $(this).closest('.cart-item');
+                const id = parseInt(cartItem.data('id'));
+                const item = cart.find(item => item.id === id);
+                if (item) {
+                    item.quantity += 1;
+                    updateCartDisplay();
+                }
+            });
+            
+            $(document).on('click', '.decrease-quantity', function() {
+                const cartItem = $(this).closest('.cart-item');
+                const id = parseInt(cartItem.data('id'));
+                const item = cart.find(item => item.id === id);
+                if (item && item.quantity > 1) {
+                    item.quantity -= 1;
+                    updateCartDisplay();
+                }
+            });
+            
+            // Remove Item
+            $(document).on('click', '.remove-item', function() {
+                const cartItem = $(this).closest('.cart-item');
+                const id = parseInt(cartItem.data('id'));
+                cart = cart.filter(item => item.id !== id);
+                updateCartDisplay();
+            });
+            
+            // Initialize cart display
+            updateCartDisplay();
+            
+            const books = [
+                {
+                    id: 1,
+                    name: "The Art of Design",
+                    description: "Master the principles of modern design thinking",
+                    price: 29.99,
+                    category: "Design",
+                    imageUrl: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3"
+                },
+                {
+                    id: 2,
+                    name: "Creative Coding",
+                    description: "Learn to code through creative projects",
+                    price: 34.99,
+                    category: "Programming",
+                    imageUrl: "https://images.unsplash.com/photo-1550592704-6c76defa9985?ixlib=rb-4.0.3"
+                },
+                {
+                    id: 3,
+                    name: "Digital Marketing",
+                    description: "Modern strategies for digital marketing success",
+                    price: 24.99,
+                    category: "Marketing",
+                    imageUrl: "https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?ixlib=rb-4.0.3"
+                },
+         
+                {
+                    id: 4,
+                    name: "Business Strategy",
+                    description: "Essential guide to modern business strategy",
+                    price: 39.99,
+                    category: "Business",
+                    imageUrl: "https://images.unsplash.com/photo-1553484771-371a605b060b?ixlib=rb-4.0.3"
+                }
+            ];
+
+            const featuredContainer = $('#featured-books-container');
+            books.forEach(book => {
+                featuredContainer.append(`
+                    <div class="swiper-slide">
+                        <div class="book-card" data-id="${book.id}">
+                            <img src="${book.imageUrl}" alt="${book.name}" class="book-image">
+                            <div class="book-content">
+                                <span class="book-category">${book.category}</span>
+                                <h3 class="book-title">${book.name}</h3>
+                                <p class="book-description">${book.description}</p>
+                                <div class="book-footer">
+                                    <span class="book-price">$${book.price}</span>
+                                    <button class="btn btn-primary-custom add-to-cart">
+                                        <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `);
+            });
+
+            // Initialize Swiper
+            const swiper = new Swiper('.featured-swiper', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                grabCursor: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                    dynamicBullets: true,
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 30,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

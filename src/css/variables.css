@@ -1,0 +1,81 @@
+/*** Main Styles ***/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Primary Colors */
+    --primary-color: #2C3639;
+    --secondary-color: #3F4E4F;
+    --accent-color: #A27B5C;
+    --light-color: #DCD7C9;
+    
+    /* Common Colors */
+    --white: #ffffff;
+    --black: #000000;
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-400: #ced4da;
+    --gray-500: #adb5bd;
+    --gray-600: #6c757d;
+    --gray-700: #495057;
+    --gray-800: #343a40;
+    --gray-900: #212529;
+    
+    /* Semantic Colors */
+    --text-primary: var(--primary-color);
+    --text-secondary: var(--secondary-color);
+    --text-light: var(--light-color);
+    --text-muted: var(--gray-600);
+    
+    /* Button Colors */
+    --btn-primary-bg: var(--accent-color);
+    --btn-primary-hover: #8B6B4E;
+    --btn-secondary-bg: var(--secondary-color);
+    --btn-secondary-hover: #2C3639;
+    
+    /* Form Colors */
+    --input-border: var(--gray-300);
+    --input-focus-border: var(--accent-color);
+    --input-bg: var(--white);
+    --input-focus-bg: var(--white);
+    --placeholder-color: var(--gray-500);
+    
+    /* Background Colors */
+    --bg-primary: var(--white);
+    --bg-secondary: var(--light-color);
+    --bg-accent: var(--accent-color);
+    
+    /* Border Colors */
+    --border-light: var(--gray-200);
+    --border-medium: var(--gray-300);
+    --border-dark: var(--gray-400);
+    
+    /* Shadow Colors */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+    
+    /* Status Colors */
+    --success: #28a745;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --info: #17a2b8;
+    
+    /* Social Colors */
+    --facebook: #1877f2;
+    --google: #ea4335;
+    --apple: #000000;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-full: 9999px;
+}
