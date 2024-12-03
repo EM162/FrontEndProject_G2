@@ -1,0 +1,143 @@
+/*-------------------------- sidebar ------------------*/
+.sidebar {
+    height: 100vh;
+    width: 250px;
+    background-color: #012e4a;
+    color: white;
+    position: fixed;
+}
+
+.sidebar h2{
+    text-shadow: 2px 2px 10px rgb(250, 135, 135);
+    color: white;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+.sidebar a:hover {
+    background-color: lightgray;
+    border: 2px solid #036280;
+    color: #012e4a;
+    font-weight: bold;
+}
+
+/*-------------------------- end sidebar ------------------*/
+
+/*-------------------------- cards ------------------*/
+.card{
+    margin-top: 20px;
+}
+
+.card:hover{
+    transform: skewX(15deg);
+}
+
+.card-body{
+    color: #012e4a;
+}
+
+.shadow-card-1 {
+    box-shadow: 0 4px 8px rgb(3, 74, 116), 0 2px 40px rgba(103, 163, 219, 0.829) inset;
+}
+
+.shadow-card-2 {
+    box-shadow: 0 4px 8px rgb(2, 92, 2), 0 2px 40px rgb(44, 190, 31, 0.829) inset;
+}
+
+.shadow-card-3 {
+    box-shadow: 0 4px 8px rgb(119, 69, 5), 0 2px 40px rgba(201, 140, 71, 0.829) inset;
+}
+
+.shadow-card-4 {
+    box-shadow: 0 4px 8px rgb(119, 5, 5), 0 2px 40px rgba(226, 109, 109, 0.829) inset;
+}
+
+/*-------------------------- end cards ------------------*/
+
+
+.content {
+    margin-left: 260px;
+    padding: 20px;
+}
+
+.content h1{
+    color: #656b8d;
+    text-shadow: 2px 2px rgb(144, 180, 209);
+}
+
+h2{
+    color: #036280;
+}
+
+.table-responsive{
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px lightgray;
+}
+
+thead{
+    background-color: #036280;
+}
+
+td img{
+    width: 25px;
+    margin-left: 20px;
+}
+
+td img:hover{
+    transform:scale(1.5)
+}
+
+tbody tr td:hover {
+    cursor: pointer;
+}
+
+section .addNew{
+    margin-top: 30px;
+    background-color: #036280;
+    border: #036280 solid 2px;
+    color: white;
+    
+}
+
+section .addNew:hover{
+    background-color: white;
+    color: #012e4a;
+    box-shadow: 10px 10px 5px lightgray;
+}
+
+.buttonRespond{
+    background-color: #388faa;
+    border-color: #388faa;
+    margin-right: 20px;
+}
+
+.buttonRespond:hover{
+    background-color: #7fc2d6;
+}
+
+td button{
+    margin-top: 0;
+}
+
+/*-------------------------- edit media ----------------------*/
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .content {
+        margin-left: 0;
+    }
+    td img{
+        margin-bottom: 10px;
+    }
+    .buttonRespond{
+        margin-bottom: 10px;
+    }
+}
