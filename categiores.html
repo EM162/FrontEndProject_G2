@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Categories</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
@@ -55,7 +55,7 @@ nav {
     color: #036280;
 }
 
-.search-bar {
+/* .search-bar {
     display: flex;
     align-items: center;
     border: 1px solid #ddd;
@@ -69,7 +69,7 @@ nav {
     outline: none;
     flex-grow: 1;
     height: 40px;
-}
+} */
 
 .navbar-icons a {
     color: #012e4a;
@@ -264,13 +264,12 @@ nav {
 }
 
 .categories a:hover {
-  background-color: #f1f1f1;
+  background-color: rgb(254, 149, 2);
 }
 
 .categories .active {
-  background-color: orange;
-  color: white;
-  border-color: orange;
+  background-color: rgb(254, 149, 2);
+  border-color: rgb(254, 149, 2);
 }
 
 .dropdown{
@@ -336,13 +335,13 @@ input[type="range"] {
         }
 .container img{
   padding: 30px;
-  height: 300px;
+  height: 400px;
   width: 300px;
   object-fit: cover;
  
 }
 
-/*--------------------------------------------*/
+/*------------------ photos--------------------------*/
 
 .breadcrumb-wrapper {
     background-color: #e6eff2;
@@ -433,7 +432,7 @@ input[type="range"] {
   }
 
   .book:hover img{
-    transform: scale(1.2);
+    transform: scale(1.1);
     transition: transform 0.7s ease-in-out;
   }
 
@@ -449,7 +448,7 @@ input[type="range"] {
 
   .book p{
     font-size: 20px;
-    color: orange;
+    color: rgb(254, 149, 2);
   }
 
   
@@ -468,7 +467,22 @@ input[type="range"] {
   gap: 5px;
 }
 
+.book a{
+  text-decoration: none;
+  color: white;
+  background-color: #006d8b;
+    border-color: #006d8b;
+    border-radius: 50px 50px;
+    padding: 5px;
+    margin-left: 50px;
+    font-size: 15px;
+}
 
+.book a:hover{
+  background-color: #006d8b;
+    box-shadow: inset 12em 0 0 0 rgb(254, 149, 2); 
+    transition: box-shadow 500ms ease-in-out;
+}
 
 .icons i {
   cursor: pointer; 
@@ -476,7 +490,7 @@ input[type="range"] {
 
 
 .icons i:hover {
-  color: orange; 
+  color: rgb(254, 149, 2); 
   transform: scale(1.5);
   transition: transform 0.5s ease-out;
 }
@@ -493,6 +507,10 @@ input[type="range"] {
       .sidebar {
         margin-bottom: 20px;
       }
+    }
+
+    .Page{
+      background-color: transparent;
     }
 /*----------------------------- footer --------------------------*/
 
@@ -616,14 +634,14 @@ input[type="range"] {
 
   <div class="breadcrumb-wrapper" style="background-color: #e6eff2;">
     <div class="book1">
-        <img src="/images/Screenshot_2024-11-28_005155-removebg-preview.png" alt="book">
+        <img src="/images2/book1.png" alt="book">
     </div>
     <div class="book2">
-        <img src="/images/Screenshot_2024-11-28_005233-removebg-preview.png" alt="book">
+        <img src="/images2/book2.png" alt="book">
     </div>
     <div class="container3">
         <div class="page-heading">
-            <h1>Checkout</h1>
+            <h1>Category</h1>
             <div class="page-header">
                 <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
                     <li>
@@ -635,7 +653,7 @@ input[type="range"] {
                         <i class="fa-solid fa-chevron-right"></i>
                     </li>
                     <li>
-                        Checkout
+                        Category
                     </li>
                 </ul>
             </div>
@@ -659,8 +677,12 @@ input[type="range"] {
   <div class="sorting-controls">
     <span class="sorting-label">Default Sorting</span>
     <div class="view-options">
-      <button class="list-view"></button>
-      <button class="grid-view"></button>
+      <div class="icon-2 active">
+        <a href="shop.html"><i class="fa-sharp fa-regular fa-grid-2"></i></a>
+    </div>
+    <div class="icon">
+      <a href="shop-list.html"><i class="fas fa-list"></i></a>
+  </div>
     </div>
   </div>
 </div>
@@ -718,71 +740,108 @@ input[type="range"] {
       <div class="col-12 col-md-9">
         <div class="bookgrid">
           <div class="book">
-            <img src="/images/fa890b52-3cdd-4311-a687-98f7bec3a993-removebg-preview.png" >
+            <img src="/images2/01.png" >
             <div class="icons">
-              <i class="fas fa-heart "></i>                      
-              <i class="fa-brands fa-instagram"></i>        
-              <i class="fa-brands fa-square-twitter"></i>
+              <i class="fas fa-eye "></i> 
           </div>
             <h3>Simple Things You Save BOOK</h3>
-            <p class="$pri">$30.00</p>
+            <p class="$pri">$30.00
+            <a href="shop-details.html">
+                <i class="fa-solid fa-basket-shopping"></i>
+             Add To Cart</a>
+            </p>
+            
           </div>
           <div class="book">
-            <img src="/images/Screenshot_2024-11-28_005155-removebg-preview.png" >
+            <img src="/images2/02.png" >
             <div class="icons">
-              <i class="fas fa-heart "></i>                      
-              <i class="fa-brands fa-instagram"></i>        
-              <i class="fa-brands fa-square-twitter"></i>
+              <i class="fas fa-eye "></i> 
           </div>
             <h3>Simple Things You Save BOOK</h3>
-            <p class="$pri">$30.00</p>
-          </div>
-          <div class="book">
-            <img src="/images/Screenshot_2024-11-28_005233-removebg-preview.png" >
-            <div class="icons">
-              <i class="fas fa-heart "></i>                      
-              <i class="fa-brands fa-instagram"></i>        
-              <i class="fa-brands fa-square-twitter"></i>
-          </div>
-            <h3>Simple Things You Save BOOK</h3>
-            <p class="$pri">$30.00</p>
+            <p class="$pri">$30.00
+            <a href="shop-details.html">
+                <i class="fa-solid fa-basket-shopping"></i>
+             Add To Cart</a>
+            </p>
           </div>
 
-          <div class="book">
-            <img src="/images/Screenshot_2024-11-28_005155-removebg-preview.png" >
+        <div class="book">
+            <img src="/images2/03.png" >
             <div class="icons">
-              <i class="fas fa-heart "></i>                      
-              <i class="fa-brands fa-instagram"></i>        
-              <i class="fa-brands fa-square-twitter"></i>
+              <i class="fas fa-eye "></i> 
           </div>
             <h3>Simple Things You Save BOOK</h3>
-            <p class="$pri">$30.00</p>
-          </div>
-          <div class="book">
-            <img src="/images/Screenshot_2024-11-28_005233-removebg-preview.png" >
-            <div class="icons">
-              <i class="fas fa-heart "></i>                      
-              <i class="fa-brands fa-instagram"></i>        
-              <i class="fa-brands fa-square-twitter"></i>
-          </div>
-            <h3>Simple Things You Save BOOK</h3>
-            <p class="$pri">$30.00</p>
-          </div>
-          <div class="book">
-            <img src="/images/Screenshot_2024-11-28_005155-removebg-preview.png" >
-            <div class="icons">
-              <i class="fas fa-heart "></i>                      
-              <i class="fa-brands fa-instagram"></i>        
-              <i class="fa-brands fa-square-twitter"></i>
-          </div>
-            <h3>Simple Things You Save BOOK</h3>
-            <p class="$pri">$30.00</p>
-          </div>
+            <p class="$pri">$30.00
+            <a href="shop-details.html">
+                <i class="fa-solid fa-basket-shopping"></i>
+             Add To Cart</a>
+            </p>
+        </div>
+
+        <div class="book">
+          <img src="/images2/04.png" >
+          <div class="icons">
+            <i class="fas fa-eye "></i> 
+        </div>
+          <h3>Simple Things You Save BOOK</h3>
+          <p class="$pri">$30.00
+          <a href="shop-details.html">
+              <i class="fa-solid fa-basket-shopping"></i>
+           Add To Cart</a>
+          </p>
+          
+        </div>
+
+
+        <div class="book">
+          <img src="/images2/05.png" >
+          <div class="icons">
+            <i class="fas fa-eye "></i> 
+        </div>
+          <h3>Simple Things You Save BOOK</h3>
+          <p class="$pri">$30.00
+          <a href="shop-details.html">
+              <i class="fa-solid fa-basket-shopping"></i>
+           Add To Cart</a>
+          </p>
+          
+        </div>
+
+
+        <div class="book">
+          <img src="/images2/06.png" >
+          <div class="icons">
+            <i class="fas fa-eye "></i> 
+        </div>
+          <h3>Simple Things You Save BOOK</h3>
+          <p class="$pri">$30.00
+          <a href="shop-details.html">
+              <i class="fa-solid fa-basket-shopping"></i>
+           Add To Cart</a>
+          </p>
+          
+        </div>
       </div>
      </div>
     </div>
 </div>
+<br>
+<br>
+<br>
 
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item disabled">
+      <a class="page-link">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
 <!-------------------------------------------- start footer ----------------------------------------->
 
 <div class="footer">
