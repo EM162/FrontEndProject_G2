@@ -1,3 +1,71 @@
+
+/*------------------ photos--------------------------*/
+
+.breadcrumb-wrapper {
+  background-color: #e6eff2;
+  position: relative;
+  height: 400px;
+  padding-top: 30px;
+  /* width: 100%; */
+}
+
+.breadcrumb-wrapper .book1 {
+  position: absolute;
+  /* top: 20%; */
+  /* max-width: 50px; */
+}
+
+.breadcrumb-wrapper .book1 img {
+margin-top: 40px;
+width: 400px;
+}
+
+.breadcrumb-wrapper .book2 {
+  position: absolute;
+  top: 10%;
+  right: 0;
+}
+
+.breadcrumb-wrapper .book2 img{
+margin-top: 5px;
+width: 270px;
+}
+
+.container3 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.page-heading {
+  z-index: 1;
+}
+
+.page-heading h1 {
+  font-size: 2.5rem;
+  color: #012e4a;
+  font-weight: 700;
+  margin-top: 80px;
+}
+
+.page-header .breadcrumb-items {
+  list-style: none;
+  display: inline-flex;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  color: #036280;
+}
+
+.page-header .breadcrumb-items li a {
+  text-decoration: none;
+  color: #036280;
+  font-weight: 600;
+}
+
+/*------------------------------------------*/
+
 .imgcon:first-child {
     width: 100%;
     height: auto;
@@ -216,73 +284,6 @@ object-fit: cover;
 
 }
 
-/*------------------ photos--------------------------*/
-
-.breadcrumb-wrapper {
-  background-color: #e6eff2;
-  position: relative;
-  height: 400px;
-  padding-top: 30px;
-  /* width: 100%; */
-}
-
-.breadcrumb-wrapper .book1 {
-  position: absolute;
-  /* top: 20%; */
-  /* max-width: 50px; */
-}
-
-.breadcrumb-wrapper .book1 img {
-margin-top: 40px;
-width: 400px;
-}
-
-.breadcrumb-wrapper .book2 {
-  position: absolute;
-  top: 10%;
-  right: 0;
-  /* width: 120px; */
-}
-
-.breadcrumb-wrapper .book2 img{
-margin-top: 5px;
-width: 270px;
-}
-
-.container3 {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-
-.page-heading {
-  z-index: 1;
-}
-
-.page-heading h1 {
-  font-size: 2.5rem;
-  color: #012e4a;
-  font-weight: 700;
-  margin-top: 80px;
-}
-
-.page-header .breadcrumb-items {
-  list-style: none;
-  display: inline-flex;
-  gap: 10px;
-  padding: 0;
-  margin: 0;
-  font-size: 1rem;
-  color: #036280;
-}
-
-.page-header .breadcrumb-items li a {
-  text-decoration: none;
-  color: #036280;
-  font-weight: 600;
-}
-
-/*------------------------------------------*/
 
 .bookgrid{
 display: grid;

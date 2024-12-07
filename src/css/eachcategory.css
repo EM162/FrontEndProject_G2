@@ -1,5 +1,3 @@
-
-
 body {
     font-family: Arial, sans-serif;
     background-color: #ffffff;
@@ -522,9 +520,75 @@ input[type="number"]
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
+    .breadcrumb-wrapper {
+        height: 300px;
+    }
+
+    .breadcrumb-wrapper .book1 img {
+        width: 300px;
+    }
+
+    .breadcrumb-wrapper .book2 img {
+        width: 200px;
+    }
+
+    .page-heading h1 {
+        font-size: 2rem;
+        margin-top: 60px;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
     .gallery, .details-section {
         max-width: 100%;
+    }
+
+    .gallery .main-card {
+        padding: 30px;
+    }
+
+    .gallery .main-card img {
+        padding: 30px;
+    }
+
+    .gallery .thumbnails img {
+        width: 15%;
+    }
+}
+
+@media (max-width: 768px) {
+    .breadcrumb-wrapper {
+        height: 250px;
+    }
+
+    .breadcrumb-wrapper .book1 img {
+        width: 200px;
+    }
+
+    .breadcrumb-wrapper .book2 img {
+        width: 150px;
+    }
+
+    .page-heading h1 {
+        font-size: 1.75rem;
+        margin-top: 40px;
+    }
+
+    .container h2 {
+        font-size: 35px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .gallery .main-card {
+        padding: 20px;
+    }
+
+    .gallery .main-card img {
+        padding: 20px;
     }
 
     .buttons {
@@ -534,9 +598,62 @@ input[type="number"]
     .btn1, .btn2 {
         width: 100%;
     }
+
+    .container1 .d-flex {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .container1 .d-flex > div {
+        width: 100%;
+        text-align: center;
+    }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 576px) {
+    .breadcrumb-wrapper {
+        height: 200px;
+    }
+
+    .breadcrumb-wrapper .book1 img {
+        width: 150px;
+    }
+
+    .breadcrumb-wrapper .book2 img {
+        width: 100px;
+    }
+
+    .page-heading h1 {
+        font-size: 1.5rem;
+        margin-top: 30px;
+    }
+
+    .page-header .breadcrumb-items {
+        font-size: 0.875rem;
+    }
+
+    .container h2 {
+        font-size: 28px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .gallery .main-card {
+        padding: 15px;
+    }
+
+    .gallery .main-card img {
+        padding: 15px;
+    }
+
+    .gallery .thumbnails {
+        gap: 5px;
+    }
+
+    .gallery .thumbnails img {
+        width: 20%;
+    }
+
     .tabs {
         flex-wrap: wrap;
     }
@@ -544,7 +661,15 @@ input[type="number"]
     .tab {
         flex: 1 1 100%;
         text-align: center;
-        padding: 10px 0;
+        padding: 20px 0;
+    }
+
+    .details-card {
+        padding: 15px;
+    }
+
+    .container1 {
+        margin-top: 15px;
     }
 }
 
