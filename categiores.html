@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   
+  <script src="src/js/categories.js"></script>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="100">
 
@@ -94,12 +95,14 @@
       </div>
   </nav>
   <!-- -----------------------end nav------------------ -->
+
+   <!-- -----------------------start Category------------------ -->
   <div class="breadcrumb-wrapper" style="background-color: #e6eff2;">
     <div class="book1">
-        <img src="/images2/book1.png" alt="book">
+        <img src="/src/images/book1.png" alt="book">
     </div>
     <div class="book2">
-        <img src="/images2/book2.png" alt="book">
+        <img src="/src/images/book2.png" alt="book">
     </div>
     <div class="container3">
         <div class="page-heading">
@@ -107,7 +110,7 @@
             <div class="page-header">
                 <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
                     <li>
-                        <a href="index.html">
+                        <a href="home.html">
                             Home
                         </a>
                     </li>
@@ -123,184 +126,111 @@
     </div>
 </div>
 
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<div class="results-container col-12 ">
-  <div class="results-text">
-    Showing <strong>1-3</strong> Of <strong>34</strong> Results
-  </div>
-  <div class="sorting-controls">
-    <span class="sorting-label">Default Sorting</span>
-    <div class="view-options">
-      <div class="icon-2 active">
-        <a href="shop.html"><i class="fa-sharp fa-regular fa-grid-2"></i></a>
-    </div>
-    <div class="icon">
-      <a href="shop-list.html"><i class="fas fa-list"></i></a>
-  </div>
-    </div>
-  </div>
-</div>
+<!-----------------------end Category------------------ -->
 
 <br>
 <br>
 <br>
+
+<!-----------------------start results------------------ -->
+
 
 <div class="container mt-4">
-    <div class="row">
-      <div class="col-12 col-md-3">
-        <div class="sidebar">
-          <h3>Search</h3>
-          <div class="search-bar mb-4">
-            <input type="text" placeholder="Search here">
-          </div>
-      
-          <h3>Categories</h3>
-          <div class="categories">
-            <a href="#" class="active">Arts & Photography</a>
-            <a href="#">Biographies & Memoirs</a>
-            <a href="#">Christian Books & Bibles</a>
-            <a href="#">Research & Publishing Guides</a>
-            <a href="#">Sports & Outdoors</a>
-            <a href="#">Food & Drinke</a>
-          </div>
-
-          <h3>Product Status</h3>
-          <div class="dropdown">
-              <select id="Status">
-                <option value="in">In Stock</option>
-                <option value="out">Out OF Stack</option>
-              </select>
-          </div>
-          <div class="dropdown">
-              <select id="Sale">
-                <option value="on">On Sale</option>
-                <option value="out">Out OF Sale</option>
-              </select>
-          </div>
-          <h3>Filter By Price</h3>
-          <div class="price-slider">
-              <input type="range" id="price-min" min="100" max="1000" value="100" oninput="updatePriceDisplay()">
-              <input type="range" id="price-max" min="100" max="1000" value="1000" oninput="updatePriceDisplay()">
-          </div>
-         <br>
-               <div class="price-display" id="pr">
-                <button id="filter-button">Filter</button>
-                 Price: $<span id="price-min-display">100</span> - $<span id="price-max-display">1000</span>
-               </div>
-          
-        </div>
-      </div>
-      
-      <div class="col-12 col-md-9">
-        <div class="bookgrid">
-          <div class="book">
-            <img src="/images2/01.png" >
-            <div class="icons">
-              <i class="fas fa-eye "></i> 
-          </div>
-            <h3>Simple Things You Save BOOK</h3>
-            <p class="$pri">$30.00
-            <a href="shop-details.html">
-                <i class="fa-solid fa-basket-shopping"></i>
-             Add To Cart</a>
-            </p>
-            
-          </div>
-          <div class="book">
-            <img src="/images2/02.png" >
-            <div class="icons">
-              <i class="fas fa-eye "></i> 
-          </div>
-            <h3>Simple Things You Save BOOK</h3>
-            <p class="$pri">$30.00
-            <a href="shop-details.html">
-                <i class="fa-solid fa-basket-shopping"></i>
-             Add To Cart</a>
-            </p>
-          </div>
-
-        <div class="book">
-            <img src="/images2/03.png" >
-            <div class="icons">
-              <i class="fas fa-eye "></i> 
-          </div>
-            <h3>Simple Things You Save BOOK</h3>
-            <p class="$pri">$30.00
-            <a href="shop-details.html">
-                <i class="fa-solid fa-basket-shopping"></i>
-             Add To Cart</a>
-            </p>
-        </div>
-
-        <div class="book">
-          <img src="/images2/04.png" >
-          <div class="icons">
-            <i class="fas fa-eye "></i> 
-        </div>
-          <h3>Simple Things You Save BOOK</h3>
-          <p class="$pri">$30.00
-          <a href="shop-details.html">
-              <i class="fa-solid fa-basket-shopping"></i>
-           Add To Cart</a>
-          </p>
-          
-        </div>
-
-
-        <div class="book">
-          <img src="/images2/05.png" >
-          <div class="icons">
-            <i class="fas fa-eye "></i> 
-        </div>
-          <h3>Simple Things You Save BOOK</h3>
-          <p class="$pri">$30.00
-          <a href="shop-details.html">
-              <i class="fa-solid fa-basket-shopping"></i>
-           Add To Cart</a>
-          </p>
-          
-        </div>
-
-
-        <div class="book">
-          <img src="/images2/06.png" >
-          <div class="icons">
-            <i class="fas fa-eye "></i> 
-        </div>
-          <h3>Simple Things You Save BOOK</h3>
-          <p class="$pri">$30.00
-          <a href="shop-details.html">
-              <i class="fa-solid fa-basket-shopping"></i>
-           Add To Cart</a>
-          </p>
-          
-        </div>
-      </div>
-     </div>
+  <div class="row">
+    <div class="col-12 col-md-12">
+      <div class="results-container">
+        <div class="results-header d-flex justify-content-between align-items-center">
+    <div class="results-count">
+      Showing <span id="results-range">1-6</span> of <span id="total-results">6</span> results
     </div>
+    <div class="results-controls d-flex align-items-center">
+      <select class="form-select me-3" id="sort-select">
+        <option value="default" onclick="sortResults('default')">Default sorting</option>
+        <option value="name-asc" onclick="sortResults('name-asc')">Name (A-Z)</option>
+        <option value="name-desc" onclick="sortResults('name-desc')">Name (Z-A)</option>
+        <option value="price-asc" onclick="sortResults('price-asc')">Price (Low to High)</option>
+        <option value="price-desc" onclick="sortResults('price-desc')">Price (High to Low)</option>
+      </select>
+    </div>
+  </div>
+
+</div>
+
+  
+<!-----------------------end results------------------ -->
+<br>
+<br>
+<br>
+
+
+
+<!-----------------------start sidebar and books------------------ -->
+<div class="container-fluid mt-1">
+  <div class="row">
+    <!-- Sidebar Column -->
+    <div class="col-12 col-md-3">
+      <div class="sidebar">
+        <h3>Search by Book Name</h3>
+        <div class="search-bar mb-4">
+            <input type="text" id="book-search" placeholder="Enter book name" oninput="searchBooks()">
+        </div>
+        
+    
+        <h3>Categories</h3>
+        <div class="categories">
+            <a href="#" class="active">All Books</a>
+            <a href="#">Business</a>
+            <a href="#">Marketing</a>
+            <a href="#">Design</a>
+            <a href="#">Programming</a>
+        </div>
+
+        <h3>Product Status</h3>
+        <div class="dropdown">
+            <select id="status" onchange="filterProductStatus()">
+                <option value="all">All</option>
+                <option value="in">In Stock</option>
+                <option value="out">Out of Stock</option>
+            </select>
+        </div>
+   
+        <h3>Filter By Price</h3>
+        <div class="price-slider">
+            <input type="range" id="price-min" min="100" max="1000" value="100" oninput="updatePriceDisplay()">
+            <input type="range" id="price-max" min="100" max="1000" value="1000" oninput="updatePriceDisplay()">
+        </div>
+        <br>
+        <div class="price-display" id="pr">
+          <button id="filter-button">Filter</button>
+          Price: $<span id="price-min-display">100</span> - $<span id="price-max-display">1000</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Books Column -->
+    <div class="col-12 col-md-9">
+      <div id="results-content" class="mt-4">
+        <div class="bookgrid">
+          <!-- Books will be dynamically inserted here by JavaScript -->
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <br>
 <br>
 <br>
+
 
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link">Previous</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
     <li class="page-item">
-      <a class="page-link" href="#">Next</a>
+      <a class="page-link" href="#" onclick="changePage(currentPage - 1)">Previous</a>
+    </li>
+    <li class="page-item active"><a class="page-link" href="#" onclick="changePage(1)">1</a></li>
+    <li class="page-item"><a class="page-link" href="#" onclick="changePage(2)">2</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#" onclick="changePage(currentPage + 1)">Next</a>
     </li>
   </ul>
 </nav>
