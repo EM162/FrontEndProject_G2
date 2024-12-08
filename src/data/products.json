@@ -1,0 +1,218 @@
+{
+  "categories": {
+    "business": [
+      {
+        "id": 1,
+        "title": "Your Business Name",
+        "author": "Michael Porter",
+        "price": 39.99,
+        "category": "Business",
+        "image": "src/images/Business-1Cover.png",
+        "image2": "src/images/Business-1Back.png",
+        "status": "In Stock",
+        "pages": 300,
+        "description": "A comprehensive guide to building and managing your business brand."
+      },
+      {
+        "id": 2,
+        "title": "Leadership Essentials",
+        "author": "Simon Sinek",
+        "price": 44.99,
+        "category": "Business",
+        "image": "src/images/Business-2Cover.png",
+        "image2": "src/images/Business-2Back.png",
+        "status": "In Stock",
+        "pages": 250,
+        "description": "Learn the core principles of effective leadership and team management."
+      },
+      {
+        "id": 3,
+        "title": "Financial Management",
+        "author": "Warren Buffett",
+        "price": 49.99,
+        "category": "Business",
+        "image": "src/images/Business-3Cover.png",
+        "image2": "src/images/Business-3Back.png",
+        "status": "In Stock",
+        "pages": 300,
+        "description": "Master the fundamentals of financial management and investment strategies."
+      },
+      {
+        "id": 4,
+        "title": "Business Enterprise Cover",
+        "author": "Richard Branson",
+        "price": 34.99,
+        "category": "Business",
+        "image": "src/images/Business-4Cover.png",
+        "image2": "src/images/Business-4Back.png",
+        "status": "In Stock",
+        "pages": 350,
+        "description": "A guide to building and scaling successful enterprises."
+      },
+      {
+        "id": 5,
+        "title": "Data Science For Executives",
+        "author": "David Anderson",
+        "price": 42.99,
+        "category": "Business",
+        "image": "src/images/Business-5Cover.png",
+        "image2": "src/images/Business-5Back.png",
+        "status": "In Stock",
+        "pages": 400,
+        "description": "Understanding data science principles for business decision making."
+      },
+      {
+        "id": 6,
+        "title": "Corporate Finance",
+        "author": "Robert Smith",
+        "price": 45.99,
+        "category": "Business",
+        "image": "src/images/Business-6Cover.png",
+        "image2": "src/images/Business-6Back.png",
+        "status": "In Stock",
+        "pages": 200,
+        "description": "Essential principles of corporate finance and investment."
+      }
+    ],
+    "marketing": [
+      {
+        "id": 7,
+        "title": "Push Mo 'Yan!",
+        "author": "Neil Patel",
+        "price": 29.99,
+        "category": "Marketing",
+        "image": "src/images/Marketing-1Cover.png",
+        "image2": "src/images/Marketing-1Back.png",
+        "status": "In Stock",
+        "pages": 600,
+        "description": "Modern marketing strategies for digital success."
+      },
+      {
+        "id": 8,
+        "title": "Recipe Planner",
+        "author": "Gary Vaynerchuk",
+        "price": 32.99,
+        "category": "Marketing",
+        "image": "src/images/Marketing-2Cover.png",
+        "image2": "src/images/Marketing-2Back.png",
+        "status": "In Stock",
+        "pages": 700,
+        "description": "Plan and execute successful marketing campaigns."
+      },
+      {
+        "id": 9,
+        "title": "It Tickled The Whiskers Of My Soul",
+        "author": "Ann Handley",
+        "price": 27.99,
+        "category": "Marketing",
+        "image": "src/images/Marketing-3Cover.png",
+        "image2": "src/images/Marketing-3Back.png",
+        "status": "In Stock",
+        "pages": 450,
+        "description": "Creative content marketing strategies that connect."
+      }
+    ],
+    "design": [
+      {
+        "id": 13,
+        "title": "Business Agency",
+        "author": "John Doe",
+        "price": 35.99,
+        "category": "Design",
+        "image": "src/images/Design-1Cover.png",
+        "image2": "src/images/Design-1Back.png",
+        "status": "In Stock",
+        "pages": 280,
+        "description": "Design principles for business branding and identity."
+      },
+      {
+        "id": 14,
+        "title": "UI/UX Design Fundamentals",
+        "author": "Sarah Johnson",
+        "price": 39.99,
+        "category": "Design",
+        "image": "src/images/Design-2Cover.png",
+        "image2": "src/images/Design-2Back.png",
+        "status": "In Stock",
+        "pages": 320,
+        "description": "Master the principles of user interface and experience design."
+      },
+      {
+        "id": 15,
+        "title": "Graphic Design Mastery",
+        "author": "Mark Williams",
+        "price": 36.99,
+        "category": "Design",
+        "image": "src/images/Design-3Cover.png",
+        "image2": "src/images/Design-3Back.png",
+        "status": "In Stock",
+        "pages": 300,
+        "description": "Comprehensive guide to graphic design principles and practices."
+      }
+    ],
+    "technology": [
+      {
+        "id": 16,
+        "title": "Web Development Basics",
+        "author": "Jennifer Lee",
+        "price": 45.99,
+        "category": "Technology",
+        "image": "src/images/Tech-1Cover.png",
+        "image2": "src/images/Tech-1Back.png",
+        "status": "In Stock",
+        "pages": 400,
+        "description": "Learn the fundamentals of web development."
+      },
+      {
+        "id": 17,
+        "title": "Python Programming",
+        "author": "Michael Zhang",
+        "price": 49.99,
+        "category": "Technology",
+        "image": "src/images/Tech-2Cover.png",
+        "image2": "src/images/Tech-2Back.png",
+        "status": "In Stock",
+        "pages": 450,
+        "description": "Comprehensive guide to Python programming language."
+      },
+      {
+        "id": 18,
+        "title": "Artificial Intelligence Basics",
+        "author": "Alan Turner",
+        "price": 54.99,
+        "category": "Technology",
+        "image": "src/images/Tech-3Cover.png",
+        "image2": "src/images/Tech-3Back.png",
+        "status": "In Stock",
+        "pages": 380,
+        "description": "Introduction to artificial intelligence and machine learning."
+      }
+    ],
+    "fiction": [
+      {
+        "id": 19,
+        "title": "The Lost City",
+        "author": "Emma Roberts",
+        "price": 24.99,
+        "category": "Fiction",
+        "image": "src/images/Fiction-1Cover.png",
+        "image2": "src/images/Fiction-1Back.png",
+        "status": "In Stock",
+        "pages": 320,
+        "description": "An adventure novel about discovering an ancient civilization."
+      },
+      {
+        "id": 20,
+        "title": "Midnight Dreams",
+        "author": "James Patterson",
+        "price": 26.99,
+        "category": "Fiction",
+        "image": "src/images/Fiction-2Cover.png",
+        "image2": "src/images/Fiction-2Back.png",
+        "status": "In Stock",
+        "pages": 280,
+        "description": "A thrilling mystery set in a small coastal town."
+      }
+    ]
+  }
+}
