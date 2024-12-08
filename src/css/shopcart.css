@@ -9,7 +9,7 @@
 /*  --------------------shop cart---------------------- */
 
 th:nth-child(3),
- td:nth-child(3) {
+td:nth-child(3) {
     width: 10px;
 }
 
@@ -26,7 +26,7 @@ th:nth-child(3),
     background-color: #006d8b;
     box-shadow: inset 35em 0 0 0 #f1b228;
     transition: box-shadow 1000ms ease-in-out;
-    color:#012e4a
+    color: #012e4a
 }
 
 .cartprice {
@@ -43,10 +43,51 @@ th:nth-child(3),
     background-color: #f12828;
 }
 
- .product-image {
+.product-image {
     width: 90px;
     height: 70px;
+
+}
+
+
+
+.pageHome {
+    height: 60vh;
+    background-image: url(../images/welcometocart.jpg);
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    
+    background-attachment: fixed;
+}
+
+.pageHome::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(1, 46, 74, 0.6), rgba(241, 178, 40, 0.3));
    
+}
+
+.pageHome h1 {
+    position: relative;
+    z-index: 2;
+    margin-top: 20vh;
+    text-align: center;
+    color: rgb(223, 226, 26);
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(197, 104, 104, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.pageHome h1:hover {
+    transform: scale(0.8);
+    color: #f1b228;
 }
 
 /*------------- footer-------------- */
@@ -85,7 +126,7 @@ th:nth-child(3),
 .footer i {
     font-size: 1.5rem;
     color: #17a2b8;
-   
+
 }
 
 .footer a {
