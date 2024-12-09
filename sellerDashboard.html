@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seller Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/sellerDashboard.css">
+    <link rel="stylesheet" href="src/css/sellerDashboard.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
      <!-- Chart.js Library -->
      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -13,40 +13,50 @@
      <script>
          document.addEventListener("DOMContentLoaded", function() {
              const ctx = document.getElementById('salesChart').getContext('2d');
-             const salesChart = new Chart(ctx, {
-                 type: 'bar', // Change to 'line', 'pie', etc., if needed
-                 data: {
-                     labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-                     datasets: [{
-                         label: 'Monthly Sales ($)',
-                         data: [500, 700, 800, 600, 900, 1200],
-                         backgroundColor: [
-                             'rgba(255, 99, 132, 0.2)',
-                             'rgba(54, 162, 235, 0.2)',
-                             'rgba(255, 206, 86, 0.2)',
-                             'rgba(75, 192, 192, 0.2)',
-                             'rgba(153, 102, 255, 0.2)',
-                             'rgba(255, 159, 64, 0.2)'
-                         ],
-                         borderColor: [
-                             'rgba(255, 99, 132, 1)',
-                             'rgba(54, 162, 235, 1)',
-                             'rgba(255, 206, 86, 1)',
-                             'rgba(75, 192, 192, 1)',
-                             'rgba(153, 102, 255, 1)',
-                             'rgba(255, 159, 64, 1)'
-                         ],
-                         borderWidth: 1
-                     }]
-                 },
-                 options: {
-                     scales: {
-                         y: {
-                             beginAtZero: true
+             const topSellingProducts = [];
+             const topSellingProductsSales = [];
+             fetch('https://fakestoreapi.com/products?limit=6')
+                 .then(res => res.json())
+                 .then(data => {
+                     data.forEach(product => {
+                         topSellingProducts.push(product.title);
+                         topSellingProductsSales.push(product.price);
+                     });
+                     const salesChart = new Chart(ctx, {
+                         type: 'bar', // Change to 'line', 'pie', etc., if needed
+                         data: {
+                             labels: topSellingProducts,
+                             datasets: [{
+                                 label: 'Monthly Sales ($)',
+                                 data: topSellingProductsSales,
+                                 backgroundColor: [
+                                     'rgba(255, 99, 132, 0.2)',
+                                     'rgba(54, 162, 235, 0.2)',
+                                     'rgba(255, 206, 86, 0.2)',
+                                     'rgba(75, 192, 192, 0.2)',
+                                     'rgba(153, 102, 255, 0.2)',
+                                     'rgba(255, 159, 64, 0.2)'
+                                 ],
+                                 borderColor: [
+                                     'rgba(255, 99, 132, 1)',
+                                     'rgba(54, 162, 235, 1)',
+                                     'rgba(255, 206, 86, 1)',
+                                     'rgba(75, 192, 192, 1)',
+                                     'rgba(153, 102, 255, 1)',
+                                     'rgba(255, 159, 64, 1)'
+                                 ],
+                                 borderWidth: 1
+                             }]
+                         },
+                         options: {
+                             scales: {
+                                 y: {
+                                     beginAtZero: true
+                                 }
+                             }
                          }
-                     }
-                 }
-             });
+                     });
+                 });
          });
      </script>
 
@@ -60,7 +70,7 @@
         <a href="#products">Manage Products</a>
         <a href="#orders">Manage Orders</a>
         <a href="#analytics">Sales Analytics</a>
-        <a href="#settings">Account Settings</a>
+        <!-- <a href="#settings">Account Settings</a> -->
     </div>
 
     <!-- Content Area -->
@@ -90,10 +100,8 @@
                             <td>$20</td>
                             <td>15</td>
                             <td>
-                                <!-- <button class="btn btn-warning btn-sm">Edit</button> -->
-                                <!-- <button class="btn btn-danger btn-sm">Delete</button> -->
-                                <img src="./images/edit.png">
-                                <img src="./images/trash.png">
+                                <img src="src/images/edit.png">
+                                <img src="src/images/trash.png">
                             </td>
                         </tr>
                         <tr>
@@ -103,10 +111,8 @@
                             <td>$25</td>
                             <td>10</td>
                             <td>
-                                <!-- <button class="btn btn-warning btn-sm">Edit</button> -->
-                                <!-- <button class="btn btn-danger btn-sm">Delete</button> -->
-                                <img src="./images/edit.png">
-                                <img src="./images/trash.png">
+                                <img src="src/images/edit.png">
+                                <img src="src/images/trash.png">
                             </td>
                         </tr>
                         <tr>
@@ -116,10 +122,8 @@
                             <td>$20</td>
                             <td>15</td>
                             <td>
-                                <!-- <button class="btn btn-warning btn-sm">Edit</button> -->
-                                <!-- <button class="btn btn-danger btn-sm">Delete</button> -->
-                                <img src="./images/edit.png">
-                                <img src="./images/trash.png">
+                                <img src="src/images/edit.png">
+                                <img src="src/images/trash.png">
                             </td>
                         </tr>
                         <tr>
@@ -129,10 +133,8 @@
                             <td>$25</td>
                             <td>10</td>
                             <td>
-                                <!-- <button class="btn btn-warning btn-sm">Edit</button> -->
-                                <!-- <button class="btn btn-danger btn-sm">Delete</button> -->
-                                <img src="./images/edit.png">
-                                <img src="./images/trash.png">
+                                <img src="src/images/edit.png">
+                                <img src="src/images/trash.png">
                             </td>
                         </tr>
                         <tr>
@@ -142,10 +144,8 @@
                             <td>$20</td>
                             <td>15</td>
                             <td>
-                                <!-- <button class="btn btn-warning btn-sm">Edit</button> -->
-                                <!-- <button class="btn btn-danger btn-sm">Delete</button> -->
-                                <img src="./images/edit.png">
-                                <img src="./images/trash.png">
+                                <img src="src/images/edit.png">
+                                <img src="src/images/trash.png">
                             </td>
                         </tr>
                         <tr>
@@ -155,10 +155,8 @@
                             <td>$25</td>
                             <td>10</td>
                             <td>
-                                <!-- <button class="btn btn-warning btn-sm">Edit</button> -->
-                                <!-- <button class="btn btn-danger btn-sm">Delete</button> -->
-                                <img src="./images/edit.png">
-                                <img src="./images/trash.png">
+                                <img src="src/images/edit.png">
+                                <img src="src/images/trash.png">
                             </td>
                         </tr>
                         <tr>
@@ -168,10 +166,8 @@
                             <td>$20</td>
                             <td>15</td>
                             <td>
-                                <!-- <button class="btn btn-warning btn-sm">Edit</button> -->
-                                <!-- <button class="btn btn-danger btn-sm">Delete</button> -->
-                                <img src="./images/edit.png">
-                                <img src="./images/trash.png">
+                                <img src="src/images/edit.png">
+                                <img src="src/images/trash.png">
                             </td>
                         </tr>
                         <tr>
@@ -181,10 +177,8 @@
                             <td>$25</td>
                             <td>10</td>
                             <td>
-                                <!-- <button class="btn btn-warning btn-sm">Edit</button> -->
-                                <!-- <button class="btn btn-danger btn-sm">Delete</button> -->
-                                <img src="./images/edit.png">
-                                <img src="./images/trash.png">
+                                <img src="src/images/edit.png">
+                                <img src="src/images/trash.png">
                             </td>
                         </tr>
                     </tbody>

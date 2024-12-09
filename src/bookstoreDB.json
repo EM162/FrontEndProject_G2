@@ -1,0 +1,114 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "name": "Admin User",
+        "BirthDate":"12/10/2003",
+        "Gender":"Male",
+        "email": "admin@example.com",
+        "Phone":"01024531254",
+        "role": "admin",
+        "password": "admin123"
+      },
+      {
+        "id": 2,
+        "name": "John Seller",
+        "BirthDate":"12/10/2003",
+        "Gender":"Male",
+        "email": "seller1@example.com",
+        "Phone":"01024531254",
+        "role": "seller",
+        "password": "seller123"
+      },
+      {
+        "id": 3,
+        "name": "Jane Buyer",
+        "BirthDate":"12/10/2003",
+        "Gender":"Male",
+        "email": "buyer1@example.com",
+        "Phone":"01024531254",
+        "role": "customer",
+        "password": "buyer123"
+      }
+    ],
+    "books": [
+      {
+        "id": 1,
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "price": 10.99,
+        "category": "Classic",
+        "sellerId": 2,
+        "stock": 20,
+        "rating": 4.5
+      },
+      {
+        "id": 2,
+        "title": "1984",
+        "author": "George Orwell",
+        "price": 8.99,
+        "category": "Dystopian",
+        "sellerId": 2,
+        "stock": 15,
+        "rating": 4.8
+      },
+      {
+        "id": 3,
+        "title": "JavaScript: The Good Parts",
+        "author": "Douglas Crockford",
+        "price": 12.99,
+        "category": "Programming",
+        "sellerId": 2,
+        "stock": 10,
+        "rating": 4.7
+      }
+    ],
+    "categories": [
+      { "id": 1, "name": "Classic" },
+      { "id": 2, "name": "Dystopian" },
+      { "id": 3, "name": "Programming" },
+      { "id": 4, "name": "Science Fiction" }
+    ],
+    "cart": [
+      {
+        "id": 1,
+        "userId": 3,
+        "items": [
+          {
+            "bookId": 1,
+            "bookname":"",
+            "price":"50$",
+            "quantity": 2
+          },
+          {
+            "bookId": 2,
+            "quantity": 1
+          }
+        ]
+      }
+    ],
+    "orders": [
+      {
+        "id": 1,
+        "userId": 3,
+        "orderDate": "2024-12-07T10:30:00",
+        "status": "Completed",
+        "items": [
+          {
+            "bookId": 1,
+            "quantity": 1,
+            "price": 10.99
+          }
+        ],
+        "totalAmount": 10.99
+      }
+    ],
+    "settings": {
+      "siteTitle": "My Bookstore",
+      "currency": "USD",
+      "taxRate": 0.1
+    },
+
+    "customerServiceMessages": []
+}
+  

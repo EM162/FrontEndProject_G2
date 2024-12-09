@@ -1,13 +1,13 @@
 .sidebar {
     height: 100vh;
     width: 250px;
-    background-color: #012e4a;
+    background-color: #533a1e;
     color: white;
     position: fixed;
 }
 
 .sidebar h2{
-    text-shadow: 2px 2px 10px lightskyblue;
+    text-shadow: 2px 2px 10px rgba(250, 187, 135, 0.788);
     color: white;
 }
 
@@ -20,8 +20,8 @@
 
 .sidebar a:hover {
     background-color: lightgray;
-    border: 2px solid #036280;
-    color: #012e4a;
+    border: 2px solid #e8e5dc;
+    color: #533a1e;
     font-weight: bold;
 }
 
@@ -31,12 +31,13 @@
 }
 
 .content h1{
-    color: #036280;
-    text-shadow: 2px 2px lightblue;
+    color: #5a4b3f;
+    text-shadow: 2px 2px rgb(209, 179, 144);
+    text-align: center;
 }
 
 h2{
-    color: #036280;
+    color: #a27b5c;
 }
 
 .table-responsive{
@@ -63,16 +64,17 @@ tbody tr td:hover {
 
 .btn-primary{
     margin-top: 30px;
-    background-color: #036280;
-    border: #036280 solid 2px;
+    background-color: #533a1ea9;
+    border: #533a1ea9 solid 2px;
     color: white;
     
 }
 
 .btn-primary:hover{
     background-color: white;
-    color: #012e4a;
+    color: #533a1e;
     box-shadow: 10px 10px 5px lightgray;
+    border: #533a1ea9 solid 2px;
 }
 
 .card{
