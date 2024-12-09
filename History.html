@@ -29,23 +29,23 @@
     
   </head>
 
-<body>
+  <body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="100">
     <div class="top-bar py-2 text-white">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-4">
+                <div class="col-4">
                     <a href="tel:+208-6666-0112">
                         <i class="fas fa-phone me-2"></i>
                         +208-6666-0112
                     </a>
                 </div>
-                <div class="col-md-4 text-center">
+                <div class="col-4 text-center">
                     <a href="mailto:info@example.com">
                         <i class="fas fa-envelope me-2"></i>
                         info@example.com
                     </a>
                 </div>
-                <div class="col-md-4 text-end">
+                <div class="col-4 text-end">
                     <span>
                         <i class="far fa-clock me-2"></i>
                         Sunday - Fri: 9 AM - 6 PM
@@ -54,44 +54,41 @@
             </div>
         </div>
     </div>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg sticky-top py-3 shadow-sm">
-        <div class="container">
-            <a class="navbar-brand fw-bold fs-4" href="index.html">
-                <i class="fas fa-book-reader me-2"></i>BookHaven
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link active position-relative" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link position-relative" href="#featured">Featured</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link position-relative" href="#categories">Categories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link position-relative" href="sign-in.html">Sign In</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-primary-custom" href="sign-up.html">Sign Up</a>
-                    </li>
-                    <li class="nav-item ms-2">
-                        <a class="nav-link position-relative" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count">
-                                0
-                            </span>
-                        </a>
-                    </li>
-                </ul>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg sticky-top py-3 shadow-sm">
+            <div class="container">
+                <a class="navbar-brand fw-bold fs-4" href="index.html">
+                    <i class="fas fa-book-reader me-2"></i>BookHaven
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link active position-relative" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link position-relative" href="#featured">Featured</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link position-relative" href="#categories">Categories</a>
+                        </li>
+                       
+                        <li class="nav-item ms-2">
+                            <a class="nav-link position-relative" href="ca" data-bs-toggle="modal" data-bs-target="#cartModal">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count">
+                                    0
+                                </span>
+                            </a>
+                        </li>
+    
+                       
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
     <section class="shopping-cart my-5">
         <div class="container ">
             <div class="row">
@@ -115,17 +112,7 @@
                                     <span clas="">Simple things you to save the book</span>
                                 </td>
                                 <td>
-                                    <span class="cartprice">30.00$</span>
-                                </td>
-
-                                <td><span class="cartprice">120.00$</span></td>
-
-                            </tr>
-                            <tr>
-                                <td class="d-flex align-items-center">
-                                    <img class="img-fluid me-2" src="https://via.placeholder.com/52x68"
-                                        alt="productimage">
-                                    <span>Simple things you to save the book</span>
+                                    <span class="date">4 march 2024</span>
                                 </td>
                                 <td>
                                     <span class="cartprice">30.00$</span>
@@ -141,6 +128,9 @@
                                     <span>Simple things you to save the book</span>
                                 </td>
                                 <td>
+                                    <span class="date">4 march 2024</span>
+                                </td>
+                                <td>
                                     <span class="cartprice">30.00$</span>
                                 </td>
 
@@ -152,6 +142,25 @@
                                     <img class="img-fluid me-2" src="https://via.placeholder.com/52x68"
                                         alt="productimage">
                                     <span>Simple things you to save the book</span>
+                                </td>
+                                <td>
+                                    <span class="date">4 march 2024</span>
+                                </td>
+                                <td>
+                                    <span class="cartprice">30.00$</span>
+                                </td>
+
+                                <td><span class="cartprice">120.00$</span></td>
+
+                            </tr>
+                            <tr>
+                                <td class="d-flex align-items-center">
+                                    <img class="img-fluid me-2" src="https://via.placeholder.com/52x68"
+                                        alt="productimage">
+                                    <span>Simple things you to save the book</span>
+                                </td>
+                                <td>
+                                    <span class="date">4 march 2024</span>
                                 </td>
                                 <td>
                                     <span class="cartprice">30.00$</span>

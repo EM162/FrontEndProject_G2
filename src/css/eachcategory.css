@@ -1,0 +1,732 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+/* ------------------------- start navbar -----------------------*/
+
+nav {
+    background-color: #036280;
+    position: relative;
+    z-index: -1;
+    height: 60px;
+}
+
+.logo {
+    background-color: #012e4a;
+    border-right:solid white 20px;
+    border-radius: 0 80px 0 0;
+    height: 150px;
+    width: 16%;
+    z-index: 1;
+    text-align: center;
+    display: inline-block;
+    margin-top: 70px;
+    color: white;
+}
+
+.logo img {
+    width: 75%;
+    margin: auto;
+}
+
+.bottom-nav {
+    background-color: #fff;
+    /* border: 1px solid #ddd; */
+    padding: 7px 20px;
+    display: flex;;
+    width: 100%;
+    margin-left: 200px;
+    position: relative;
+}
+
+.bottom-nav .nav-link {
+    font-weight: bold;
+    color: #012e4a;
+    font-size: 20px;
+    padding-left: 80px;
+}
+
+.bottom-nav .nav-link:hover {
+    color: #036280;
+}
+
+/* .search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 5px 15px;
+    width: 70%;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    height: 40px;
+} */
+
+.navbar-icons a {
+    color: #012e4a;
+    margin: 0 10px;
+}
+
+.navbar-icons a:hover {
+    color: rgb(254, 149, 2);
+}
+
+
+@media (max-width: 1400px) {
+    .logo {
+        height: auto;
+        border-right: none;
+        border-radius: 0;
+    }
+
+    .logo img {
+        display: none;
+        width: 100%;
+        margin-bottom: 70px;
+    }
+
+    .container1 {
+        display: none;
+    }
+
+    .bottom-nav {
+        background-color: #fff;
+        /* border: 1px solid #ddd; */
+        padding: 7px 20px;
+        display: flex;;
+        width: 100%;
+        margin-left: 0px;
+        position: relative;
+    }
+
+    .bottom-nav .search-bar {
+        margin-bottom: 10px;
+    }
+
+    .navbar-icons {
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .bottom-nav .nav-link {
+        font-size: 16px;
+        padding: 5px;
+    }
+
+    .navbar-icons {
+        font-size: 14px;
+    }
+
+    .search-bar {
+        width: 90%;
+    }
+}
+
+/*------------------------------end navbar----------------------*/
+
+.breadcrumb-wrapper {
+    background-color: #e6eff2;
+    position: relative;
+    height: 400px;
+    padding-top: 30px;
+    /* width: 100%; */
+}
+
+.breadcrumb-wrapper .book1 {
+    position: absolute;
+    /* top: 20%; */
+    /* max-width: 50px; */
+}
+
+.breadcrumb-wrapper .book1 img {
+  margin-top: 40px;
+  width: 400px;
+}
+
+.breadcrumb-wrapper .book2 {
+    position: absolute;
+    top: 10%;
+    right: 0;
+    /* width: 120px; */
+}
+
+.breadcrumb-wrapper .book2 img{
+  margin-top: 5px;
+  width: 270px;
+}
+
+.container3 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.page-heading {
+    z-index: 1;
+}
+
+.page-heading h1 {
+    font-size: 2.5rem;
+    color: #012e4a;
+    font-weight: 700;
+    margin-top: 80px;
+}
+
+.page-header .breadcrumb-items {
+    list-style: none;
+    display: inline-flex;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+    color: #036280;
+}
+
+.page-header .breadcrumb-items li a {
+    text-decoration: none;
+    color: #036280;
+    font-weight: 600;
+}
+
+/*------------------------------------------*/
+.container h2{
+    color: rgb(31, 42, 68);
+    margin-top: 40px;
+    margin-bottom: 50px;
+    font-size: 50px
+}
+
+.action-section {
+    margin-top: 10px; 
+}
+
+.container p {
+    margin-top: 0;
+    margin-bottom: 40px; 
+    font-size: 16px;
+}
+
+.img img{
+    border: 1px solid #ddd;
+    padding: 200px;
+    height: 8%;
+    width: 100px;
+}
+
+.details-card{
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    width: 20px;
+    margin-right: 10px;
+}
+
+.buttons button {
+    margin: 0 5px; 
+}
+
+.btn1:hover {
+    color: white;
+    border: none;
+    box-shadow: inset 13em 0 0 0 rgb(254, 149, 2); 
+    transition: box-shadow 500ms ease-in-out;
+}
+
+.btn2:hover {
+    border: none;
+    box-shadow: inset 13em 0 0 0 rgb(254, 149, 2); 
+    transition: box-shadow 500ms ease-in-out;
+}
+
+.quantity button {
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 50px;
+    background-color:transparent;
+    font-size: 18px;
+    width: 200px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.details {
+    margin-top: 20px;
+}
+
+.price{
+    color: rgb(254, 149, 2);
+    font-size: 24px;
+    margin-top: 5px;
+    margin-bottom: 10px; 
+}
+
+.btn1{
+    border: 1px solid rgb(44, 57, 86);
+    color: rgb(44, 57, 86);
+    background-color:transparent;
+    border-radius: 50px;
+    width: 200px;
+    padding: 15px;
+}
+
+.btn2{
+    border: 1px solid rgb(44, 57, 86);
+    color:white;
+    background-color:rgb(38, 84, 112);
+    border-radius: 50px;
+    width: 200px;
+    padding: 15px;
+}
+
+input[type="number"]
+{
+    border: 1px solid transparent;
+    border-radius: 8px;
+    text-align: center;
+}
+.bg-light {
+            border: 1px solid #ddd;
+        }
+
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.tabs-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.tabs {
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 2px solid #ddd;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tab {
+    padding: 40px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.tab:hover {
+    color: rgb(254, 149, 2);
+}
+
+.tab.active {
+    color: rgb(254, 149, 2);
+    border-bottom: 2px solid rgb(254, 149, 2);
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/*--------------- section img --------------------*/
+/* Reset and General Styling */
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.gallery {
+    flex: 1;
+    max-width: 50%;
+}
+
+.gallery .main-card {
+    width: 100%;
+    height: auto;
+    border: 2px solid #ddd;
+    padding: 50px;
+    border-radius: 5px;
+}
+
+.gallery .main-card img {
+    width: 100%;
+    height: auto;
+    padding: 50px;
+    border-radius: 5px;
+}
+
+.gallery .thumbnails {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.gallery .thumbnails img {
+    width: 18%;
+    height: auto;
+    cursor: pointer;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+
+.details-section {
+    flex: 1;
+    max-width: 50%;
+}
+
+.details-section h2 {
+    margin-bottom: 15px;
+    color: rgb(31, 42, 68);
+    font-size: 50px;
+}
+
+.price {
+    color: rgb(254, 149, 2);
+    font-size: 24px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn1 {
+    border: 1px solid rgb(44, 57, 86);
+    color: rgb(44, 57, 86);
+    background-color: transparent;
+    border-radius: 50px;
+    width: 200px;
+    padding: 15px;
+}
+
+.btn2 {
+    border: 1px solid rgb(44, 57, 86);
+    color: white;
+    background-color: rgb(38, 84, 112);
+    border-radius: 50px;
+    width: 200px;
+    padding: 15px;
+}
+
+.btn1:hover {
+    color: white;
+    border: none;
+    box-shadow: inset 13em 0 0 0 rgb(254, 149, 2);
+    transition: box-shadow 500ms ease-in-out;
+}
+
+.btn2:hover {
+    border: none;
+    box-shadow: inset 13em 0 0 0 rgb(254, 149, 2);
+    transition: box-shadow 500ms ease-in-out;
+}
+
+.details-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.container1 {
+    margin-top: 20px;
+}
+
+.container1 .d-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+/* Tabs Styling */
+.tabs-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.tabs {
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 2px solid #ddd;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tab {
+    padding: 40px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.tab:hover {
+    color: rgb(254, 149, 2);
+}
+
+.tab.active {
+    color: rgb(254, 149, 2);
+    border-bottom: 2px solid rgb(254, 149, 2);
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .breadcrumb-wrapper {
+        height: 300px;
+    }
+
+    .breadcrumb-wrapper .book1 img {
+        width: 300px;
+    }
+
+    .breadcrumb-wrapper .book2 img {
+        width: 200px;
+    }
+
+    .page-heading h1 {
+        font-size: 2rem;
+        margin-top: 60px;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .gallery, .details-section {
+        max-width: 100%;
+    }
+
+    .gallery .main-card {
+        padding: 30px;
+    }
+
+    .gallery .main-card img {
+        padding: 30px;
+    }
+
+    .gallery .thumbnails img {
+        width: 15%;
+    }
+}
+
+@media (max-width: 768px) {
+    .breadcrumb-wrapper {
+        height: 250px;
+    }
+
+    .breadcrumb-wrapper .book1 img {
+        width: 200px;
+    }
+
+    .breadcrumb-wrapper .book2 img {
+        width: 150px;
+    }
+
+    .page-heading h1 {
+        font-size: 1.75rem;
+        margin-top: 40px;
+    }
+
+    .container h2 {
+        font-size: 35px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .gallery .main-card {
+        padding: 20px;
+    }
+
+    .gallery .main-card img {
+        padding: 20px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .btn1, .btn2 {
+        width: 100%;
+    }
+
+    .container1 .d-flex {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .container1 .d-flex > div {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .breadcrumb-wrapper {
+        height: 200px;
+    }
+
+    .breadcrumb-wrapper .book1 img {
+        width: 150px;
+    }
+
+    .breadcrumb-wrapper .book2 img {
+        width: 100px;
+    }
+
+    .page-heading h1 {
+        font-size: 1.5rem;
+        margin-top: 30px;
+    }
+
+    .page-header .breadcrumb-items {
+        font-size: 0.875rem;
+    }
+
+    .container h2 {
+        font-size: 28px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .gallery .main-card {
+        padding: 15px;
+    }
+
+    .gallery .main-card img {
+        padding: 15px;
+    }
+
+    .gallery .thumbnails {
+        gap: 5px;
+    }
+
+    .gallery .thumbnails img {
+        width: 20%;
+    }
+
+    .tabs {
+        flex-wrap: wrap;
+    }
+
+    .tab {
+        flex: 1 1 100%;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .details-card {
+        padding: 15px;
+    }
+
+    .container1 {
+        margin-top: 15px;
+    }
+}
+
+/*----------------------------- footer --------------------------*/
+
+.footer {
+    background-color: #012e4a;
+    color: white;
+    font-size: 14px;
+    padding: 60px 0 20px;
+}
+
+.footer p {
+    color: #8a8a8a;
+    text-align: center;
+}
+
+.footerImg {
+    font-size: 25px;
+    color: white;
+    border: white dashed 2px;
+    padding: 15px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.footer .d-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.footer .row {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+/*----------------------------- edit media -----------------------*/
+
+@media (max-width: 1200px) {
+    .breadcrumb-wrapper .book1,
+    .breadcrumb-wrapper .book2
+    {
+        display: none;
+    }
+}
+
+@media (max-width: 992px) {
+    .footer .d-flex {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+    }
+    .footerImg {
+        margin-bottom: 30px;
+    }
+}

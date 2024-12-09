@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="src/css/navbar.css">
     <link rel="stylesheet" href="src/css/shopcart.css">
     <link rel="stylesheet" href="src/css/footer.css">
+    <link rel="stylesheet" href="src/css/home.css">
     
     <!-- Add Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
@@ -33,19 +34,19 @@
     <div class="top-bar py-2 text-white">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-4">
+                <div class="col-4">
                     <a href="tel:+208-6666-0112">
                         <i class="fas fa-phone me-2"></i>
                         +208-6666-0112
                     </a>
                 </div>
-                <div class="col-md-4 text-center">
+                <div class="col-4 text-center">
                     <a href="mailto:info@example.com">
                         <i class="fas fa-envelope me-2"></i>
                         info@example.com
                     </a>
                 </div>
-                <div class="col-md-4 text-end">
+                <div class="col-4 text-end">
                     <span>
                         <i class="far fa-clock me-2"></i>
                         Sunday - Fri: 9 AM - 6 PM
@@ -66,7 +67,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link active position-relative" href="#home">Home</a>
+                        <a class="nav-link active position-relative" href="home.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link position-relative" href="#featured">Featured</a>
@@ -74,12 +75,7 @@
                     <li class="nav-item">
                         <a class="nav-link position-relative" href="#categories">Categories</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link position-relative" href="sign-in.html">Sign In</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-primary-custom" href="sign-up.html">Sign Up</a>
-                    </li>
+                   
                     <li class="nav-item ms-2">
                         <a class="nav-link position-relative" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
                             <i class="fas fa-shopping-cart"></i>
@@ -88,16 +84,23 @@
                             </span>
                         </a>
                     </li>
+
+                    <li class="nav-item ms-2">
+                        <a class="nav-link position-relative" href="History.html" data-bs-toggle="modal" data-bs-target="#cartModal">
+                            <i class="fa-regular fa-heart"></i>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
+    <!--  -->
     
-        <div class="container-fluid my-5 ">
+        <div class="container my-5">
             <div class="row">
                 <div class="col-lg-8">
                     <table class="table text-center">
-                        <thead class="">
+                        <thead>
                             <tr>
                                 <th >Product</th>
                                 <th>Price</th>
@@ -204,10 +207,10 @@
 
                     <div class="row mt-4 mb-4">
                         <div class="col-12 d-flex justify-content-evenly">
-                            <button type="button" class="btn btn-primary btn-lg btn-block" onclick="updateCart()">
+                            <button type="button" class="btn-primary-custom  btn-lg btn-block" onclick="updateCart()">
                                 update cart <i class="fa-solid fa-circle-check reflect" style="color: #5ab48a;"></i>
                             </button>
-                            <button type="button" href="" class="btn btn-primary btn-lg btn-block ">
+                            <button type="button" href="" class="btn-primary-custom  btn-lg btn-block ">
                                 add more <i class="fa-solid fa-cart-shopping reflect"   style="color: #82c9e6;"></i>
                             </button>
                         </div>
@@ -221,7 +224,7 @@
                             <ul class="list-group list-group-flush">
                                 <li
                                     class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                                    Subtotal
+                                    Total Bill
                                     <span class="cartprice">$150.00</span>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center px-0">
@@ -236,7 +239,7 @@
                                     <span class="cartprice"><strong>$150.00</strong></span>
                                 </li>
                             </ul>
-                            <button type="button" href="checkout.html" class="btn btn-primary btn-lg w-100">
+                            <button type="button" href="#" class=" btn-primary-custom  btn-lg w-100">
                                 Go to checkout
                                <!-- <a href="checkout.html" style="color: white; text-decoration: none;">Go to checkout</a>  -->
                             </button>
