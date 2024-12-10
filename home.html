@@ -81,7 +81,7 @@
                         <a class="nav-link btn btn-primary-custom" href="sign-up.html">Sign Up</a>
                     </li>
                     <li class="nav-item ms-2">
-                        <a class="nav-link position-relative" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
+                        <a class="nav-link position-relative" href="./Cart.html" >
                             <i class="fas fa-shopping-cart"></i>
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count">
                                 0
@@ -136,18 +136,6 @@
         </div>
     </section>
 
-    <!-- Best Sellers Section -->
-    <section class="best-sellers py-5 bg-light">
-        <div class="container">
-            <div class="section-header text-center mb-5">
-                <h2>Best Sellers</h2>
-                <p class="text-muted">Our most popular books this month</p>
-            </div>
-            <div class="row g-4" id="best-sellers-container">
-                <!-- Best seller items will be added dynamically -->
-            </div>
-        </div>
-    </section>
 
     <!-- Categories Section -->
     <section class="categories" id="categories">
@@ -660,56 +648,8 @@
             }
         });
 
-        // Load Best Sellers
-        const bestSellersData = [
-            {
-                id: 1,
-                name: "The Silent Echo",
-                author: "Jane Smith",
-                price: "$19.99",
-                imageUrl: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3"
-            },
-            {
-                id: 1,
-                name: "The Silent Echo",
-                author: "Jane Smith",
-                price: "$19.99",
-                imageUrl: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3"
-            },
-            {
-                id: 1,
-                name: "The Silent Echo",
-                author: "Jane Smith",
-                price: "$19.99",
-                imageUrl: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3"
-            },
-            {
-                id: 1,
-                name: "The Silent Echo",
-                author: "Jane Smith",
-                price: "$19.99",
-                imageUrl: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3"
-            },
-           
-        ];
 
-        const bestSellersContainer = document.getElementById('best-sellers-container');
-        bestSellersData.forEach(book => {
-            const bookCard = `
-                <div class="col-md-3">
-                    <div class="book-card" data-id="${book.id}">
-                        <img src="${book.imageUrl}" alt="${book.name}" class="book-image">
-                        <div class="book-info">
-                            <h5 class="book-title">${book.name}</h5>
-                            <p class="book-author">${book.author}</p>
-                            <p class="book-price">${book.price}</p>
-                            <button class="btn btn-primary-custom add-to-cart">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            `;
-            bestSellersContainer.innerHTML += bookCard;
-        });
+
 
     </script>
 </body>

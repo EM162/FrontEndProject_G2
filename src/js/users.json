@@ -1,0 +1,106 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Abdelrahman Elsafty",
+      "email": "elsafty@example.com",
+      "password": "Elsafty#123#",
+      "role": "customer",
+      "gender": "male",
+      "phone": "01029114940",
+      "cart": []
+    },
+    {
+      "id": 2,
+      "name": "Mohamed Mahdy",
+      "email": "mahdy@example.com",
+      "password": "Elmahdy#123#",
+      "role": "customer",
+      "gender": "male",
+      "phone": "01080757852",
+      "cart": []
+    },
+    {
+      "id": 3,
+      "name": "Eman Doe",
+      "email": "john@example.com",
+      "password": "Eman#123#",
+      "role": "customer",
+      "gender": "female",
+      "phone": "01064055776",
+      "cart": []
+    },
+    {
+      "id": 4,
+      "name": "Dareen Alaa",
+      "email": "dareen@example.com",
+      "password": "Dareen#123#",
+      "role": "customer",
+      "gender": "female",
+      "phone": "01016475754",
+      "cart": []
+    },
+    {
+      "id": 5,
+      "name": "Nasr Abdalaziz",
+      "email": "nasr32@example.com",
+      "password": "Nasr#12345#",
+      "role": "seller",
+      "gender": "male",
+      "phone": "01090290520",
+      "cart": []
+    },
+    {
+      "id": 6,
+      "name": "Nadia Saleh",
+      "email": "nadia32@example.com",
+      "password": "Nadia#12345#",
+      "role": "seller",
+      "gender": "female",
+      "phone": "01012621808",
+      "cart": []
+    }
+  ],
+  "products": [
+    {
+      "productId": 101,
+      "productName": "Product A",
+      "description": "Description for Product A",
+      "price": 50.00,
+      "category": "Electronics",
+      "stock": 100
+    },
+    {
+      "productId": 102,
+      "productName": "Product B",
+      "description": "Description for Product B",
+      "price": 30.00,
+      "category": "Home Appliances",
+      "stock": 50
+    },
+    {
+      "productId": 103,
+      "productName": "Product C",
+      "description": "Description for Product C",
+      "price": 20.00,
+      "category": "Books",
+      "stock": 200
+    },
+    {
+      "productId": 104,
+      "productName": "Product D",
+      "description": "Description for Product D",
+      "price": 15.00,
+      "category": "Toys",
+      "stock": 150
+    },
+    {
+      "productId": 105,
+      "productName": "Product E",
+      "description": "Description for Product E",
+      "price": 100.00,
+      "category": "Fashion",
+      "stock": 75
+    }
+  ]
+}
