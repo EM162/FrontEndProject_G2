@@ -165,7 +165,7 @@
                 <div class="form-floating mb-3">
                   <select class="form-select" id="role" aria-label="Role" required>
                     <option selected disabled value="">Select role</option>
-                    <option value="client">Client</option>
+                    <option value="client">Customer</option>
                     <option value="seller">Seller</option>
                   </select>
                   <label for="role">Role</label>
@@ -190,6 +190,47 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+      
+// Retrieve users from localStorage or initialize an empty array
+const usersStorage = localStorage.getItem("users");
+  const users = usersStorage ? JSON.parse(usersStorage) : [];
+
+  // Check if the user email already exists
+  const isEmailExists = (email) => users.find((user) => user.email === email);
+
+  // Handle form submission
+  $("#signupForm").on("submit", function (e) {
+    e.preventDefault();
+
+    const formData = {
+      firstName: $("#firstName").val(),
+      lastName: $("#lastName").val(),
+      birthday: $("#birthday").val(),
+      gender: $("#gender").val(),
+      email: $("#email").val(),
+      phone: $("#phone").val(),
+      password: $("#password").val(),
+      role: $("#role").val(),
+    };
+
+    // Check for duplicate email
+    if (isEmailExists(formData.email)) {
+      alert("Email already exists! Please use a different email.");
+      return;
+    }
+
+    // Add new user and update localStorage
+    users.push(formData);
+    localStorage.setItem("users", JSON.stringify(users));
+
+    // Clear the form and show success message
+    $("#signupForm")[0].reset();
+    window.location.href = "sign-in.html";
+    
+
+    alert("User registered successfully!");
+  });
+
       $(document).ready(function() {
         // Password visibility toggle
         $('.password-toggle').click(function() {

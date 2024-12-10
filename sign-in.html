@@ -102,6 +102,43 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+      
+      // Retrieve users from localStorage or initialize an empty array
+  const usersStorage = localStorage.getItem("users");
+  const users = usersStorage ? JSON.parse(usersStorage) : [];
+
+  // Handle form submission
+  $("#signinForm").on("submit", function (e) {
+    e.preventDefault();
+
+    const formData = {
+      email: $("#email").val(),
+      password: $("#password").val(),
+    };
+
+    // Find user in the array
+    const matchedUser = users.find(
+      (user) =>
+        user.email === formData.email && user.password === formData.password
+    );
+
+    if (matchedUser) {
+      // Store the current user in localStorage for session management
+      localStorage.setItem("currentUser", JSON.stringify(matchedUser));
+
+      // Redirect to home page
+      window.location.href = "home.html";
+      window.history.forward();
+    } else {
+      // Show error message for invalid credentials
+      $("#password").addClass("is-invalid");
+      $("#password")
+        .next(".invalid-feedback")
+        .text("Email not found! Please sign up first");
+    }
+  });
+
+
       $(document).ready(function() {
         // Password visibility toggle
         $('.password-toggle').click(function() {
@@ -156,8 +193,8 @@
             };
             
             // Here you would typically send the data to your server
-            console.log('Form data:', formData);
-            alert('Form submitted successfully!');
+            // console.log('Form data:', formData);
+            // alert('Form submitted successfully!');
           }
         });
         
