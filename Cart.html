@@ -58,7 +58,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg sticky-top py-3 shadow-sm">
         <div class="container">
-            <a class="navbar-brand fw-bold fs-4" href="index.html">
+            <a class="navbar-brand fw-bold fs-4" href="home.html">
                 <i class="fas fa-book-reader me-2"></i>BookHaven
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -94,11 +94,7 @@
             </div>
         </div>
     </nav>
-
-    <div class="pageHome">
-        <h1>Welcome To your Cart</h1>
-    </div>
-    <!--  cart table -->
+    <!--  -->
     
         <div class="container my-5">
             <div class="row">
@@ -113,109 +109,16 @@
                                 <th>Remove</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td >
-                                    <div class="d-flex flex-column align-items-center">
-                                        <div class="product-image-wrapper">
-                                            <img class="product-image" src="../src/images/book12.png"
-                                                alt="productimage">
-                                        </div>
-                                        <span > the book name</span>
-                                    </div>
-                                </td>
-                                <td class="centered">
-                                    <span class="cartprice">20.00$</span>
-                                </td>
-                                <td>
-                                    <div class="input-group quantity-control" style="width: 130px;">
-                                        <button class="btn btn-outline-secondary btn-minus" type="button">-</button>
-                                        <input type="text" class="form-control text-center quantity-input" value="1" min="1" readonly>
-                                        <button class="btn btn-outline-secondary btn-plus" type="button">+</button>
-                                    </div>
-                                </td>
-                                <td><span class="cartprice">120.00$</span></td>
-                                <td><button class="btn-outline-secondary btn times">&times;</button></td>
-                            </tr>
-                            <tr>
-                                <td >
-                                    <div class="d-flex flex-column align-items-center">
-                                        <div class="product-image-wrapper">
-                                            <img class="product-image" src="../src/images/book12.png"
-                                                alt="productimage">
-                                        </div>
-                                        <span>the book name</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="cartprice">15.00$</span>
-                                </td>
-                                <td>
-                                    <div class="input-group quantity-control" style="width: 130px;">
-                                        <button class="btn btn-outline-secondary btn-minus" type="button">-</button>
-                                        <input type="text" class="form-control text-center quantity-input" value="1" min="1" readonly>
-                                        <button class="btn btn-outline-secondary btn-plus" type="button">+</button>
-                                    </div>
-                                </td>
-                                <td> <span class="cartprice">10.00$</span></td>
-                                <td><button class="btn-outline-secondary btn times">&times;</button></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex flex-column align-items-center">
-                                        <div class="product-image-wrapper">
-                                            <img class="product-image" src="../src/images/book12.png"
-                                                alt="productimage">
-                                        </div>
-                                        <span >the book name</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="cartprice">15.00$</span>
-                                </td>
-                                <td>
-                                    <div class="input-group quantity-control" style="width: 130px;">
-                                        <button class="btn btn-outline-secondary btn-minus" type="button">-</button>
-                                        <input type="text" class="form-control text-center quantity-input" value="1" min="1" readonly>
-                                        <button class="btn btn-outline-secondary btn-plus" type="button">+</button>
-                                    </div>
-                                </td>
-                                <td> <span class="cartprice">30.00$</span></td>
-                                <td><button class="btn-outline-secondary btn times">&times;</button></td>
-                            </tr>
-                            <tr>
-                                <td class="product-cell">
-                                    <div class="d-flex flex-column align-items-center">
-                                        <div class="product-image-wrapper">
-                                            <img class="product-image" src="../src/images/book12.png"
-                                                alt="productimage">
-                                        </div>
-                                        <span class="product-title">the book name</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="cartprice">30.00$</span>
-                                </td>
-                                <td>
-                                    <div class="input-group quantity-control" style="width: 130px;">
-                                        <button class="btn btn-outline-secondary btn-minus" type="button">-</button>
-                                        <input type="text" class="form-control text-center quantity-input" value="1" min="1" readonly>
-                                        <button class="btn btn-outline-secondary btn-plus" type="button">+</button>
-                                    </div>
-                                </td>
-                                <td> <span class="cartprice">30.00$</span></td>
-                                <td><button class="btn-outline-secondary btn times">&times;</button></td>
-                            </tr>
+                        <tbody id="cart-table">
+
                         </tbody>
                     </table>
 
                     <div class="row mt-4 mb-4">
                         <div class="col-12 d-flex justify-content-evenly">
-                            <button type="button" class="btn-primary-custom  btn-lg btn-block" onclick="updateCart()">
-                                update cart <i class="fa-solid fa-circle-check reflect" style="color: #5ab48a;"></i>
-                            </button>
-                            <button type="button" class="btn-primary-custom btn-lg btn-block" onclick="window.location.href='categiores.html'">
-                                add more <i class="fa-solid fa-cart-shopping reflect" style="color: #82c9e6;"></i>
+                            
+                            <button type="button" href="categiores.html" class="btn-primary-custom  btn-lg btn-block ">
+                                Add More Books
                             </button>
                         </div>
                     </div>
@@ -226,30 +129,28 @@
                         <div class="card-body">
                             <h5 class="card-title text-center border-bottom">Cart Total</h5>
                             <ul class="list-group list-group-flush">
-                                <li
-                                    class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                                <li class="list-group-item d-flex justify-content-between align-items-center ">
                                     Total Bill
-                                    <span class="cartprice">$150.00</span>
+                                    <span class="cart-total-bill">$0.00</span>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                <li class="list-group-item d-flex justify-content-between align-items-center ">
                                     Shipping
-                                    <span class="cartprice">$0.00</span>
+                                    <span class="cart-shipping">$5.00</span>
                                 </li>
-                                <li
-                                    class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
                                     <div>
                                         <strong>Total amount</strong>
                                     </div>
-                                    <span class="cartprice"><strong>$150.00</strong></span>
+                                    <span class="cart-total-amount"><strong>$0.00</strong></span>
                                 </li>
                             </ul>
-                            <button type="button" href="#" class=" btn-primary-custom  btn-lg w-100">
+                            <button type="button" href="checkout.html" class="btn-primary-custom ">
                                 Go to checkout
-                               <!-- <a href="checkout.html" style="color: white; text-decoration: none;">Go to checkout</a>  -->
                             </button>
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
 
@@ -341,9 +242,15 @@
             </div>
         </div>
     </footer>
-   <!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="src/js/cart.js"></script>
+     
+  <!-------------------------------------------- end footer ------------------------------------------->
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="js/cart.js"></script>
+    
+    
+    
 </body>
  
 </html>
