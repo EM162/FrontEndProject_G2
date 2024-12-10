@@ -1,0 +1,42 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "name": "Admin User",
+        "BirthDate":"12/10/2003",
+        "Gender":"Male",
+        "email": "admin@example.com",
+        "Phone":"01024531254",
+        "role": "admin",
+        "password": "admin123"
+      },
+      {
+        "id": 2,
+        "name": "John Seller",
+        "BirthDate":"12/10/2003",
+        "Gender":"Male",
+        "email": "seller1@example.com",
+        "Phone":"01024531254",
+        "role": "seller",
+        "password": "seller123"
+      },
+      {
+        "id": 3,
+        "name": "Jane Buyer",
+        "BirthDate":"12/10/2003",
+        "Gender":"Male",
+        "email": "buyer1@example.com",
+        "Phone":"01024531254",
+        "role": "customer",
+        "password": "buyer123"
+      }
+    ],
+    "settings": {
+      "siteTitle": "My Bookstore",
+      "currency": "USD",
+      "taxRate": 0.1
+    },
+
+    "customerServiceMessages": []
+}
+  
