@@ -1,0 +1,274 @@
+{
+    "business": [
+        {
+            "id": 1,
+            "title": "Your Business Name",
+            "author": "Michael Porter",
+            "price": 39.99,
+            "category": "Business",
+            "image": "src/images/Business-1Cover.png",
+            "image2": "src/images/Business-1Back.png",
+            "status": "In Stock",
+            "pages": 300
+        },
+        {
+            "id": 2,
+            "title": "Leadership Essentials",
+            "author": "Simon Sinek",
+            "price": 44.99,
+            "category": "Business",
+            "image": "src/images/Business-2Cover.png",
+            "image2": "src/images/Business-2Back.png",
+            "status": "In Stock",
+            "pages": 250
+        },
+        {
+            "id": 3,
+            "title": "Financial Management",
+            "author": "Warren Buffett",
+            "price": 49.99,
+            "category": "Business",
+            "image": "src/images/Business-3Cover.png",
+            "image2": "src/images/Business-3Back.png",
+            "status": "In Stock",
+            "pages": 300
+        },
+        {
+            "id": 4,
+            "title": "Business Enterprise Cover", 
+            "author": "Richard Branson",
+            "price": 34.99,
+            "category": "Business",
+            "image": "src/images/Business-4Cover.png",
+            "image2": "src/images/Business-4Back.png",
+            "status": "In Stock",
+            "pages": 350
+        },
+        {
+            "id": 5,
+            "title": "Data Science For Executives",
+            "author": "David Anderson",
+            "price": 42.99,
+            "category": "Business",
+            "image": "src/images/Business-5Cover.png",
+            "image2": "src/images/Business-5Back.png",
+            "status": "In Stock",
+            "pages": 400
+        },
+        {
+            "id": 6,
+            "title": "Corporate Finance",
+            "author": "Robert Smith",
+            "price": 45.99,
+            "category": "Business",
+            "image": "src/images/Business-6Cover.png",
+            "image2": "src/images/Business-6Back.png",
+            "status": "In Stock",
+            "pages": 200
+        }
+    ],
+    "marketing": [
+        {
+            "id": 7,
+            "title": "Push Mo 'Yan!",
+            "author": "Neil Patel",
+            "price": 29.99,
+            "category": "Marketing",
+            "image": "src/images/Marketing-1Cover.png",
+            "image2": "src/images/Marketing-1Back.png",
+            "status": "In Stock",
+            "pages": 600
+        },
+        {
+            "id": 8,
+            "title": "Recipe Planner",
+            "author": "Gary Vaynerchuk",
+            "price": 32.99,
+            "category": "Marketing",
+            "image": "src/images/Marketing-2Cover.png",
+            "image2": "src/images/Marketing-2Back.png",
+            "status": "In Stock",
+            "pages": 700
+        },
+        {
+            "id": 9,
+            "title": "It Tickled The Whiskers Of My Soul",
+            "author": "Ann Handley",
+            "price": 27.99,
+            "category": "Marketing",
+            "image": "src/images/Marketing-3Cover.png",
+            "image2": "src/images/Marketing-3Back.png",
+            "status": "In Stock",
+            "pages": 300
+        },
+        {
+            "id": 10,
+            "title": "Drawing Nearer",
+            "author": "Rand Fishkin",
+            "price": 35.99,
+            "category": "Marketing",
+            "image": "src/images/Marketing-4Cover.png",
+            "image2": "src/images/Marketing-4Back.png",
+            "status": "In Stock",
+            "pages": 500
+        },
+        {
+            "id": 11,
+            "title": "The Best Book In The World",
+            "author": "Sarah Johnson",
+            "price": 24.99,
+            "category": "Marketing",
+            "image": "src/images/Marketing-5Cover.png",
+            "image2": "src/images/Marketing-5Back.png",
+            "status": "In Stock",
+            "pages": 280
+        },
+        {
+            "id": 12,
+            "title": "BY the Best-selling Author Wikk Storr",
+            "author": "Seth Godin",
+            "price": 38.99,
+            "category": "Marketing",
+            "image": "src/images/Marketing-6Cover.png",
+            "image2": "src/images/Marketing-6Back.png",
+            "status": "In Stock",
+            "pages": 377
+        }
+    ],
+    "design": [
+        {
+            "id": 13,
+            "title": "Business Agency",
+            "author": "John Doe",
+            "price": 36.99,
+            "category": "Design",
+            "image": "src/images/Design-1Cover.png",
+            "image2": "src/images/Design-1Back.png",
+            "status": "In Stock",
+            "pages": 150
+        },
+        {
+            "id": 14,
+            "title": "Shaft Of Truth",
+            "author": "Paul Rand",
+            "price": 28.99,
+            "category": "Design",
+            "image": "src/images/Design-2Cover.png",
+            "image2": "src/images/Design-2Back.png",
+            "status": "In Stock",
+            "pages": 235
+        },
+        {
+            "id": 15,
+            "title": "The Fault In Our Stars",
+            "author": "Ethan Marcotte",
+            "price": 33.99,
+            "category": "Design",
+            "image": "src/images/Design-3Cover.png",
+            "image2": "src/images/Design-3Back.png",
+            "status": "In Stock",
+            "pages": 258
+        },
+        {
+            "id": 16,
+            "title": "Clueless In Cleveland",
+            "author": "Josef Albers",
+            "price": 26.99,
+            "category": "Design",
+            "image": "src/images/Design-4Cover.png",
+            "image2": "src/images/Design-4Back.png",
+            "status": "In Stock",
+            "pages": 299
+        },
+        {
+            "id": 17,
+            "title": "Were Wonders",
+            "author": "Erik Spiekermann",
+            "price": 29.99,
+            "category": "Design",
+            "image": "src/images/Design-5Cover.png",
+            "image2": "src/images/Design-5Back.png",
+            "status": "In Stock",
+            "pages": 125
+        },
+        {
+            "id": 18,
+            "title": "Corporate Design",
+            "author": "Alla Kholmatova",
+            "price": 37.99,
+            "category": "Design",
+            "image": "src/images/Design-6Cover.png",
+            "image2": "src/images/Design-6Back.png",
+            "status": "In Stock",
+            "pages": 486
+        }
+    ],
+    "programming": [
+        {
+            "id": 19,
+            "title": "Programming Languages",
+            "author": "Douglas Crockford",
+            "price": 44.99,
+            "category": "Programming",
+            "image": "src/images/Programming-1Cover.png",
+            "image2": "src/images/Programming-1Cover.png",
+            "status": "In Stock",
+            "pages": 456
+        },
+        {
+            "id": 20,
+            "title": "Computer Programming",
+            "author": "Guido van Rossum",
+            "price": 39.99,
+            "category": "Programming",
+            "image": "src/images/Programming-2Cover.png",
+            "image2": "src/images/Programming-2Cover.png",
+            "status": "In Stock",
+            "pages": 300
+        },
+        {
+            "id": 21,
+            "title": "Ruby Programming",
+            "author": "Dan Abramov",
+            "price": 42.99,
+            "category": "Programming",
+            "image": "src/images/Programming-3Cover.png",
+            "image2": "src/images/Programming-3Cover.png",
+            "status": "In Stock",
+            "pages": 258
+        },
+        {
+            "id": 22,
+            "title": "Ansi C Programming",
+            "author": "Ryan Dahl",
+            "price": 38.99,
+            "category": "Programming",
+            "image": "src/images/Programming-4Cover.png",
+            "image2": "src/images/Programming-4Cover.png",
+            "status": "In Stock",
+            "pages": 159
+        },
+        {
+            "id": 23,
+            "title": "The Complete Software Developer's Career Guide",
+            "author": "Robert Martin",
+            "price": 47.99,
+            "category": "Programming",
+            "image": "src/images/Programming-5Cover.png",
+            "image2": "src/images/Programming-5Cover.png",
+            "status": "In Stock",
+            "pages": 693
+        },
+        {
+            "id": 24,
+            "title": "Practical Programming",
+            "author": "Thomas Cormen",
+            "price": 45.99,
+            "category": "Programming",
+            "image": "src/images/Programming-6Cover.png",
+            "image2": "src/images/Programming-6Cover.png",
+            "status": "out of Stock",
+            "pages": 349
+        }
+    ]
+}
