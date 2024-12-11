@@ -159,7 +159,21 @@
       if (currentUser) window.location.replace("./home.html")
       // Retrieve users from localStorage or initialize an empty array
       const usersStorage = localStorage.getItem("users");
-      const users = usersStorage ? JSON.parse(usersStorage) : [];
+      const users = usersStorage ? JSON.parse(usersStorage) : [{
+        firstName: "Admin",
+        lastName: "Admin",
+        birthday: "1990-01-01",
+        gender: "male",
+        email: "admin@gmail.com",
+        phone: "01000000000",
+        password: "Admin@123",
+        role: "admin",
+        cart: [],
+      }];
+
+      if (!usersStorage) {
+        localStorage.setItem("users", JSON.stringify(users));
+      }
 
       // Check if the user email already exists
       const isEmailExists = (email) => users.find((user) => user.email === email);

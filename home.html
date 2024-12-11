@@ -86,7 +86,7 @@
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fas fa-user"></i>
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu dropdown-menu-end">
                             <li>
                                 <a class="dropdown-item" href="profile.html">Profile</a>
                             </li>
@@ -139,7 +139,7 @@
                         </p>
                         <div class="d-flex gap-3">
                             <a href="#featured" class="btn btn-primary-custom btn-lg me-3">Explore Books</a>
-                            <a href="sign-up.html" class="btn btn-outline-custom btn-lg">Join Now</a>
+                            <a href="sign-up.html" class="btn btn-outline-custom btn-lg not-authenticated">Join Now</a>
                         </div>
                     </div>
                 </div>
@@ -457,7 +457,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(async function () {
             const currentUser = JSON.parse(localStorage.getItem("currentUser"));
             const users = JSON.parse(localStorage.getItem("users"));
             const filterdUser = users.find((user) => user?.email === currentUser?.email);
@@ -483,7 +483,7 @@
 
 
             function updateCartCount() {
-                const count = cart?.reduce((total, item) => total + item.quantity, 0);
+                const count = cart?.reduce((total, item) => total + item.quantity, 0) || 0;
                 $(".cart-count").text(count);
 
                 // Update checkout button state
@@ -511,7 +511,7 @@
                 const total = cart?.reduce(
                     (sum, item) => sum + item.price * item.quantity,
                     0
-                );
+                ) || 0;
                 $(".total-amount").text(`${total?.toFixed(2)}`);
                 return total;
             }
@@ -524,10 +524,10 @@
                     cartItems.append(`
                         <div class="cart-item" data-id="${item.id}">
                             <div class="cart-item-image">
-                                <img src="${item.imageUrl}" alt="${item.name}">
+                                <img src="${item.image}" alt="${item.title}">
                             </div>
                             <div class="cart-item-details">
-                                <h6 class="cart-item-title">${item.name}</h6>
+                                <h6 class="cart-item-title">${item.title}</h6>
                                 <p class="cart-item-price">${item.price}</p>
                                 <div class="cart-item-quantity">
                                     <button class="btn btn-sm btn-outline-secondary decrease-quantity">-</button>
@@ -559,6 +559,16 @@
                 if (!currentUser) {
                     Toastify({
                         text: "Please sign in to add items to your cart.",
+                        duration: 3000,
+                        gravity: "bottom",
+                        position: "right",
+                        backgroundColor: "#dc3545",
+                        stopOnFocus: true
+                    }).showToast(); return;
+                }
+                if (currentUser?.role === "admin") {
+                    Toastify({
+                        text: "You are not allowed to add items to your cart.",
                         duration: 3000,
                         gravity: "bottom",
                         position: "right",
@@ -640,60 +650,86 @@
 
 
             });
+            const fetchBooks = async () => {
+                try {
+                    const response = await fetch("src/js/books.json");
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const data = await response.json();
+                    if (!data || Object.keys(data).length === 0) {
+                        throw new Error('Invalid or empty JSON response');
+                    }
+
+                    // Get one book from each category
+                    const selectedBooks = [
+                        data.business[0],
+                        data.marketing[0],
+                        data.design[0],
+                        data.programming[0]
+                    ];
+
+                    return selectedBooks;
+                } catch (error) {
+                    console.error("Error fetching books:", error);
+                    return []; // Return empty array since the JSON fetch failed
+                }
+            };
+            const books = await fetchBooks();
 
             // Initialize cart display
             updateCartDisplay();
+            // const books = [
+            //     {
+            //         id: 1,
+            //         name: "The Art of Design",
+            //         description: "Master the principles of modern design thinking",
+            //         price: 29.99,
+            //         category: "Design",
+            //         imageUrl:
+            //             "https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3",
+            //     },
+            //     {
+            //         id: 2,
+            //         name: "Creative Coding",
+            //         description: "Learn to code through creative projects",
+            //         price: 34.99,
+            //         category: "Programming",
+            //         imageUrl:
+            //             "https://images.unsplash.com/photo-1550592704-6c76defa9985?ixlib=rb-4.0.3",
+            //     },
+            //     {
+            //         id: 3,
+            //         name: "Digital Marketing",
+            //         description: "Modern strategies for digital marketing success",
+            //         price: 24.99,
+            //         category: "Marketing",
+            //         imageUrl:
+            //             "https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?ixlib=rb-4.0.3",
+            //     },
 
-            const books = [
-                {
-                    id: 1,
-                    name: "The Art of Design",
-                    description: "Master the principles of modern design thinking",
-                    price: 29.99,
-                    category: "Design",
-                    imageUrl:
-                        "https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3",
-                },
-                {
-                    id: 2,
-                    name: "Creative Coding",
-                    description: "Learn to code through creative projects",
-                    price: 34.99,
-                    category: "Programming",
-                    imageUrl:
-                        "https://images.unsplash.com/photo-1550592704-6c76defa9985?ixlib=rb-4.0.3",
-                },
-                {
-                    id: 3,
-                    name: "Digital Marketing",
-                    description: "Modern strategies for digital marketing success",
-                    price: 24.99,
-                    category: "Marketing",
-                    imageUrl:
-                        "https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?ixlib=rb-4.0.3",
-                },
-
-                {
-                    id: 4,
-                    name: "Business Strategy",
-                    description: "Essential guide to modern business strategy",
-                    price: 39.99,
-                    category: "Business",
-                    imageUrl:
-                        "https://images.unsplash.com/photo-1553484771-371a605b060b?ixlib=rb-4.0.3",
-                },
-            ];
+            //     {
+            //         id: 4,
+            //         name: "Business Strategy",
+            //         description: "Essential guide to modern business strategy",
+            //         price: 39.99,
+            //         category: "Business",
+            //         imageUrl:
+            //             "https://images.unsplash.com/photo-1553484771-371a605b060b?ixlib=rb-4.0.3",
+            //     },
+            // ];
 
             const featuredContainer = $("#featured-books-container");
             books.forEach((book) => {
                 featuredContainer.append(`
                     <div class="swiper-slide">
                         <div class="book-card" data-id="${book.id}">
-                            <img src="${book.imageUrl}" alt="${book.name}" class="book-image">
+                            <img src="./${book.image}" alt="${book.title}" class="book-image">
                             <div class="book-content">
                                 <span class="book-category">${book.category}</span>
-                                <h3 class="book-title">${book.name}</h3>
-                                <p class="book-description">${book.description}</p>
+                                <h3 class="book-title">${book.title}</h3>
+                                <p class="book-description">${book.author}</p>
                                 <div class="book-footer">
                                     <span class="book-price">${book.price}</span>
                                     <button class="btn btn-primary-custom add-to-cart">

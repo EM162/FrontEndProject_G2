@@ -1,8 +1,12 @@
 {
+<<<<<<< HEAD
+    "liveServer.settings.port": 5504
+=======
 <<<<<<< Updated upstream
     "liveServer.settings.port": 5504
 =======
     "liveServer.settings.port": 5504,
     "dart.updateImportsOnRename": false
 >>>>>>> Stashed changes
+>>>>>>> b8b39407dcd0dfec32e557303531a5213c4bd06f
 }

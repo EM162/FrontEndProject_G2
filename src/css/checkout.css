@@ -2,12 +2,11 @@
 @import "./footer.css";
 @import "./variables.css";
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Prevent Horizontal Scrolling */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
 }
-
 
 body {
     font-family: Arial, sans-serif;
@@ -20,12 +19,8 @@ body {
 .top-bar {
     background-color: var(--primary-color);
     color: white;
-    padding: 12px 0;
+    padding: 10px 0;
     font-size: 0.9rem;
-}
-
-.blackNav{
-    margin-left: 80px;
 }
 
 .top-bar a {
@@ -333,6 +328,12 @@ textarea{
     gap: 0.5rem
 }
 
+.error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: block;
+}
 
 /*----------------------------- edit media -----------------------*/
 
@@ -342,6 +343,7 @@ textarea{
     {
         display: none;
     }
+    
 }
 
 @media (max-width: 992px) {
@@ -353,6 +355,13 @@ textarea{
     .footerImg {
         margin-bottom: 30px;
     }
+    
+    /*-------------*/
+    .nav-item a i,
+    .nav-item a span{
+        margin-top: 30px;
+    }
+    /*-------------*/
 }
 
 @media (max-width: 768px) {
@@ -369,9 +378,4 @@ textarea{
     }
 }
 
-.error-message {
-    color: #dc3545;
-    font-size: 0.875rem;
-    margin-top: 0.25rem;
-    display: block;
-}
+/*----------------------------------------*/

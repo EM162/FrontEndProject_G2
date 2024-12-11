@@ -2,6 +2,12 @@
 @import "./footer.css";
 @import "./variables.css";
 
+/* Prevent Horizontal Scrolling */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
 /* ------------------------- start navbar -----------------------*/
 
 /* Top Bar Styles */
@@ -286,5 +292,10 @@
     }
     .footerImg {
         margin-bottom: 30px;
+    }
+
+    .nav-item a i,
+    .nav-item a span{
+        margin-top: 30px;
     }
 }

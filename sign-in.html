@@ -144,6 +144,39 @@
         password: $("#password").val(),
         rememberMe: $('#rememberMe').is(':checked')
       };
+      // Check for admin credentials
+      if (formData.email === "admin@gmail.com" && formData.password === "Admin@123") {
+        const adminUser = {
+          email: formData.email,
+          password: formData.password,
+          role: "admin",
+          name: "Admin"
+        };
+
+        // Add admin to users array if not exists
+        if (!users.find(user => user.email === adminUser.email)) {
+          users.push(adminUser);
+          localStorage.setItem("users", JSON.stringify(users));
+        }
+
+        // Set current user as admin
+        localStorage.setItem("currentUser", JSON.stringify(adminUser));
+
+        Toastify({
+          text: "Admin logged in successfully.",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          style: {
+            background: "#198754",
+          },
+          callback: function () {
+            window.location.href = "AdminPanel.html";
+            window.history.forward();
+          }
+        }).showToast();
+        return;
+      }
 
       // Find user in the array
       const matchedUser = users.find(
