@@ -460,7 +460,11 @@
         $(document).ready(async function () {
             const currentUser = JSON.parse(localStorage.getItem("currentUser"));
             const users = JSON.parse(localStorage.getItem("users"));
+<<<<<<< HEAD
             const filterdUser = users?.find((user) => user?.email === currentUser?.email);
+=======
+            const filterdUser = users.find((user) => user?.email === currentUser?.email);
+>>>>>>> 8ffdd73e72c67606a1e62f1f14a118b920ae9f45
             let cart = filterdUser?.cart;
             if (currentUser) {
                 $(".authenticated").show();
@@ -680,8 +684,51 @@
 
             // Initialize cart display
             updateCartDisplay();
+<<<<<<< HEAD
            
 
+=======
+            // const books = [
+            //     {
+            //         id: 1,
+            //         name: "The Art of Design",
+            //         description: "Master the principles of modern design thinking",
+            //         price: 29.99,
+            //         category: "Design",
+            //         imageUrl:
+            //             "https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3",
+            //     },
+            //     {
+            //         id: 2,
+            //         name: "Creative Coding",
+            //         description: "Learn to code through creative projects",
+            //         price: 34.99,
+            //         category: "Programming",
+            //         imageUrl:
+            //             "https://images.unsplash.com/photo-1550592704-6c76defa9985?ixlib=rb-4.0.3",
+            //     },
+            //     {
+            //         id: 3,
+            //         name: "Digital Marketing",
+            //         description: "Modern strategies for digital marketing success",
+            //         price: 24.99,
+            //         category: "Marketing",
+            //         imageUrl:
+            //             "https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?ixlib=rb-4.0.3",
+            //     },
+
+            //     {
+            //         id: 4,
+            //         name: "Business Strategy",
+            //         description: "Essential guide to modern business strategy",
+            //         price: 39.99,
+            //         category: "Business",
+            //         imageUrl:
+            //             "https://images.unsplash.com/photo-1553484771-371a605b060b?ixlib=rb-4.0.3",
+            //     },
+            // ];
+
+>>>>>>> 8ffdd73e72c67606a1e62f1f14a118b920ae9f45
             const featuredContainer = $("#featured-books-container");
             books.forEach((book) => {
                 featuredContainer.append(`
