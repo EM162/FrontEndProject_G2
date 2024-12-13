@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const responseInput = document.getElementById("response");
 
     // Utility Functions
-    const getBookstoreDB = () => JSON.parse(localStorage.getItem("bookstoreDB")) || {};
-    const saveBookstoreDB = (data) => localStorage.setItem("bookstoreDB", JSON.stringify(data));
+    const getBookstoreDB = () => JSON.parse(localStorage.getItem("users")) || {};
+    const saveBookstoreDB = (data) => localStorage.setItem("users", JSON.stringify(data));
 
     // Fetch message ID from URL
     const params = new URLSearchParams(window.location.search);

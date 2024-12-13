@@ -1,26 +1,17 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    const dbKey = "bookstoreDB";
+    const dbKey = "users";
 
-    // Check if the data is already in localStorage
+    // Initialize users array in localStorage if it doesn't exist
     if (!localStorage.getItem(dbKey)) {
-        try {
-            const response = await fetch("src/bookstoreDB.json");
-            if (!response.ok) throw new Error("Failed to fetch the JSON file.");
-
-            const data = await response.json();
-            localStorage.setItem(dbKey, JSON.stringify(data));
-            console.log("Database initialized from JSON file.");
-        } catch (error) {
-            console.error("Error loading JSON file:", error);
-        }
+        localStorage.setItem(dbKey, JSON.stringify({ users: [], customerServiceMessages: [] }));
+        console.log("Users database initialized.");
     } else {
-        console.log("Database already exists in localStorage.");
+        console.log("Users database already exists in localStorage.");
     }
 
     // Utility Functions
     const getData = () => JSON.parse(localStorage.getItem(dbKey));
     const saveData = (data) => localStorage.setItem(dbKey, JSON.stringify(data));
-
 
     // Utility Functions for Validation
     const validateName = (name) => /^[a-zA-Z\s]{2,}$/.test(name);
@@ -48,10 +39,21 @@ document.addEventListener("DOMContentLoaded", async () => {
             errorElement.remove();
         }
     };
-//************************************************************** */
+
+    // Clear All Validation Errors
+    const clearAllValidationErrors = () => {
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            const inputs = form.querySelectorAll('.form-control');
+            inputs.forEach(input => clearValidationError(input));
+        });
+    };
 
     // Fetch and Display Sellers
-    const fetchSellers = () => getData().users.filter(user => user.role === "seller");
+    const fetchSellers = () => {
+        const db = getData();
+        return db.users.filter(user => user.role === "seller");
+    };
 
     const displaySellers = () => {
         const sellerTable = document.querySelector("#sellers tbody");
@@ -81,11 +83,31 @@ document.addEventListener("DOMContentLoaded", async () => {
             saveData(db);
             displaySellers();
             updateSellerCount();
+        } else if (event.target.classList.contains("buttonEdit")) {
+            const sellerId = Number(event.target.getAttribute("data-id"));
+            const db = getData();
+            const seller = db.users.find((user) => user.id === sellerId);
+
+            if (seller) {
+                document.getElementById("editSellerId").value = sellerId;
+                document.getElementById("sellerName").value = seller.name || "";
+                document.getElementById("sellerEmail").value = seller.email || "";
+                document.getElementById("sellerPassword").value = seller.password || "";
+                document.getElementById("sellerBirthDate").value = seller.BirthDate || "";
+                document.getElementById("sellerGender").value = seller.Gender || "";
+                document.getElementById("sellerPhone").value = seller.Phone || "";
+
+                const addSellerModal = new bootstrap.Modal(document.getElementById("addSellerModal"));
+                addSellerModal.show();
+            }
         }
     });
 
     // Fetch and Display Users
-    const fetchUsers = () => getData().users.filter(user => user.role === "customer");
+    const fetchUsers = () => {
+        const db = getData();
+        return db.users.filter(user => user.role === "customer");
+    };
 
     const displayUsers = () => {
         const userTable = document.querySelector("#users tbody");
@@ -109,14 +131,30 @@ document.addEventListener("DOMContentLoaded", async () => {
     };
 
     document.querySelector("#users").addEventListener("click", (event) => {
-        const userId = Number(event.target.getAttribute("data-id"));
-        const db = getData();
-
         if (event.target.classList.contains("buttonDelete")) {
+            const userId = Number(event.target.getAttribute("data-id"));
+            const db = getData();
             db.users = db.users.filter(user => user.id !== userId);
             saveData(db);
             displayUsers();
             updateUserCount();
+        } else if (event.target.classList.contains("buttonEdit")) {
+            const userId = Number(event.target.getAttribute("data-id"));
+            const db = getData();
+            const user = db.users.find((user) => user.id === userId);
+
+            if (user) {
+                document.getElementById("editUserId").value = userId;
+                document.getElementById("userName").value = user.name || "";
+                document.getElementById("userEmail").value = user.email || "";
+                document.getElementById("userPassword").value = user.password || "";
+                document.getElementById("userBirthDate").value = user.BirthDate || "";
+                document.getElementById("userGender").value = user.Gender || "";
+                document.getElementById("userPhone").value = user.Phone || "";
+
+                const addUserModal = new bootstrap.Modal(document.getElementById("addUserModal"));
+                addUserModal.show();
+            }
         }
     });
 
@@ -165,10 +203,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     });
 
-
-//--------------------------------------------------------------------------------------------------------------------
-
-
     // Handle Edit Button Click for Users and Sellers
     document.querySelector("#users").addEventListener("click", (event) => {
         if (event.target.classList.contains("buttonEdit")) {
@@ -177,7 +211,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const user = db.users.find((user) => user.id === userId);
 
             if (user) {
-                // Populate the modal with the user's data
+                document.getElementById("editUserId").value = userId;
                 document.getElementById("userName").value = user.name || "";
                 document.getElementById("userEmail").value = user.email || "";
                 document.getElementById("userPassword").value = user.password || "";
@@ -185,10 +219,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 document.getElementById("userGender").value = user.Gender || "";
                 document.getElementById("userPhone").value = user.Phone || "";
 
-                // Store the user ID in a hidden field to differentiate between add/edit
-                document.getElementById("editUserId").value = userId;
-
-                // Show the modal
                 const addUserModal = new bootstrap.Modal(document.getElementById("addUserModal"));
                 addUserModal.show();
             }
@@ -202,7 +232,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const seller = db.users.find((user) => user.id === sellerId);
 
             if (seller) {
-                // Populate the modal with the seller's data
+                document.getElementById("editSellerId").value = sellerId;
                 document.getElementById("sellerName").value = seller.name || "";
                 document.getElementById("sellerEmail").value = seller.email || "";
                 document.getElementById("sellerPassword").value = seller.password || "";
@@ -210,19 +240,11 @@ document.addEventListener("DOMContentLoaded", async () => {
                 document.getElementById("sellerGender").value = seller.Gender || "";
                 document.getElementById("sellerPhone").value = seller.Phone || "";
 
-                // Store the seller ID in a hidden field to differentiate between add/edit
-                document.getElementById("editSellerId").value = sellerId;
-
-                // Show the modal
                 const addSellerModal = new bootstrap.Modal(document.getElementById("addSellerModal"));
                 addSellerModal.show();
             }
         }
     });
-
-
-//--------------------------------------------------------------------------------------------------------------------
-
 
     // Check for Duplicate Email or Phone
     const isDuplicateEmail = (email, userId = null) => {
@@ -235,8 +257,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         return db.users.some(user => user.Phone === phone && user.id !== Number(userId));
     };
 
-
-//--------------------------------------------------------------------------------------------------------------------
     // Add New User Form Submission
     document.getElementById("addUserForm").addEventListener("submit", (event) => {
         event.preventDefault();
@@ -249,99 +269,75 @@ document.addEventListener("DOMContentLoaded", async () => {
         const userGender = document.getElementById("userGender").value.trim();
         const userPhone = document.getElementById("userPhone").value.trim();
 
+        // Validation
+        let isValid = true;
 
-         // Validation
-         let isValid = true;
-
-         if (!validateName(userName)) {
+        if (!validateName(userName)) {
             showValidationError(document.getElementById("userName"), "Name must contain only letters and at least 2 characters.");
             isValid = false;
         } else {
             clearValidationError(document.getElementById("userName"));
         }
- 
-         if (!validateBirthDate(userBirthDate)) {
-             showValidationError(document.getElementById("userBirthDate"), "Birth Date cannot be empty.");
-             isValid = false;
-         } else {
-             clearValidationError(document.getElementById("userBirthDate"));
-         }
- 
-         if (!validateGender(userGender)) {
-             showValidationError(document.getElementById("userGender"), "Gender cannot be empty.");
-             isValid = false;
-         } else {
-             clearValidationError(document.getElementById("userGender"));
-         }
- 
-         if (!validateEmail(userEmail)) {
+
+        if (!validateEmail(userEmail)) {
             showValidationError(document.getElementById("userEmail"), "Please enter a valid email address.");
             isValid = false;
+        } else if (isDuplicateEmail(userEmail, userId)) {
+            showValidationError(document.getElementById("userEmail"), "This email is already registered.");
+            isValid = false;
         } else {
-
-            if (isDuplicateEmail(userEmail, userId)) {
-                showValidationError(document.getElementById("userEmail"), "This email is already in use.");
-                isValid = false;
-            } else {
-                clearValidationError(document.getElementById("userEmail"));
-            }
+            clearValidationError(document.getElementById("userEmail"));
         }
- 
-         if (!validatePhone(userPhone)) {
-             showValidationError(document.getElementById("userPhone"), "Phone must be 11 digits and contain only numbers.");
-             isValid = false;
-         } else {
 
-            if (isDuplicatePhone(userPhone, userId)) {
-                showValidationError(document.getElementById("userPhone"), "This phone number is already in use.");
-                isValid = false;
-            } else {
-                clearValidationError(document.getElementById("userPhone"));
-            }
-         }
- 
-         if (!validatePassword(userPassword)) {
-            showValidationError(document.getElementById("userPassword"), "Password must be at least 6 characters and include letters, numbers, and special characters.");
+        if (!validatePassword(userPassword)) {
+            showValidationError(document.getElementById("userPassword"), "Password must be at least 6 characters with letters, numbers, and special chars.");
             isValid = false;
         } else {
             clearValidationError(document.getElementById("userPassword"));
         }
- 
-         if (!isValid) return;
 
-         const db = getData();
-         if (userId) {
-             const user = db.users.find(user => user.id === Number(userId));
-             if (user) {
-                 user.name = userName;
-                 user.email = userEmail;
-                 user.password = userPassword;
-                 user.BirthDate = userBirthDate;
-                 user.Gender = userGender;
-                 user.Phone = userPhone;
-             }
-         } else {
-             db.users.push({
-                 id: Date.now(),
-                 name: userName,
-                 email: userEmail,
-                 password: userPassword,
-                 BirthDate: userBirthDate,
-                 Gender: userGender,
-                 Phone: userPhone,
-                 role: "customer",
-             });
-         }
- 
-         saveData(db);
-         displayUsers();
-         updateUserCount();
- 
-         const addUserModal = bootstrap.Modal.getInstance(document.getElementById("addUserModal"));
-         addUserModal.hide();
+        if (!validatePhone(userPhone)) {
+            showValidationError(document.getElementById("userPhone"), "Phone must be exactly 11 digits.");
+            isValid = false;
+        } else if (isDuplicatePhone(userPhone, userId)) {
+            showValidationError(document.getElementById("userPhone"), "This phone number is already registered.");
+            isValid = false;
+        } else {
+            clearValidationError(document.getElementById("userPhone"));
+        }
 
+        if (isValid) {
+            const db = getData();
+            const user = {
+                id: userId ? Number(userId) : Date.now(),
+                name: userName,
+                email: userEmail,
+                password: userPassword,
+                BirthDate: userBirthDate,
+                Gender: userGender,
+                Phone: userPhone,
+                role: "customer"
+            };
+
+            if (userId) {
+                // Update existing user
+                db.users = db.users.map(u => u.id === Number(userId) ? user : u);
+            } else {
+                // Add new user
+                db.users.push(user);
+            }
+
+            saveData(db);
+            displayUsers();
+            updateUserCount();
+
+            // Close modal and reset form
+            const addUserModal = bootstrap.Modal.getInstance(document.getElementById("addUserModal"));
+            addUserModal.hide();
+            document.getElementById("addUserForm").reset();
+            document.getElementById("editUserId").value = "";
+        }
     });
-
 
     // Handle Reset Button Click
     document.querySelector("#users").addEventListener("click", (event) => {
@@ -403,9 +399,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         clearAllValidationErrors(); // Clear validation errors if any
     });
 
-
-//--------------------------------------------------------------------------------------------------------------------------------
-
     // Add New Seller Form Submission
     document.getElementById("addSellerForm").addEventListener("submit", (event) => {
         event.preventDefault();
@@ -418,7 +411,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const sellerGender = document.getElementById("sellerGender").value.trim();
         const sellerPhone = document.getElementById("sellerPhone").value.trim();
 
-         // Validation
+        // Validation
         let isValid = true;
 
         if (!validateName(sellerName)) {
@@ -476,27 +469,23 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (!isValid) return;
 
         const db = getData();
+        const seller = {
+            id: sellerId ? Number(sellerId) : Date.now(),
+            name: sellerName,
+            email: sellerEmail,
+            password: sellerPassword,
+            BirthDate: sellerBirthDate,
+            Gender: sellerGender,
+            Phone: sellerPhone,
+            role: "seller"
+        };
+
         if (sellerId) {
-            const seller = db.users.find(user => user.id === Number(sellerId));
-            if (seller) {
-                seller.name = sellerName;
-                seller.email = sellerEmail;
-                seller.password = sellerPassword;
-                seller.BirthDate = sellerBirthDate;
-                seller.Gender = sellerGender;
-                seller.Phone = sellerPhone;
-            }
+            // Update existing seller
+            db.users = db.users.map(u => u.id === Number(sellerId) ? seller : u);
         } else {
-            db.users.push({
-                id: Date.now(),
-                name: sellerName,
-                email: sellerEmail,
-                password: sellerPassword,
-                BirthDate: sellerBirthDate,
-                Gender: sellerGender,
-                Phone: sellerPhone,
-                role: "seller",
-            });
+            // Add new seller
+            db.users.push(seller);
         }
 
         saveData(db);
@@ -505,6 +494,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const addSellerModal = bootstrap.Modal.getInstance(document.getElementById("addSellerModal"));
         addSellerModal.hide();
+        document.getElementById("addSellerForm").reset();
+        document.getElementById("editSellerId").value = "";
     });
 
     // Clear the Add Seller Modal Fields
@@ -513,8 +504,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.getElementById("editSellerId").value = ""; // Clear hidden edit ID field
         clearAllValidationErrors(); // Clear validation errors if any
     });
-
-//----------------------------------------------------------------------------------------------------------------
 
     // Update Total Users Count
     const updateUserCount = () => {
@@ -528,12 +517,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.getElementById("totalSellers").textContent = totalSellers;
     };
 
-//---------------------------------------------------------------------------------------------------------------
     // Initialize Page
     displaySellers();
     displayUsers();
     displayMessages();
     updateUserCount();
     updateSellerCount();
-
 });

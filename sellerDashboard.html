@@ -10,6 +10,7 @@
      <!-- Chart.js Library -->
      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
      <!-- JavaScript Code -->
+      <script src="js/seller.js"></script>
      <script>
          document.addEventListener("DOMContentLoaded", function() {
              const ctx = document.getElementById('salesChart').getContext('2d');
@@ -88,104 +89,82 @@
                             <th>Title</th>
                             <th>Author</th>
                             <th>Price</th>
+                            <th>category</th>
+                            <th>pages</th>
+                            <th>discription</th>
                             <th>Stock</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Book Title 1</td>
-                            <td>Author Name</td>
-                            <td>$20</td>
-                            <td>15</td>
-                            <td>
-                                <img src="src/images/edit.png">
-                                <img src="src/images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Book Title 2</td>
-                            <td>Author Name</td>
-                            <td>$25</td>
-                            <td>10</td>
-                            <td>
-                                <img src="src/images/edit.png">
-                                <img src="src/images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Book Title 1</td>
-                            <td>Author Name</td>
-                            <td>$20</td>
-                            <td>15</td>
-                            <td>
-                                <img src="src/images/edit.png">
-                                <img src="src/images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Book Title 2</td>
-                            <td>Author Name</td>
-                            <td>$25</td>
-                            <td>10</td>
-                            <td>
-                                <img src="src/images/edit.png">
-                                <img src="src/images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Book Title 1</td>
-                            <td>Author Name</td>
-                            <td>$20</td>
-                            <td>15</td>
-                            <td>
-                                <img src="src/images/edit.png">
-                                <img src="src/images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Book Title 2</td>
-                            <td>Author Name</td>
-                            <td>$25</td>
-                            <td>10</td>
-                            <td>
-                                <img src="src/images/edit.png">
-                                <img src="src/images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>Book Title 1</td>
-                            <td>Author Name</td>
-                            <td>$20</td>
-                            <td>15</td>
-                            <td>
-                                <img src="src/images/edit.png">
-                                <img src="src/images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>Book Title 2</td>
-                            <td>Author Name</td>
-                            <td>$25</td>
-                            <td>10</td>
-                            <td>
-                                <img src="src/images/edit.png">
-                                <img src="src/images/trash.png">
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
-            <button class="btn btn-primary mb-3">Add New Product</button>
+            <button id="addProductBtn" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addProductModal">
+                Add New Book
+            </button>
+            <!-- <button class="btn btn-primary mb-3">Add New Product</button> -->
         </section>
+
+
+
+        <!-- Add Product Modal -->
+        <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="addProductForm">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addProductModalLabel">Add New Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="editProductId">
+                    <div class="mb-3">
+                    <label for="productName" class="form-label">Book Name</label>
+                    <input type="text" class="form-control" id="productName" placeholder="Enter product name" required>
+                    </div>
+                    <div class="mb-3">
+                    <label for="Author" class="form-label">Author</label>
+                    <input type="text" class="form-control" id="Author" placeholder="Enter Author name" required>
+                    </div>
+                    <div class="mb-3">
+                    <label for="productPrice" class="form-label">Price</label>
+                    <input type="text" class="form-control" id="productPrice" placeholder="Enter product price" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="productCategory" class="form-label">Category</label>
+                        <select class="form-control" id="productCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="business">Business</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="design">Design</option>
+                            <option value="programming">Programming</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                    <label for="productPages" class="form-label">Pages</label>
+                    <input type="number" class="form-control" id="productPages" placeholder="Enter number of pages" required>
+                    </div>
+                    <div class="mb-3">
+                    <label for="productDescription" class="form-label">Description</label>
+                    <textarea class="form-control" id="productDescription" rows="3" placeholder="Enter product description" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                    <label for="productStock" class="form-label">Stock</label>
+                    <input type="text" class="form-control" id="productStock" placeholder="Enter stock quantity" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+                </form>
+            </div>
+            </div>
+        </div>
+  
+
+
 
         <!-- Orders Section -->
         <section id="orders" class="mb-5">
@@ -207,10 +186,11 @@
                             <td>1</td>
                             <td>John Doe</td>
                             <td>2024-12-01</td>
-                            <td>Pending</td>
+                            <td id="status-1">Pending</td>
                             <td>$100</td>
                             <td>
-                                <button class="btn btn-success btn-sm">Mark as Shipped</button>
+                                <button class="btn btn-success btn-sm mark-as-shipped" data-id="1">Mark as Shipped</button>
+                                <a href="History.html"><button class="btn btn-light btn-sm">go to history</button></a>
                             </td>
                         </tr>
                         <tr>
@@ -221,16 +201,18 @@
                             <td>$75</td>
                             <td>
                                 <button class="btn btn-secondary btn-sm" disabled>Shipped</button>
+                                <a href="History.html"><button class="btn btn-light btn-sm">go to history</button></a>
                             </td>
                         </tr>
                         <tr>
                             <td>3</td>
                             <td>John Doe</td>
                             <td>2024-12-01</td>
-                            <td>Pending</td>
+                            <td id="status-3">Pending</td>
                             <td>$100</td>
                             <td>
-                                <button class="btn btn-success btn-sm">Mark as Shipped</button>
+                                <button class="btn btn-success btn-sm mark-as-shipped" data-id="3">Mark as Shipped</button>
+                                <a href="History.html"><button class="btn btn-light btn-sm">go to history</button></a>
                             </td>
                         </tr>
                         <tr>
@@ -241,16 +223,18 @@
                             <td>$75</td>
                             <td>
                                 <button class="btn btn-secondary btn-sm" disabled>Shipped</button>
+                                <a href="History.html"><button class="btn btn-light btn-sm">go to history</button></a>
                             </td>
                         </tr>
                         <tr>
                             <td>5</td>
                             <td>John Doe</td>
                             <td>2024-12-01</td>
-                            <td>Pending</td>
+                            <td id="status-5">Pending</td>
                             <td>$100</td>
                             <td>
-                                <button class="btn btn-success btn-sm">Mark as Shipped</button>
+                                <button class="btn btn-success btn-sm mark-as-shipped" data-id="5">Mark as Shipped</button>
+                                <a href="History.html"><button class="btn btn-light btn-sm">go to history</button></a>
                             </td>
                         </tr>
                         <tr>
@@ -261,16 +245,18 @@
                             <td>$75</td>
                             <td>
                                 <button class="btn btn-secondary btn-sm" disabled>Shipped</button>
+                                <a href="History.html"><button class="btn btn-light btn-sm">go to history</button></a>
                             </td>
                         </tr>
                         <tr>
                             <td>7</td>
                             <td>John Doe</td>
                             <td>2024-12-01</td>
-                            <td>Pending</td>
+                            <td id="status-7">Pending</td>
                             <td>$100</td>
                             <td>
-                                <button class="btn btn-success btn-sm">Mark as Shipped</button>
+                                <button class="btn btn-success btn-sm mark-as-shipped" data-id="7">Mark as Shipped</button>
+                                <a href="History.html"><button class="btn btn-light btn-sm">go to history</button></a>
                             </td>
                         </tr>
                         <tr>
@@ -281,11 +267,17 @@
                             <td>$75</td>
                             <td>
                                 <button class="btn btn-secondary btn-sm" disabled>Shipped</button>
+                                <a href="History.html"><button class="btn btn-light btn-sm">go to history</button></a>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+        </section>
+
+        <script>
+            
+        </script>
         </section>
 
             <!-- Analytics Section -->

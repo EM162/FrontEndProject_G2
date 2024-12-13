@@ -1,208 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign In - BookHaven</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="src/css/variables.css" />
-    <link rel="stylesheet" href="src/css/global.css" />
-    <link rel="stylesheet" href="src/css/auth.css" />
-  </head>
-  <body>
-    <div class="auth-container">
-      <div class="container">
-        <div class="row justify-content-center align-items-center min-vh-100">
-          <div class="col-md-5">
-            <div class="auth-card">
-              <!-- Logo and Title -->
-              <div class="text-center mb-4">
 
-                <h4 class="auth-title">Sign in to BookHaven</h4>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In - BookHaven</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.css"
+    integrity="sha512-k+xZuzf4IaGQK9sSDjaNyrfwgxBfoF++7u6Q0ZVUs2rDczx9doNZkYXyyQbnJQcMR4o+IjvAcIj69hHxiOZEig=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="src/css/variables.css" />
+  <link rel="stylesheet" href="src/css/global.css" />
+  <link rel="stylesheet" href="src/css/auth.css" />
+</head>
+
+<body>
+  <div class="auth-container">
+    <div class="container">
+      <div class="row justify-content-center align-items-center min-vh-100">
+        <div class="col-md-5">
+          <div class="auth-card">
+            <!-- Logo and Title -->
+            <div class="text-center mb-4">
+
+              <h4 class="auth-title">Sign in to BookHaven</h4>
+            </div>
+
+            <!-- Social Login -->
+            <div class="social-buttons">
+              <button class="social-btn">
+                <img src="src/images/facebook.svg" alt="Facebook" />
+              </button>
+              <button class="social-btn">
+                <img src="src/images/google.svg" alt="Google" />
+              </button>
+              <button class="social-btn">
+                <img src="src/images/apple.svg" alt="Apple" />
+              </button>
+            </div>
+
+            <div class="divider">
+              <span>or do via email</span>
+            </div>
+
+            <!-- Signin Form -->
+            <form class="auth-form" id="signinForm" novalidate>
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="email" placeholder="name@example.com" required />
+                <label for="email">Email address</label>
+                <div class="invalid-feedback" id="emailFeedback">Please enter a valid email address</div>
               </div>
 
-              <!-- Social Login -->
-              <div class="social-buttons">
-                <button class="social-btn">
-                  <img src="src/images/facebook.svg" alt="Facebook" />
+              <div class="password-field form-floating mb-3">
+                <input type="password" class="form-control" id="password" placeholder="Password" required />
+                <label for="password">Password</label>
+                <button type="button" class="password-toggle">
+                  <i class="far fa-eye"></i>
                 </button>
-                <button class="social-btn">
-                  <img src="src/images/google.svg" alt="Google" />
-                </button>
-                <button class="social-btn">
-                  <img src="src/images/apple.svg" alt="Apple" />
-                </button>
+                <div class="invalid-feedback" id="passwordFeedback">Please enter your password</div>
               </div>
 
-              <div class="divider">
-                <span>or do via email</span>
-              </div>
-
-              <!-- Signin Form -->
-              <form class="auth-form" id="signinForm" novalidate>
-                <div class="form-floating mb-3">
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email"
-                    placeholder="name@example.com"
-                    required
-                  />
-                  <label for="email">Email address</label>
-                  <div class="invalid-feedback">Please enter a valid email address</div>
+              <div class="d-flex justify-content-between align-items-center mb-4">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="rememberMe">
+                  <label class="form-check-label" for="rememberMe">
+                    Remember me
+                  </label>
                 </div>
-
-                <div class="password-field form-floating mb-3">
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="password"
-                    placeholder="Password"
-                    required
-                  />
-                  <label for="password">Password</label>
-                  <button type="button" class="password-toggle">
-                    <i class="far fa-eye"></i>
-                  </button>
-                  <div class="invalid-feedback">Please enter your password</div>
-                </div>
-
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="rememberMe">
-                    <label class="form-check-label" for="rememberMe">
-                      Remember me
-                    </label>
-                  </div>
-                  <a href="#" class="auth-link">Forgot password?</a>
-                </div>
-
-                <button type="submit" class="btn btn-auth w-100">
-                  Sign in
-                </button>
-              </form>
-
-              <div class="text-center mt-4">
-                <p class="auth-link">
-                  Don't have an account? <a href="sign-up.html">Sign up</a>
-                </p>
+                <a href="#" class="auth-link">Forgot password?</a>
               </div>
+
+              <button type="submit" class="btn btn-auth w-100">
+                Sign in
+              </button>
+            </form>
+
+            <div class="text-center mt-4">
+              <p class="auth-link">
+                Don't have an account? <a href="sign-up.html">Sign up</a>
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-      
-      // Retrieve users from localStorage or initialize an empty array
-  const usersStorage = localStorage.getItem("users");
-  const users = usersStorage ? JSON.parse(usersStorage) : [];
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.js"
+    integrity="sha512-0Yc4Jv5wX4+mjDuLxmHFGqgDtMFAEBLpPq/0nPVmAOwHPMkYXiS1YVYWTcrVQztftk/32089DDTyrCJO8hBCZw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    const currentUser = localStorage.getItem("currentUser") || null
+    if (currentUser) window.location.replace("./home.html")
+    // Retrieve users from localStorage or initialize an empty array
+    const usersStorage = localStorage.getItem("users");
+    const users = usersStorage ? JSON.parse(usersStorage) : [];
 
-  // Handle form submission
-  $("#signinForm").on("submit", function (e) {
-    e.preventDefault();
+    // Handle form submission
+    $("#signinForm").on("submit", function (e) {
+      e.preventDefault();
 
-    const formData = {
-      email: $("#email").val(),
-      password: $("#password").val(),
-    };
+      let isValid = true;
+      const form = $(this);
+      const inputs = form.find('input:not([type="checkbox"])');
 
-    // Find user in the array
-    const matchedUser = users.find(
-      (user) =>
-        user.email === formData.email && user.password === formData.password
-    );
+      // Remove all existing validation states
+      inputs.removeClass('is-invalid');
+      $('#emailFeedback, #passwordFeedback').text('');
 
-    if (matchedUser) {
+      // Validate each input
+      inputs.each(function () {
+        const input = $(this);
+
+        if (input.prop('required') && !input.val()) {
+          input.addClass('is-invalid');
+          if (input.attr('type') === 'email') {
+            $('#emailFeedback').text('Email address is required');
+          } else if (input.attr('type') === 'password') {
+            $('#passwordFeedback').text('Password is required');
+          }
+          isValid = false;
+        }
+
+        // Email validation
+        if (input.attr('type') === 'email' && input.val()) {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(input.val())) {
+            input.addClass('is-invalid');
+            $('#emailFeedback').text('Please enter a valid email address');
+            isValid = false;
+          }
+        }
+      });
+
+      if (!isValid) {
+        return;
+      }
+
+      const formData = {
+        email: $("#email").val(),
+        password: $("#password").val(),
+        rememberMe: $('#rememberMe').is(':checked')
+      };
+      // Check for admin credentials
+      if (formData.email === "admin@gmail.com" && formData.password === "Admin@123") {
+        const adminUser = {
+          email: formData.email,
+          password: formData.password,
+          role: "admin",
+          name: "Admin"
+        };
+
+        // Add admin to users array if not exists
+        if (!users.find(user => user.email === adminUser.email)) {
+          users.push(adminUser);
+          localStorage.setItem("users", JSON.stringify(users));
+        }
+
+        // Set current user as admin
+        localStorage.setItem("currentUser", JSON.stringify(adminUser));
+
+        Toastify({
+          text: "Admin logged in successfully.",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          style: {
+            background: "#198754",
+          },
+          callback: function () {
+            window.location.href = "AdminPanel.html";
+            window.history.forward();
+          }
+        }).showToast();
+        return;
+      }
+
+      // Find user in the array
+      const matchedUser = users.find(
+        (user) => user.email === formData.email
+      );
+
+      if (!matchedUser) {
+        $("#email").addClass("is-invalid");
+        $('#emailFeedback').html("Email not found! Please sign up first or check your email address");
+        return;
+      }
+
+      if (matchedUser.password !== formData.password) {
+        $("#password").addClass("is-invalid");
+        $('#passwordFeedback').html("Incorrect password! Please check your password and try again");
+        return;
+      }
+
       // Store the current user in localStorage for session management
       localStorage.setItem("currentUser", JSON.stringify(matchedUser));
+      Toastify({
+        text: "Logged In successfully.",
+        duration: 3000,
+        gravity: "top",
+        position: "center",
+        style: {
+          background: "#198754",
+        }, callback: function () {
+          // Redirect to home page
+          window.location.replace("home.html");
+          window.history.forward();
+        }
+      }).showToast();
 
-      // Redirect to home page
-      window.location.href = "home.html";
-      window.history.forward();
-    } else {
-      // Show error message for invalid credentials
-      $("#password").addClass("is-invalid");
-      $("#password")
-        .next(".invalid-feedback")
-        .text("Email not found! Please sign up first");
-    }
-  });
+    });
 
+    $(document).ready(function () {
+      // Password visibility toggle
+      $('.password-toggle').click(function () {
+        const input = $(this).siblings('input');
+        const icon = $(this).find('i');
 
-      $(document).ready(function() {
-        // Password visibility toggle
-        $('.password-toggle').click(function() {
-          const input = $(this).siblings('input');
-          const icon = $(this).find('i');
-          
-          if (input.attr('type') === 'password') {
-            input.attr('type', 'text');
-            icon.removeClass('fa-eye').addClass('fa-eye-slash');
-          } else {
-            input.attr('type', 'password');
-            icon.removeClass('fa-eye-slash').addClass('fa-eye');
-          }
-        });
-
-        // Form validation
-        $('#signinForm').on('submit', function(e) {
-          e.preventDefault();
-          
-          let isValid = true;
-          const form = $(this);
-          const inputs = form.find('input:not([type="checkbox"])');
-          
-          // Remove all existing validation states
-          inputs.removeClass('is-invalid');
-          
-          // Validate each input
-          inputs.each(function() {
-            const input = $(this);
-            
-            if (input.prop('required') && !input.val()) {
-              input.addClass('is-invalid');
-              isValid = false;
-            }
-            
-            // Email validation
-            if (input.attr('type') === 'email') {
-              const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-              if (!emailRegex.test(input.val())) {
-                input.addClass('is-invalid');
-                isValid = false;
-              }
-            }
-          });
-          
-          if (isValid) {
-            // Collect form data
-            const formData = {
-              email: $('#email').val(),
-              password: $('#password').val(),
-              rememberMe: $('#rememberMe').is(':checked')
-            };
-            
-            // Here you would typically send the data to your server
-            // console.log('Form data:', formData);
-            // alert('Form submitted successfully!');
-          }
-        });
-        
-        // Clear invalid state on input
-        $('input').on('input change', function() {
-          $(this).removeClass('is-invalid');
-        });
+        if (input.attr('type') === 'password') {
+          input.attr('type', 'text');
+          icon.removeClass('fa-eye').addClass('fa-eye-slash');
+        } else {
+          input.attr('type', 'password');
+          icon.removeClass('fa-eye-slash').addClass('fa-eye');
+        }
       });
-    </script>
-  </body>
+
+      // Clear invalid state on input
+      $('input').on('input change', function () {
+        $(this).removeClass('is-invalid');
+        if ($(this).attr('type') === 'email') {
+          $('#emailFeedback').text('Please enter a valid email address');
+        } else if ($(this).attr('type') === 'password') {
+          $('#passwordFeedback').text('Please enter your password');
+        }
+      });
+    });
+  </script>
+</body>
+
 </html>

@@ -56,11 +56,11 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const getBookstoreDB = () => {
-        return JSON.parse(localStorage.getItem("bookstoreDB")) || {};
+        return JSON.parse(localStorage.getItem("users")) || {};
     };
 
     const saveBookstoreDB = (data) => {
-        localStorage.setItem("bookstoreDB", JSON.stringify(data));
+        localStorage.setItem("users", JSON.stringify(data));
     };
 
     // Save Button Event Listener
