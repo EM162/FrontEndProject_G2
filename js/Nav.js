@@ -19,4 +19,8 @@ $("#sign-out").click(function (e) {
   e.preventDefault();
   localStorage.removeItem("currentUser");
   location.reload();
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> b842d6f861ae6aa05536ad6d2f3f829f4e62b654
