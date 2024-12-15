@@ -21,13 +21,11 @@
       <div class="row justify-content-center align-items-center min-vh-100">
         <div class="col-md-5">
           <div class="auth-card">
-            <!-- Logo and Title -->
             <div class="text-center mb-4">
 
               <h4 class="auth-title">Sign in to BookHaven</h4>
             </div>
 
-            <!-- Social Login -->
             <div class="social-buttons">
               <button class="social-btn">
                 <img src="src/images/facebook.svg" alt="Facebook" />
@@ -94,11 +92,9 @@
   <script>
     const currentUser = localStorage.getItem("currentUser") || null
     if (currentUser) window.location.replace("./home.html")
-    // Retrieve users from localStorage or initialize an empty array
     const usersStorage = localStorage.getItem("users");
     const users = usersStorage ? JSON.parse(usersStorage) : [];
 
-    // Handle form submission
     $("#signinForm").on("submit", function (e) {
       e.preventDefault();
 
@@ -106,11 +102,9 @@
       const form = $(this);
       const inputs = form.find('input:not([type="checkbox"])');
 
-      // Remove all existing validation states
       inputs.removeClass('is-invalid');
       $('#emailFeedback, #passwordFeedback').text('');
 
-      // Validate each input
       inputs.each(function () {
         const input = $(this);
 
@@ -124,7 +118,6 @@
           isValid = false;
         }
 
-        // Email validation
         if (input.attr('type') === 'email' && input.val()) {
           const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
           if (!emailRegex.test(input.val())) {
@@ -144,7 +137,6 @@
         password: $("#password").val(),
         rememberMe: $('#rememberMe').is(':checked')
       };
-      // Check for admin credentials
       if (formData.email === "admin@gmail.com" && formData.password === "Admin@123") {
         const adminUser = {
           email: formData.email,
@@ -153,13 +145,11 @@
           name: "Admin"
         };
 
-        // Add admin to users array if not exists
         if (!users.find(user => user.email === adminUser.email)) {
           users.push(adminUser);
           localStorage.setItem("users", JSON.stringify(users));
         }
 
-        // Set current user as admin
         localStorage.setItem("currentUser", JSON.stringify(adminUser));
 
         Toastify({
@@ -178,7 +168,6 @@
         return;
       }
 
-      // Find user in the array
       const matchedUser = users.find(
         (user) => user.email === formData.email
       );
@@ -195,7 +184,6 @@
         return;
       }
 
-      // Store the current user in localStorage for session management
       localStorage.setItem("currentUser", JSON.stringify(matchedUser));
       Toastify({
         text: "Logged In successfully.",

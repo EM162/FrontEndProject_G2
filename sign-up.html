@@ -165,16 +165,16 @@
   } catch (error) {
     console.error("Error initializing users data:", error);
     users = [];
-    localStorage.setItem("users", JSON.stringify(users)); // Reset users as an empty array
+    localStorage.setItem("users", JSON.stringify(users)); 
   }
 
-  // Check if the user email already exists
+  
   const isEmailExists = (email) => users.find((user) => user.email === email);
 
-  // Check if the phone number already exists
+  
   const isPhoneExists = (phone) => users.find((user) => user.phone === phone);
 
-  // Password visibility toggle
+  
   $('.password-toggle').click(function () {
     const input = $(this).closest('.password-field').find('input');
     const icon = $(this).find('i');
@@ -410,10 +410,9 @@
         customerServiceMessages: [],
       };
 
-      // Add new user and update localStorage
       users.push(formData);
       localStorage.setItem("users", JSON.stringify(users));
-      // Show success toast
+      
       Toastify({
         text: "Your account has been created successfully.",
         duration: 3000,
