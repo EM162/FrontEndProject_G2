@@ -1,34 +1,57 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    const dbKey = "bookstoreDB";
 
-    // Initialize database if not exists
-    if (!localStorage.getItem(dbKey)) {
+    const params = new URLSearchParams(window.location.search);
+    const dashboardId = params.get("dashboardId");
+
+    if (!dashboardId) {
+        document.body.innerHTML = `<h1>Access Denied</h1><p>No valid dashboard ID found.</p>`;
+        return;
+    }
+
+    // Fetch sellerDashboard from localStorage
+    const getSellerDashboard = () => JSON.parse(localStorage.getItem("sellerDashboard")) || [];
+    const sellerDashboard = getSellerDashboard();
+
+    // Find the seller with the given dashboardId
+    const seller = sellerDashboard.find((entry) => entry.dashboardId === dashboardId);
+
+    if (!seller) {
+        document.body.innerHTML = `<h1>Access Denied</h1><p>Invalid dashboard ID.</p>`;
+        return;
+    }
+
+    // Display seller's dashboard information
+    document.body.innerHTML = `
+        <h1>Welcome to ${seller.email}'s Dashboard</h1>
+        <p>Dashboard ID: ${seller.dashboardId}</p>
+        <p>Additional seller-specific content goes here...</p>
+    `;
+
+
+    const booksKey = "books";
+
+    // Initialize books array by fetching from books.json if not exists in localStorage
+    if (!localStorage.getItem(booksKey)) {
         try {
-            const response = await fetch("src/bookstoreDB.json");
+            const response = await fetch("src/books.json"); // Fetch from books.json
             if (!response.ok) throw new Error("Failed to fetch the JSON file.");
-            const data = await response.json();
-            if (!data.orders) {
-                data.orders = [];
-            }
-            localStorage.setItem(dbKey, JSON.stringify(data));
-            console.log("Database initialized from JSON file.");
+            const books = await response.json();
+            localStorage.setItem(booksKey, JSON.stringify(books));
+            console.log("Books initialized from JSON file.");
         } catch (error) {
             console.error("Error loading JSON file:", error);
-            // Initialize with empty data if fetch fails
-            localStorage.setItem(dbKey, JSON.stringify({ products: [], orders: [] }));
-        }
-    } else {
-        // Ensure orders array exists in existing data
-        const data = JSON.parse(localStorage.getItem(dbKey));
-        if (!data.orders) {
-            data.orders = [];
-            localStorage.setItem(dbKey, JSON.stringify(data));
+            // Initialize with an empty array if fetch fails
+            localStorage.setItem(booksKey, JSON.stringify([]));
         }
     }
 
     // Utility Functions
-    const getData = () => JSON.parse(localStorage.getItem(dbKey));
-    const saveData = (data) => localStorage.setItem(dbKey, JSON.stringify(data));
+    // Fetch books from localStorage
+    const getBooks = () => JSON.parse(localStorage.getItem("books")) || [];
+    // Filter books for the specific seller
+    const sellerBooks = getBooks().filter((book) => book.sellerId === dashboardId);
+    // const getBooks = () => JSON.parse(localStorage.getItem(booksKey));
+    const saveBooks = (books) => localStorage.setItem(booksKey, JSON.stringify(books));
 
     // Utility Functions for Validation
     const validateProductName = (value) => value.length >= 2;
@@ -57,8 +80,48 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     };
 
+//      // Render the seller's dashboard
+//      const dashboardContent = `
+//      <h1>Welcome to ${seller.email}'s Dashboard</h1>
+//      <p>Dashboard ID: ${seller.dashboardId}</p>
+//      <h2>Seller Products</h2>
+//      <table class="table">
+//          <thead>
+//              <tr>
+//                  <th>#</th>
+//                  <th>Title</th>
+//                  <th>Author</th>
+//                  <th>Price</th>
+//                  <th>Category</th>
+//                  <th>Pages</th>
+//                  <th>Description</th>
+//                  <th>Stock</th>
+//              </tr>
+//          </thead>
+//          <tbody>
+//              ${sellerBooks
+//                  .map(
+//                      (book, index) => `
+//                  <tr>
+//                      <td>${index + 1}</td>
+//                      <td>${book.title}</td>
+//                      <td>${book.author}</td>
+//                      <td>${book.price}</td>
+//                      <td>${book.category}</td>
+//                      <td>${book.pages}</td>
+//                      <td>${book.description}</td>
+//                      <td>${book.stock}</td>
+//                  </tr>`
+//                  )
+//                  .join("")}
+//          </tbody>
+//      </table>
+//  `;
+
+//  document.body.innerHTML = dashboardContent;
+
     // Fetch Products
-    const fetchProducts = () => getData().products || [];
+      const fetchProducts = () => getBooks() || [];
 
     // Display Products
     const displayProducts = () => {
@@ -85,9 +148,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.querySelector("#products").addEventListener("click", (event) => {
         if (event.target.classList.contains("buttonDelete")) {
             const productId = Number(event.target.getAttribute("data-id"));
-            const db = getData();
-            db.products = db.products.filter(product => product.id !== productId);
-            saveData(db);
+            const books = getBooks();
+            const updatedBooks = books.filter(product => product.id !== productId);
+            saveBooks(updatedBooks);
             displayProducts();
         }
     });
@@ -96,8 +159,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.querySelector("#products").addEventListener("click", (event) =>{
         if (event.target.classList.contains("buttonEdit")) {
             const productId = Number(event.target.getAttribute("data-id"));
-            const db = getData();
-            const product = db.products.find(product => product.id === productId);
+            const books = getBooks();
+            const product = books.find(product => product.id === productId);
 
             if (product) {
                 document.getElementById("productName").value = product.title || "";
@@ -109,15 +172,13 @@ document.addEventListener("DOMContentLoaded", async () => {
                 document.getElementById("productStock").value = product.stock || "";
                 document.getElementById("editProductId").value = productId || "";
 
-                document.getElementById("editProductId").value = productId;
-
                 const addProductModal = new bootstrap.Modal(document.getElementById("addProductModal"));
                 addProductModal.show();
             }
         }
     });
 
-    // Add New User Form Submission
+    // Add New Product Form Submission
     document.getElementById("addProductForm").addEventListener("submit", (event) => {
         event.preventDefault();
 
@@ -184,9 +245,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         if (!isValid) return;
 
-        const db = getData();
+        const books = getBooks();
         if (productId) {
-            const product = db.products.find(product => product.id === Number(productId));
+            const product = books.find(product => product.id === Number(productId));
             if(product) {
                 product.title = productName;
                 product.author = productAuthor;
@@ -197,11 +258,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 product.stock = productStock;
             }
         } else {
-            // Initialize products array if it doesn't exist
-            if (!db.products) {
-                db.products = [];
-            }
-            db.products.push({
+            books.push({
                 id: Date.now(),
                 title : productName,
                 author : productAuthor,
@@ -213,7 +270,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
         }
 
-        saveData(db);
+        saveBooks(books);
         displayProducts();
 
         const addProductModal = bootstrap.Modal.getInstance(document.getElementById("addProductModal"));
@@ -221,81 +278,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     });
 
-    // Clear the Add User Modal Fields
+    // Clear the Add Product Modal Fields
     document.getElementById("addProductBtn").addEventListener("click", () => {
         document.getElementById("addProductForm").reset(); // Reset the form
         document.getElementById("editProductId").value = ""; // Clear hidden edit ID field
-        //clearAllValidationErrors(); // Clear validation errors if any
     });
-
-    //----------------------------------------------------------------------------------------------------------------
-
-    // Update Total Users Count
-    const updateUserCount = () => {
-        const totalUsers = fetchUsers().length; // Fetch users and get the count
-        document.getElementById("totalUsers").textContent = totalUsers;
-    };
-
-    // Update Total Sellers Count
-    const updateSellerCount = () => {
-        const totalSellers = fetchSellers().length; // Fetch sellers and get the count
-        document.getElementById("totalSellers").textContent = totalSellers;
-    };
-
-//---------------------------------------------------------------------------------------------------------------
-
-    // Handle Mark as Shipped functionality
-    function initializeShippingButtons() {
-        const markAsShippedButtons = document.querySelectorAll('.mark-as-shipped');
-        markAsShippedButtons.forEach(button => {
-            const id = button.dataset.id;
-            const statusElement = document.getElementById(`status-${id}`);
-            const db = getData();
-
-            // Check existing status
-            if (db.orders) {
-                const order = db.orders.find(order => order.id === Number(id));
-                if (order && order.status === 'Shipped') {
-                    if (statusElement) {
-                        statusElement.textContent = 'Shipped';
-                    }
-                    button.classList.replace('btn-success', 'btn-secondary');
-                    button.textContent = 'Shipped';
-                    button.disabled = true;
-                }
-            }
-
-            // Add click handler
-            button.addEventListener('click', function() {
-                const db = getData();
-                if (!db.orders) {
-                    db.orders = [];
-                }
-
-                let order = db.orders.find(order => order.id === Number(id));
-                if (!order) {
-                    order = {
-                        id: Number(id),
-                        status: 'Pending'
-                    };
-                    db.orders.push(order);
-                }
-
-                order.status = 'Shipped';
-                saveData(db);
-
-                if (statusElement) {
-                    statusElement.textContent = 'Shipped';
-                }
-
-                this.classList.replace('btn-success', 'btn-secondary');
-                this.textContent = 'Shipped';
-                this.disabled = true;
-            });
-        });
-    }
 
     // Initialize the page
     displayProducts();
-    initializeShippingButtons();
 });

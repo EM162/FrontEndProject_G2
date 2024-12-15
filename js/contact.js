@@ -66,15 +66,45 @@ document.addEventListener("DOMContentLoaded", () => {
     // Save Button Event Listener
     saveButton.addEventListener("click", (event) => {
         event.preventDefault();
+    if (!currentUser) {
+      Toastify({
+        text: "Please login first to send a message.",
+        duration: 3000,
+        gravity: "top",
+        position: "right",
+        style: {
+          background: "#dc3545",
+        },
+      }).showToast();
 
+      return;
+    }
         // Validate Fields
         let isValid = true;
-        isValid &= validateLettersOnly(nameInput, "Name must contain only letters and at least 2 characters.");
+    isValid &= validateLettersOnly(
+      nameInput,
+      "Name must contain only letters and at least 2 characters."
+    );
         isValid &= validateEmail(emailInput, "Please enter a valid email address.");
         isValid &= validateNotEmpty(messageInput, "Message cannot be empty.");
 
         // If all fields are valid, save to the database
         if (isValid) {
+      // Get current user
+      const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+      if (!currentUser) {
+        Toastify({
+          text: "Please sign in to send a message",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          style: {
+            background: "#dc3545",
+          },
+        }).showToast();
+        return;
+      }
+
             const newMessage = {
                 id: Date.now(), // Unique ID for each message
                 name: nameInput.value.trim(),
@@ -82,24 +112,49 @@ document.addEventListener("DOMContentLoaded", () => {
                 message: messageInput.value.trim(),
                 status: "Open", // Default status
                 response: null,
+        timestamp: new Date().toISOString(),
             };
 
-            // Retrieve the current database
-            const db = getBookstoreDB();
+      // Get all users
+      const users = JSON.parse(localStorage.getItem("users")) || [];
 
-            // Ensure customerServiceMessages array exists
-            if (!db.customerServiceMessages) {
-                db.customerServiceMessages = [];
+      // Find the current user in the users array
+      const userIndex = users.findIndex(
+        (user) => user.email === currentUser.email
+      );
+      if (userIndex === -1) {
+        Toastify({
+          text: "Error saving message. Please try again.",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          style: {
+            background: "#dc3545",
+          },
+        }).showToast();
+        return;
+      }
+
+      // Initialize customerServiceMessages array if it doesn't exist
+      if (!users[userIndex].customerServiceMessages) {
+        users[userIndex].customerServiceMessages = [];
             }
 
-            // Add the new message to the array
-            db.customerServiceMessages.push(newMessage);
-
-            // Save the updated database back to localStorage
-            saveBookstoreDB(db);
-
+      // Add the new message
+      users[userIndex].customerServiceMessages.push(newMessage);
+      // Save back to localStorage
+      localStorage.setItem("users", JSON.stringify(users));
+      localStorage.setItem("currentUser", JSON.stringify(users[userIndex]));
+      Toastify({
+        text: "Your message has been sent successfully!",
+        duration: 3000,
+        gravity: "top",
+        position: "center",
+        style: {
+          background: "#28a745",
+        },
+      }).showToast();
             // Show success message
-            alert("Your message has been sent successfully!");
 
             // Optionally reset the form
             form.reset();

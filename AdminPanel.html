@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +7,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="src/css/AdminPanel.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Chart.js Library -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- JavaScript Code -->
-    <!-- <script>
+     <!-- Chart.js Library -->
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <script src="js/admin.js"></script>
+     <!-- JavaScript Code -->
+     <!-- <script>
          document.addEventListener("DOMContentLoaded", function() {
              const ctx = document.getElementById('salesChart').getContext('2d');
              const salesChart = new Chart(ctx, {
@@ -53,7 +53,6 @@
 
 
 </head>
-
 <body>
 
     <!-- Sidebar -->
@@ -62,8 +61,8 @@
         <a href="sellerDashboard.html">Seller Dashboard</a>
         <a href="#sellers">Manage Sellers</a>
         <a href="#users">Manage Users</a>
-        <a href="#products">Manage Products</a>
-        <a href="#orders">Manage Orders</a>
+        <!-- <a href="#products">Manage Products</a>
+        <a href="#orders">Manage Orders</a> -->
         <a href="#support">Customer Service</a>
     </div>
 
@@ -87,7 +86,7 @@
                     <div class="card text-center text-white shadow-card-2">
                         <div class="card-body">
                             <h3>Users</h3>
-                            <p>1,200</p>
+                            <p id="totalUsers">1,200</p>
                         </div>
                     </div>
                 </div>
@@ -103,8 +102,8 @@
                 <div class="col-lg-3 col-md-6 mb-3">
                     <div class="card text-center text-white shadow-card-4">
                         <div class="card-body">
-                            <h3>Authors</h3>
-                            <p>100</p>
+                            <h3>Sellers</h3>
+                            <p id="totalSellers">100</p>
                         </div>
                     </div>
                 </div>
@@ -117,8 +116,8 @@
             </div> -->
         </section>
 
-
-        <!-- Sellers Section -->
+        
+        <!------------------------------------------ Sellers Section ----------------------------------------->
         <section id="sellers" class="mb-5">
             <h2>Manage Sellers</h2>
             <div class="table-responsive">
@@ -127,109 +126,79 @@
                         <tr>
                             <th>#</th>
                             <th>Name</th>
-                            <th>Age</th>
+                            <th>Birth Date</th>
+                            <th>Gender</th>
                             <th>Email</th>
+                            <th>Phone</th>
                             <th>Password</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>John Doe</td>
-                            <td>30</td>
-                            <td>john@example.com</td>
-                            <td>1234</td>
-                            <td>
-                                <img src="./images/trash.png">
-                                <img src="./images/reset-password.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>John Doe</td>
-                            <td>30</td>
-                            <td>john@example.com</td>
-                            <td>1234</td>
-                            <td>
-                                <img src="./images/trash.png">
-                                <img src="./images/reset-password.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>John Doe</td>
-                            <td>30</td>
-                            <td>john@example.com</td>
-                            <td>1234</td>
-                            <td>
-                                <img src="./images/trash.png">
-                                <img src="./images/reset-password.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>John Doe</td>
-                            <td>30</td>
-                            <td>john@example.com</td>
-                            <td>1234</td>
-                            <td>
-                                <img src="./images/trash.png">
-                                <img src="./images/reset-password.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>John Doe</td>
-                            <td>30</td>
-                            <td>john@example.com</td>
-                            <td>1234</td>
-                            <td>
-                                <img src="./images/trash.png">
-                                <img src="./images/reset-password.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>John Doe</td>
-                            <td>30</td>
-                            <td>john@example.com</td>
-                            <td>1234</td>
-                            <td>
-                                <img src="./images/trash.png">
-                                <img src="./images/reset-password.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>John Doe</td>
-                            <td>30</td>
-                            <td>john@example.com</td>
-                            <td>1234</td>
-                            <td>
-                                <img src="./images/trash.png">
-                                <img src="./images/reset-password.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>John Doe</td>
-                            <td>30</td>
-                            <td>john@example.com</td>
-                            <td>1234</td>
-                            <td>
-                                <img src="./images/trash.png">
-                                <img src="./images/reset-password.png">
-                            </td>
-                        </tr>
+                        
                     </tbody>
                 </table>
             </div>
-            <button class="btn btn-primary mb-3 addNew">Add New Seller</button>
+            <button class="btn btn-secondary mb-3 addNew" data-bs-toggle="modal" data-bs-target="#addSellerModal" id="addseller">Add New Seller</button>
         </section>
 
-        <!-- Users Section -->
-        <section id="users" class="mb-5">
+
+
+         <!-- Add New Seller Modal -->
+         <div class="modal fade" id="addSellerModal" tabindex="-1" aria-labelledby="addSellerModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addSellerModalLabel">Add New Seller</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="addSellerForm">
+                            <div class="mb-3">
+                                <!-- ********* -->
+                                <input type="hidden" id="editSellerId">
+                                <label for="sellerName" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="sellerName" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="sellerEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="sellerEmail" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="sellerPassword" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="sellerPassword" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="sellerBirthDate" class="form-label">Birth Date</label>
+                                <input type="date" class="form-control" id="sellerBirthDate">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="sellerGender" class="form-label">Gender</label>
+                                <select class="form-select" id="sellerGender">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="sellerPhone" class="form-label">Phone</label>
+                                <input type="text" class="form-control" id="sellerPhone">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--------------------------------------------- Users Section -------------------------------------------->
+
+         <section id="users" class="mb-5">
             <h2>Manage Users</h2>
             <div class="table-responsive">
                 <table class="table table-striped">
@@ -237,306 +206,104 @@
                         <tr>
                             <th>#</th>
                             <th>Name</th>
-                            <th>Age</th>
+                            <!-- <th>First Name</th>
+                            <th>Last Name</th> -->
+                            <th>Birth Date</th>
+                            <th>Gender</th>
                             <th>Email</th>
+                            <th>Phone</th>
                             <th>Password</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>John Doe</td>
-                            <td>30</td>
-                            <td>john@example.com</td>
-                            <td>1234</td>
-                            <td>
-                                <img src="./images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>John Doe</td>
-                            <td>30</td>
-                            <td>john@example.com</td>
-                            <td>1234</td>
-                            <td>
-                                <img src="./images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>John Doe</td>
-                            <td>30</td>
-                            <td>john@example.com</td>
-                            <td>1234</td>
-                            <td>
-                                <img src="./images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>John Doe</td>
-                            <td>30</td>
-                            <td>john@example.com</td>
-                            <td>1234</td>
-                            <td>
-                                <img src="./images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>John Doe</td>
-                            <td>30</td>
-                            <td>john@example.com</td>
-                            <td>1234</td>
-                            <td>
-                                <img src="./images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>John Doe</td>
-                            <td>30</td>
-                            <td>john@example.com</td>
-                            <td>1234</td>
-                            <td>
-                                <img src="./images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>John Doe</td>
-                            <td>30</td>
-                            <td>john@example.com</td>
-                            <td>1234</td>
-                            <td>
-                                <img src="./images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>John Doe</td>
-                            <td>30</td>
-                            <td>john@example.com</td>
-                            <td>1234</td>
-                            <td>
-                                <img src="./images/trash.png">
-                            </td>
-                        </tr>
+                        
                     </tbody>
                 </table>
             </div>
-            <button class="btn btn-primary mb-3 addNew">Add New User</button>
+            <button type="button" class="btn btn-secondary mb-3 addNew" data-bs-toggle="modal" data-bs-target="#addUserModal" id="adduser">Add New User</button>
+            
         </section>
 
 
-        <!-- Products Section -->
-        <section id="products" class="mb-5">
-            <h2>Manage Products</h2>
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead class="table-secondary">
-                        <tr>
-                            <th>#</th>
-                            <th>Title</th>
-                            <th>Author</th>
-                            <th>Price</th>
-                            <th>Stock</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Book Title 1</td>
-                            <td>Author Name</td>
-                            <td>$20</td>
-                            <td>15</td>
-                            <td>
-                                <img src="./images/edit.png">
-                                <img src="./images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Book Title 2</td>
-                            <td>Author Name</td>
-                            <td>$25</td>
-                            <td>10</td>
-                            <td>
-                                <img src="./images/edit.png">
-                                <img src="./images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Book Title 1</td>
-                            <td>Author Name</td>
-                            <td>$20</td>
-                            <td>15</td>
-                            <td>
-                                <img src="./images/edit.png">
-                                <img src="./images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Book Title 2</td>
-                            <td>Author Name</td>
-                            <td>$25</td>
-                            <td>10</td>
-                            <td>
-                                <img src="./images/edit.png">
-                                <img src="./images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Book Title 1</td>
-                            <td>Author Name</td>
-                            <td>$20</td>
-                            <td>15</td>
-                            <td>
-                                <img src="./images/edit.png">
-                                <img src="./images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Book Title 2</td>
-                            <td>Author Name</td>
-                            <td>$25</td>
-                            <td>10</td>
-                            <td>
-                                <img src="./images/edit.png">
-                                <img src="./images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>Book Title 1</td>
-                            <td>Author Name</td>
-                            <td>$20</td>
-                            <td>15</td>
-                            <td>
-                                <img src="./images/edit.png">
-                                <img src="./images/trash.png">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>Book Title 2</td>
-                            <td>Author Name</td>
-                            <td>$25</td>
-                            <td>10</td>
-                            <td>
-                                <img src="./images/edit.png">
-                                <img src="./images/trash.png">
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+        <!-- Add New User Modal -->
+        <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addUserModalLabel">Add New User</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="addUserForm">
+                            <div class="mb-3">
+                                <!-- ***** -->
+                                <input type="hidden" id="editUserId">
+                                <label for="userName" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="userName" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="userEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="userEmail" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="userPassword" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="userPassword" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="userBirthDate" class="form-label">Birth Date</label>
+                                <input type="date" class="form-control" id="userBirthDate">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="userGender" class="form-label">Gender</label>
+                                <select class="form-select" id="userGender">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="userPhone" class="form-label">Phone</label>
+                                <input type="text" class="form-control" id="userPhone">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <button class="btn btn-primary mb-3 addNew">Add New Product</button>
-        </section>
+        </div>
 
-        <!-- Orders Section -->
-        <section id="orders" class="mb-5">
-            <h2>Manage Orders</h2>
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead class="table-secondary">
-                        <tr>
-                            <th>#</th>
-                            <th>Customer</th>
-                            <th>Date</th>
-                            <th>Status</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Jane Smith</td>
-                            <td>2024-12-03</td>
-                            <td>Pending</td>
-                            <td>
-                                <button class="btn btn-success btn-sm">Mark as Shipped</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Jane Smith</td>
-                            <td>2024-12-01</td>
-                            <td>Shipped</td>
-                            <td>
-                                <button class="btn btn-secondary btn-sm" disabled>Shipped</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>John Doe</td>
-                            <td>2024-12-01</td>
-                            <td>Pending</td>
-                            <td>
-                                <button class="btn btn-success btn-sm">Mark as Shipped</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Jane Smith</td>
-                            <td>2024-12-01</td>
-                            <td>Shipped</td>
-                            <td>
-                                <button class="btn btn-secondary btn-sm" disabled>Shipped</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>John Doe</td>
-                            <td>2024-12-01</td>
-                            <td>Pending</td>
-                            <td>
-                                <button class="btn btn-success btn-sm">Mark as Shipped</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Jane Smith</td>
-                            <td>2024-12-01</td>
-                            <td>Shipped</td>
-                            <td>
-                                <button class="btn btn-secondary btn-sm" disabled>Shipped</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>John Doe</td>
-                            <td>2024-12-01</td>
-                            <td>Pending</td>
-                            <td>
-                                <button class="btn btn-success btn-sm">Mark as Shipped</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>Jane Smith</td>
-                            <td>2024-12-01</td>
-                            <td>Shipped</td>
-                            <td>
-                                <button class="btn btn-secondary btn-sm" disabled>Shipped</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+
+        <!-- Password Reset Modal -->
+        <div class="modal fade" id="resetPasswordModal" tabindex="-1" aria-labelledby="resetPasswordModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="resetPasswordModalLabel">Reset Password</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="resetPasswordForm">
+                            <div class="mb-3">
+                                <label for="newPassword" class="form-label">New Password</label>
+                                <input type="password" class="form-control" id="newPassword" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <input type="hidden" id="resetUserId"> <!-- Hidden input to store user ID -->
+                            <button type="submit" class="btn btn-primary">Update Password</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <button class="btn btn-primary mb-3 addNew">Add New Order</button>
-        </section>
+        </div>
 
-
-        <!-- Customer Service Section -->
-        <section id="support" class="mb-5">
+ <!---------------------------------------------------------- Customer Service Section ---------------------------------------------->
+         <section id="support" class="mb-5">
             <h2>Customer Service</h2>
             <div class="table-responsive">
                 <table class="table table-bordered">
@@ -550,98 +317,99 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>John Doe</td>
-                            <td>Order not received</td>
-                            <td>Open</td>
-                            <td>
-                                <button class="btn btn-primary btn-sm buttonRespond">Respond</button>
-                                <button class="btn btn-secondary btn-sm">Mark as Resolved</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>John Doe</td>
-                            <td>Order not received</td>
-                            <td>Open</td>
-                            <td>
-                                <button class="btn btn-primary btn-sm buttonRespond">Respond</button>
-                                <button class="btn btn-secondary btn-sm">Mark as Resolved</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>John Doe</td>
-                            <td>Order not received</td>
-                            <td>Open</td>
-                            <td>
-                                <button class="btn btn-primary btn-sm buttonRespond">Respond</button>
-                                <button class="btn btn-secondary btn-sm">Mark as Resolved</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>John Doe</td>
-                            <td>Order not received</td>
-                            <td>Open</td>
-                            <td>
-                                <button class="btn btn-primary btn-sm buttonRespond">Respond</button>
-                                <button class="btn btn-secondary btn-sm">Mark as Resolved</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>John Doe</td>
-                            <td>Order not received</td>
-                            <td>Open</td>
-                            <td>
-                                <button class="btn btn-primary btn-sm buttonRespond">Respond</button>
-                                <button class="btn btn-secondary btn-sm">Mark as Resolved</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>John Doe</td>
-                            <td>Order not received</td>
-                            <td>Open</td>
-                            <td>
-                                <button class="btn btn-primary btn-sm buttonRespond">Respond</button>
-                                <button class="btn btn-secondary btn-sm">Mark as Resolved</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>John Doe</td>
-                            <td>Order not received</td>
-                            <td>Open</td>
-                            <td>
-                                <button class="btn btn-primary btn-sm buttonRespond">Respond</button>
-                                <button class="btn btn-secondary btn-sm">Mark as Resolved</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>John Doe</td>
-                            <td>Order not received</td>
-                            <td>Open</td>
-                            <td>
-                                <button class="btn btn-primary btn-sm buttonRespond">Respond</button>
-                                <button class="btn btn-secondary btn-sm">Mark as Resolved</button>
-                            </td>
-                        </tr>
+                        
                     </tbody>
                 </table>
             </div>
         </section>
+            
+ <!---------------------------------------------------------- Each Seller dashboard ---------------------------------------------->
+
+    <section id="sellerDashboardManagement" class="mb-5">
+        <h2>Manage Seller Dashboards</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead class="table-secondary">
+                    <tr>
+                        <th>#</th>
+                        <th>Email</th>
+                        <th>Dashboard ID</th>
+                        <th>Password</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="sellerDashboardTableBody">
+                    <!-- Rows will be dynamically populated -->
+                </tbody>
+            </table>
+        </div>
+        <button class="btn btn-secondary mb-3 addNew" data-bs-toggle="modal" data-bs-target="#addNewRowModal" id="addNewRowButton">Add</button>
+    </section>
 
 
+    <!-- Add New Row Modal -->
+<div class="modal fade" id="addNewRowModal" tabindex="-1" aria-labelledby="addNewRowModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addNewRowModalLabel">Add New Seller Dashboard</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addNewRowForm">
+                    <div class="mb-3">
+                        <label for="newSellerEmail" class="form-label">Seller Email</label>
+                        <input type="email" class="form-control" id="newSellerEmail" placeholder="Enter Seller Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="newDashboardId" class="form-label">Dashboard ID</label>
+                        <input type="text" class="form-control" id="newDashboardId" placeholder="Enter Dashboard ID" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="newDashboardPassword" class="form-label">Dashboard Password</label>
+                        <input type="password" class="form-control" id="newDashboardPassword" placeholder="Enter Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+            </div>
+        </div>
     </div>
-    <script>
+</div>
 
-        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        if (!currentUser && !currentUser.role === 'admin') window.location.href = 'home.html';
-    </script>
+<!-- Edit Seller Modal -->
+<div class="modal fade" id="editSellerModal" tabindex="-1" aria-labelledby="editSellerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editSellerModalLabel">Edit Seller Dashboard</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editSellerForm">
+                    <div class="mb-3">
+                        <label for="editSellerEmail" class="form-label">Seller Email</label>
+                        <input type="email" class="form-control" id="editSellerEmail" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editDashboardId" class="form-label">Dashboard ID</label>
+                        <input type="text" class="form-control" id="editDashboardId" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editDashboardPassword" class="form-label">Dashboard Password</label>
+                        <input type="password" class="form-control" id="editDashboardPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</div>
+    
+
 </body>
-
 </html>
