@@ -149,492 +149,299 @@
     </div>
   </div>
 
-<<<<<<< HEAD
-=======
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
->>>>>>> 8ffdd73e72c67606a1e62f1f14a118b920ae9f45
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.js"
     integrity="sha512-0Yc4Jv5wX4+mjDuLxmHFGqgDtMFAEBLpPq/0nPVmAOwHPMkYXiS1YVYWTcrVQztftk/32089DDTyrCJO8hBCZw=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
-<<<<<<< HEAD
-    document.addEventListener('DOMContentLoaded', function () {
-      const currentUser = localStorage.getItem("currentUser") || null;
-      if (currentUser) window.location.replace("home.html");
-
-      // Retrieve users from localStorage or initialize an empty array
-      const usersStorage = localStorage.getItem("users");
-      const users = usersStorage ? JSON.parse(usersStorage) : [{
-        firstName: "Admin",
-        lastName: "Admin",
-        birthday: "1990-01-01",
-        gender: "male",
-        email: "admin@gmail.com",
-        phone: "01000000000",
-        password: "Admin@123",
-        role: "admin",
-        cart: [],
-      }];
-
-      if (!usersStorage) {
-        localStorage.setItem("users", JSON.stringify(users));
-      }
-
-      // Check if the user email already exists
-      const isEmailExists = (email) => users.find((user) => user.email === email);
-
-      // Check if the phone number already exists
-      const isPhoneExists = (phone) => users.find((user) => user.phone === phone);
-
-      // Password visibility toggle
-      document.querySelectorAll('.password-toggle').forEach(button => {
-        button.addEventListener('click', function() {
-          const input = this.closest('.password-field').querySelector('input');
-          const icon = this.querySelector('i');
-
-          if (input.type === 'password') {
-            input.type = 'text';
-            icon.classList.remove('fa-eye');
-            icon.classList.add('fa-eye-slash');
-          } else {
-            input.type = 'password';
-            icon.classList.remove('fa-eye-slash');
-            icon.classList.add('fa-eye');
-          }
-        });
-=======
     $(document).ready(function () {
-      const currentUser = localStorage.getItem("currentUser") || null
-      if (currentUser) window.location.replace("./home.html")
-      // Retrieve users from localStorage or initialize an empty array
-      const usersStorage = localStorage.getItem("users");
-      const users = usersStorage ? JSON.parse(usersStorage) : [{
-        firstName: "Admin",
-        lastName: "Admin",
-        birthday: "1990-01-01",
-        gender: "male",
-        email: "admin@gmail.com",
-        phone: "01000000000",
-        password: "Admin@123",
-        role: "admin",
+  // Retrieve users from localStorage or initialize an empty array
+  const usersStorage = localStorage.getItem("users");
+  let users;
+
+  try {
+    users = usersStorage ? JSON.parse(usersStorage) : [];
+    if (!Array.isArray(users)) throw new Error("Users data is not an array.");
+  } catch (error) {
+    console.error("Error initializing users data:", error);
+    users = [];
+    localStorage.setItem("users", JSON.stringify(users)); // Reset users as an empty array
+  }
+
+  // Check if the user email already exists
+  const isEmailExists = (email) => users.find((user) => user.email === email);
+
+  // Check if the phone number already exists
+  const isPhoneExists = (phone) => users.find((user) => user.phone === phone);
+
+  // Password visibility toggle
+  $('.password-toggle').click(function () {
+    const input = $(this).closest('.password-field').find('input');
+    const icon = $(this).find('i');
+
+    if (input.attr('type') === 'password') {
+      input.attr('type', 'text');
+      icon.removeClass('fa-eye').addClass('fa-eye-slash');
+    } else {
+      input.attr('type', 'password');
+      icon.removeClass('fa-eye-slash').addClass('fa-eye');
+    }
+  });
+
+  // Individual field validation functions
+  function validateFirstName() {
+    const firstNameInput = $('#firstName');
+    const nameRegex = /^[A-Za-z]+$/;
+    const firstName = firstNameInput.val();
+
+    if (!firstName) {
+      firstNameInput.addClass('is-invalid');
+      firstNameInput.siblings('.invalid-feedback').text('First name is required');
+      return false;
+    } else if (firstName.length < 5) {
+      firstNameInput.addClass('is-invalid');
+      firstNameInput.siblings('.invalid-feedback').text('First name must be at least 5 characters');
+      return false;
+    } else if (!nameRegex.test(firstName)) {
+      firstNameInput.addClass('is-invalid');
+      firstNameInput.siblings('.invalid-feedback').text('First name must contain only letters');
+      return false;
+    }
+    firstNameInput.removeClass('is-invalid');
+    return true;
+  }
+
+  function validateLastName() {
+    const lastNameInput = $('#lastName');
+    const nameRegex = /^[A-Za-z]+$/;
+    const lastName = lastNameInput.val();
+
+    if (!lastName) {
+      lastNameInput.addClass('is-invalid');
+      lastNameInput.siblings('.invalid-feedback').text('Last name is required');
+      return false;
+    } else if (lastName.length < 5) {
+      lastNameInput.addClass('is-invalid');
+      lastNameInput.siblings('.invalid-feedback').text('Last name must be at least 5 characters');
+      return false;
+    } else if (!nameRegex.test(lastName)) {
+      lastNameInput.addClass('is-invalid');
+      lastNameInput.siblings('.invalid-feedback').text('Last name must contain only letters');
+      return false;
+    }
+    lastNameInput.removeClass('is-invalid');
+    return true;
+  }
+
+  function validateBirthday() {
+    const birthdayInput = $('#birthday');
+    const birthday = new Date(birthdayInput.val());
+    const today = new Date();
+    const tenYearsAgo = new Date();
+    tenYearsAgo.setFullYear(today.getFullYear() - 10);
+
+    if (!birthdayInput.val()) {
+      birthdayInput.addClass('is-invalid');
+      birthdayInput.siblings('.invalid-feedback').text('Birthday is required');
+      return false;
+    } else if (birthday > tenYearsAgo) {
+      birthdayInput.addClass('is-invalid');
+      birthdayInput.siblings('.invalid-feedback').text('You must be at least 10 years old');
+      return false;
+    }
+    birthdayInput.removeClass('is-invalid');
+    return true;
+  }
+
+  function validateGender() {
+    const genderInput = $('#gender');
+    if (!genderInput.val()) {
+      genderInput.addClass('is-invalid');
+      return false;
+    }
+    genderInput.removeClass('is-invalid');
+    return true;
+  }
+
+  function validateEmail() {
+    const emailInput = $('#email');
+    const allowedDomains = ['gmail.com', 'yahoo.com', 'proton.me', 'outlook.com', 'hotmail.com'];
+    const email = emailInput.val();
+
+    if (!email) {
+      emailInput.addClass('is-invalid');
+      emailInput.siblings('.invalid-feedback').text('Email is required');
+      return false;
+    }
+
+    const emailDomain = email.split('@')[1];
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+      emailInput.addClass('is-invalid');
+      emailInput.siblings('.invalid-feedback').text('Please enter a valid email address');
+      return false;
+    } else if (!allowedDomains.includes(emailDomain)) {
+      emailInput.addClass('is-invalid');
+      emailInput.siblings('.invalid-feedback').text('Please use a valid email provider (Gmail, Yahoo, Proton, Outlook, or Hotmail)');
+      return false;
+    } else if (isEmailExists(email)) {
+      emailInput.addClass('is-invalid');
+      emailInput.siblings('.invalid-feedback').text('This email is already registered');
+      return false;
+    }
+    emailInput.removeClass('is-invalid');
+    return true;
+  }
+
+  function validatePhone() {
+    const phoneInput = $('#phone');
+    const egyptPhoneRegex = /^(01)[0-2,5]{1}[0-9]{8}$/;
+    const phoneNumber = phoneInput.val().replace(/\D/g, '');
+
+    if (!phoneNumber) {
+      phoneInput.addClass('is-invalid');
+      phoneInput.siblings('.invalid-feedback').text('Phone number is required');
+      return false;
+    } else if (!egyptPhoneRegex.test(phoneNumber)) {
+      phoneInput.addClass('is-invalid');
+      phoneInput.siblings('.invalid-feedback').text('Please enter a valid Egyptian phone number (e.g., 01xxxxxxxxx)');
+      return false;
+    } else if (isPhoneExists(phoneNumber)) {
+      phoneInput.addClass('is-invalid');
+      phoneInput.siblings('.invalid-feedback').text('This phone number is already registered');
+      return false;
+    }
+    phoneInput.removeClass('is-invalid');
+    return true;
+  }
+
+  function validatePassword() {
+    const passwordInput = $('#password');
+    const password = passwordInput.val();
+
+    if (!password) {
+      passwordInput.addClass('is-invalid');
+      passwordInput.siblings('.invalid-feedback').text('Password is required');
+      return false;
+    }
+
+    const hasMinLength = password.length >= 8;
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasLowerCase = /[a-z]/.test(password);
+    const hasNumbers = /\d/.test(password);
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+    if (!hasMinLength || !hasUpperCase || !hasLowerCase || !hasNumbers || !hasSpecialChar) {
+      passwordInput.addClass('is-invalid');
+      passwordInput.siblings('.invalid-feedback').text('Password must be at least 8 characters and contain at least 1 uppercase letter, lowercase letter, number, and special character');
+      return false;
+    }
+    passwordInput.removeClass('is-invalid');
+    return true;
+  }
+
+  function validateConfirmPassword() {
+    const confirmInput = $('#confirmPassword');
+    const password = $('#password').val();
+    const confirm = confirmInput.val();
+
+    if (!confirm) {
+      confirmInput.addClass('is-invalid');
+      confirmInput.siblings('.invalid-feedback').text('Confirm password is required');
+      return false;
+    } else if (password !== confirm) {
+      confirmInput.addClass('is-invalid');
+      return false;
+    }
+    confirmInput.removeClass('is-invalid');
+    return true;
+  }
+
+  function validateRole() {
+    const roleInput = $('#role');
+    if (!roleInput.val()) {
+      roleInput.addClass('is-invalid');
+      return false;
+    }
+    roleInput.removeClass('is-invalid');
+    return true;
+  }
+
+  // Form submission
+  $('#signupForm').on('submit', function (e) {
+    e.preventDefault();
+
+    // Trigger all validations
+    validateFirstName();
+    validateLastName();
+    validateBirthday();
+    validateGender();
+    validateEmail();
+    validatePhone();
+    validatePassword();
+    validateConfirmPassword();
+    validateRole();
+
+    const isValid = validateFirstName() &&
+      validateLastName() &&
+      validateBirthday() &&
+      validateGender() &&
+      validateEmail() &&
+      validatePhone() &&
+      validatePassword() &&
+      validateConfirmPassword() &&
+      validateRole();
+
+    if (isValid) {
+      // Collect form data
+      const formData = {
+        firstName: $('#firstName').val(),
+        lastName: $('#lastName').val(),
+        birthday: $('#birthday').val(),
+        gender: $('#gender').val(),
+        email: $('#email').val(),
+        phone: $('#phone').val().replace(/\D/g, ''),
+        password: $('#password').val(),
+        role: $('#role').val(),
         cart: [],
-      }];
+        history: [],
+        bill: [],
+        customerServiceMessages: [],
+      };
 
-      if (!usersStorage) {
-        localStorage.setItem("users", JSON.stringify(users));
-      }
-
-      // Check if the user email already exists
-      const isEmailExists = (email) => users.find((user) => user.email === email);
-
-      // Check if the phone number already exists
-      const isPhoneExists = (phone) => users.find((user) => user.phone === phone);
-
-      // Password visibility toggle
-      $('.password-toggle').click(function () {
-        const input = $(this).closest('.password-field').find('input');
-        const icon = $(this).find('i');
-
-        if (input.attr('type') === 'password') {
-          input.attr('type', 'text');
-          icon.removeClass('fa-eye').addClass('fa-eye-slash');
-        } else {
-          input.attr('type', 'password');
-          icon.removeClass('fa-eye-slash').addClass('fa-eye');
+      // Add new user and update localStorage
+      users.push(formData);
+      localStorage.setItem("users", JSON.stringify(users));
+      // Show success toast
+      Toastify({
+        text: "Your account has been created successfully.",
+        duration: 3000,
+        gravity: "top",
+        position: "center",
+        style: {
+          background: "#198754",
+        }, callback: function () {
+          window.location.href = "sign-in.html";
         }
->>>>>>> 8ffdd73e72c67606a1e62f1f14a118b920ae9f45
-      });
+      }).showToast();
+    }
+  });
 
-      // Individual field validation functions
-      function validateFirstName() {
-<<<<<<< HEAD
-        const firstNameInput = document.getElementById('firstName');
-        const nameRegex = /^[A-Za-z]+$/;
-        const isValid = nameRegex.test(firstNameInput.value.trim());
-        
-        firstNameInput.classList.toggle('is-invalid', !isValid);
-        return isValid;
-      }
-
-      function validateLastName() {
-        const lastNameInput = document.getElementById('lastName');
-        const nameRegex = /^[A-Za-z]+$/;
-        const isValid = nameRegex.test(lastNameInput.value.trim());
-        
-        lastNameInput.classList.toggle('is-invalid', !isValid);
-        return isValid;
-      }
-
-      function validateBirthday() {
-        const birthdayInput = document.getElementById('birthday');
-        const selectedDate = new Date(birthdayInput.value);
-        const today = new Date();
-        const minAge = 13;
-        const maxAge = 100;
-        
-        const age = today.getFullYear() - selectedDate.getFullYear();
-        const isValid = age >= minAge && age <= maxAge;
-        
-        birthdayInput.classList.toggle('is-invalid', !isValid);
-        return isValid;
-      }
-
-      function validateGender() {
-        const genderSelect = document.getElementById('gender');
-        const isValid = genderSelect.value !== '';
-        
-        genderSelect.classList.toggle('is-invalid', !isValid);
-        return isValid;
-      }
-
-      function validateEmail() {
-        const emailInput = document.getElementById('email');
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const email = emailInput.value.trim();
-        
-        const isValidFormat = emailRegex.test(email);
-        const exists = isEmailExists(email);
-        const isValid = isValidFormat && !exists;
-        
-        emailInput.classList.toggle('is-invalid', !isValid);
-        
-        if (!isValidFormat) {
-          emailInput.nextElementSibling.nextElementSibling.textContent = 'Please enter a valid email address';
-        } else if (exists) {
-          emailInput.nextElementSibling.nextElementSibling.textContent = 'This email is already registered';
-        }
-        
-        return isValid;
-      }
-
-      function validatePhone() {
-        const phoneInput = document.getElementById('phone');
-        const phoneRegex = /^[0-9]{11}$/;
-        const phone = phoneInput.value.trim();
-        
-        const isValidFormat = phoneRegex.test(phone);
-        const exists = isPhoneExists(phone);
-        const isValid = isValidFormat && !exists;
-        
-        phoneInput.classList.toggle('is-invalid', !isValid);
-        
-        if (!isValidFormat) {
-          phoneInput.nextElementSibling.nextElementSibling.textContent = 'Please enter a valid 11-digit phone number';
-        } else if (exists) {
-          phoneInput.nextElementSibling.nextElementSibling.textContent = 'This phone number is already registered';
-        }
-        
-        return isValid;
-      }
-
-     function validatePassword() {
-=======
-        const firstNameInput = $('#firstName');
-        const nameRegex = /^[A-Za-z]+$/;
-        const firstName = firstNameInput.val();
-
-        if (!firstName) {
-          firstNameInput.addClass('is-invalid');
-          firstNameInput.siblings('.invalid-feedback').text('First name is required');
-          return false;
-        } else if (firstName.length < 5) {
-          firstNameInput.addClass('is-invalid');
-          firstNameInput.siblings('.invalid-feedback').text('First name must be at least 5 characters');
-          return false;
-        } else if (!nameRegex.test(firstName)) {
-          firstNameInput.addClass('is-invalid');
-          firstNameInput.siblings('.invalid-feedback').text('First name must contain only letters');
-          return false;
-        }
-        firstNameInput.removeClass('is-invalid');
-        return true;
-      }
-
-      function validateLastName() {
-        const lastNameInput = $('#lastName');
-        const nameRegex = /^[A-Za-z]+$/;
-        const lastName = lastNameInput.val();
-
-        if (!lastName) {
-          lastNameInput.addClass('is-invalid');
-          lastNameInput.siblings('.invalid-feedback').text('Last name is required');
-          return false;
-        } else if (lastName.length < 5) {
-          lastNameInput.addClass('is-invalid');
-          lastNameInput.siblings('.invalid-feedback').text('Last name must be at least 5 characters');
-          return false;
-        } else if (!nameRegex.test(lastName)) {
-          lastNameInput.addClass('is-invalid');
-          lastNameInput.siblings('.invalid-feedback').text('Last name must contain only letters');
-          return false;
-        }
-        lastNameInput.removeClass('is-invalid');
-        return true;
-      }
-
-      function validateBirthday() {
-        const birthdayInput = $('#birthday');
-        const birthday = new Date(birthdayInput.val());
-        const today = new Date();
-        const tenYearsAgo = new Date();
-        tenYearsAgo.setFullYear(today.getFullYear() - 10);
-
-        if (!birthdayInput.val()) {
-          birthdayInput.addClass('is-invalid');
-          birthdayInput.siblings('.invalid-feedback').text('Birthday is required');
-          return false;
-        } else if (birthday > tenYearsAgo) {
-          birthdayInput.addClass('is-invalid');
-          birthdayInput.siblings('.invalid-feedback').text('You must be at least 10 years old');
-          return false;
-        }
-        birthdayInput.removeClass('is-invalid');
-        return true;
-      }
-
-      function validateGender() {
-        const genderInput = $('#gender');
-        if (!genderInput.val()) {
-          genderInput.addClass('is-invalid');
-          return false;
-        }
-        genderInput.removeClass('is-invalid');
-        return true;
-      }
-
-      function validateEmail() {
-        const emailInput = $('#email');
-        const allowedDomains = ['gmail.com', 'yahoo.com', 'proton.me', 'outlook.com', 'hotmail.com'];
-        const email = emailInput.val();
-
-        if (!email) {
-          emailInput.addClass('is-invalid');
-          emailInput.siblings('.invalid-feedback').text('Email is required');
-          return false;
-        }
-
-        const emailDomain = email.split('@')[1];
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!emailRegex.test(email)) {
-          emailInput.addClass('is-invalid');
-          emailInput.siblings('.invalid-feedback').text('Please enter a valid email address');
-          return false;
-        } else if (!allowedDomains.includes(emailDomain)) {
-          emailInput.addClass('is-invalid');
-          emailInput.siblings('.invalid-feedback').text('Please use a valid email provider (Gmail, Yahoo, Proton, Outlook, or Hotmail)');
-          return false;
-        } else if (isEmailExists(email)) {
-          emailInput.addClass('is-invalid');
-          emailInput.siblings('.invalid-feedback').text('This email is already registered');
-          return false;
-        }
-        emailInput.removeClass('is-invalid');
-        return true;
-      }
-
-      function validatePhone() {
-        const phoneInput = $('#phone');
-        const egyptPhoneRegex = /^(01)[0-2,5]{1}[0-9]{8}$/;
-        const phoneNumber = phoneInput.val().replace(/\D/g, '');
-
-        if (!phoneNumber) {
-          phoneInput.addClass('is-invalid');
-          phoneInput.siblings('.invalid-feedback').text('Phone number is required');
-          return false;
-        } else if (!egyptPhoneRegex.test(phoneNumber)) {
-          phoneInput.addClass('is-invalid');
-          phoneInput.siblings('.invalid-feedback').text('Please enter a valid Egyptian phone number (e.g., 01xxxxxxxxx)');
-          return false;
-        } else if (isPhoneExists(phoneNumber)) {
-          phoneInput.addClass('is-invalid');
-          phoneInput.siblings('.invalid-feedback').text('This phone number is already registered');
-          return false;
-        }
-        phoneInput.removeClass('is-invalid');
-        return true;
-      }
-
-      function validatePassword() {
->>>>>>> 8ffdd73e72c67606a1e62f1f14a118b920ae9f45
-        const passwordInput = $('#password');
-        const password = passwordInput.val();
-
-        if (!password) {
-          passwordInput.addClass('is-invalid');
-          passwordInput.siblings('.invalid-feedback').text('Password is required');
-          return false;
-        }
-
-        const hasMinLength = password.length >= 8;
-        const hasUpperCase = /[A-Z]/.test(password);
-        const hasLowerCase = /[a-z]/.test(password);
-        const hasNumbers = /\d/.test(password);
-        const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
-
-        if (!hasMinLength || !hasUpperCase || !hasLowerCase || !hasNumbers || !hasSpecialChar) {
-          passwordInput.addClass('is-invalid');
-          passwordInput.siblings('.invalid-feedback').text('Password must be at least 8 characters and contain at least 1 uppercase letter, lowercase letter, number, and special character');
-          return false;
-        }
-        passwordInput.removeClass('is-invalid');
-        return true;
-      }
-
-      function validateConfirmPassword() {
-        const confirmInput = $('#confirmPassword');
-        const password = $('#password').val();
-        const confirm = confirmInput.val();
-
-        if (!confirm) {
-          confirmInput.addClass('is-invalid');
-          confirmInput.siblings('.invalid-feedback').text('Confirm password is required');
-          return false;
-        } else if (password !== confirm) {
-          confirmInput.addClass('is-invalid');
-          return false;
-        }
-        confirmInput.removeClass('is-invalid');
-        return true;
-      }
-
-      function validateRole() {
-<<<<<<< HEAD
-        const roleSelect = document.getElementById('role');
-        const isValid = roleSelect.value !== '';
-        
-        roleSelect.classList.toggle('is-invalid', !isValid);
-        return isValid;
-      }
-
-      // Form submission
-      document.getElementById('signupForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-=======
-        const roleInput = $('#role');
-        if (!roleInput.val()) {
-          roleInput.addClass('is-invalid');
-          return false;
-        }
-        roleInput.removeClass('is-invalid');
-        return true;
-      }
-
-      // Form submission
-      $('#signupForm').on('submit', function (e) {
-        e.preventDefault();
-
-        // Trigger all validations
-        validateFirstName();
-        validateLastName();
-        validateBirthday();
-        validateGender();
-        validateEmail();
-        validatePhone();
-        validatePassword();
-        validateConfirmPassword();
-        validateRole();
-
->>>>>>> 8ffdd73e72c67606a1e62f1f14a118b920ae9f45
-        const isValid = validateFirstName() &&
-          validateLastName() &&
-          validateBirthday() &&
-          validateGender() &&
-          validateEmail() &&
-          validatePhone() &&
-          validatePassword() &&
-          validateConfirmPassword() &&
-          validateRole();
-
-        if (isValid) {
-<<<<<<< HEAD
-          const newUser = {
-            firstName: document.getElementById('firstName').value.trim(),
-            lastName: document.getElementById('lastName').value.trim(),
-            birthday: document.getElementById('birthday').value,
-            gender: document.getElementById('gender').value,
-            email: document.getElementById('email').value.trim(),
-            phone: document.getElementById('phone').value.trim(),
-            password: document.getElementById('password').value,
-            role: document.getElementById('role').value,
-            cart: [],
-            history: [],
-            Bill: [],
-            customerServiceMessages: [],
-          };
-
-          users.push(newUser);
-          localStorage.setItem('users', JSON.stringify(users));
-
-          Toastify({
-            text: "Sign up successful! Please sign in.",
-            duration: 3000,
-            gravity: "top",
-            position: "right",
-            style: {
-              background: "linear-gradient(to right, #00b09b, #96c93d)",
-            },
-            callback: function() {
-=======
-          // Collect form data
-          const formData = {
-            firstName: $('#firstName').val(),
-            lastName: $('#lastName').val(),
-            birthday: $('#birthday').val(),
-            gender: $('#gender').val(),
-            email: $('#email').val(),
-            phone: $('#phone').val().replace(/\D/g, ''),
-            password: $('#password').val(),
-            role: $('#role').val(),
-            cart: [],
-          };
-
-          // Add new user and update localStorage
-          users.push(formData);
-          localStorage.setItem("users", JSON.stringify(users));
-          // Show success toast
-          Toastify({
-            text: "Your account has been created successfully.",
-            duration: 3000,
-            gravity: "top",
-            position: "center",
-            style: {
-              background: "#198754",
-            }, callback: function () {
->>>>>>> 8ffdd73e72c67606a1e62f1f14a118b920ae9f45
-              window.location.href = "sign-in.html";
-            }
-          }).showToast();
-        }
-      });
-
-      // Validate individual fields on input
-<<<<<<< HEAD
-      document.getElementById('firstName').addEventListener('input', validateFirstName);
-      document.getElementById('lastName').addEventListener('input', validateLastName);
-      document.getElementById('birthday').addEventListener('input', validateBirthday);
-      document.getElementById('gender').addEventListener('change', validateGender);
-      document.getElementById('email').addEventListener('input', validateEmail);
-      document.getElementById('phone').addEventListener('input', validatePhone);
-      document.getElementById('password').addEventListener('input', validatePassword);
-      document.getElementById('confirmPassword').addEventListener('input', validateConfirmPassword);
-      document.getElementById('role').addEventListener('change', validateRole);
-=======
-      $('#firstName').on('input', validateFirstName);
-      $('#lastName').on('input', validateLastName);
-      $('#birthday').on('change', validateBirthday);
-      $('#gender').on('change', validateGender);
-      $('#email').on('input', validateEmail);
-      $('#phone').on('input', validatePhone);
-      $('#password').on('input', function () {
-        validatePassword();
-        validateConfirmPassword();
-      });
-      $('#confirmPassword').on('input', validateConfirmPassword);
-      $('#role').on('change', validateRole);
->>>>>>> 8ffdd73e72c67606a1e62f1f14a118b920ae9f45
-    });
+  // Validate individual fields on input
+  $('#firstName').on('input', validateFirstName);
+  $('#lastName').on('input', validateLastName);
+  $('#birthday').on('change', validateBirthday);
+  $('#gender').on('change', validateGender);
+  $('#email').on('input', validateEmail);
+  $('#phone').on('input', validatePhone);
+  $('#password').on('input', function () {
+    validatePassword();
+    validateConfirmPassword();
+  });
+  $('#confirmPassword').on('input', validateConfirmPassword);
+  $('#role').on('change', validateRole);
+});
   </script>
 </body>
 

@@ -75,19 +75,39 @@
                     <li class="nav-item">
                         <a class="nav-link position-relative" href="home.html">Home</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link position-relative" href="categories.html">Categories</a>
-                    </li> -->
                     <li class="nav-item">
-                        <a class="nav-link position-relative" href="sign-in.html">Sign In</a>
+                        <a class="nav-link position-relative" href="categiores.html">Categories</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-primary-custom" href="sign-up.html">Sign Up</a>
+                    <li class="nav-item authenticated dropdown">
+                        <a class="nav-link dropdown-toggle position-relative" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <a class="dropdown-item" href="userprofile.html">Profile</a>
+                            </li>
+                            <li><a class="dropdown-item" href="cart.html">Cart</a></li>
+                            <li class="d-none" id="admin-dashboard">
+                                <a class="dropdown-item" href="AdminPanel.html">Admin Dashboard</a>
+                            </li> 
+                            <li class="d-none" id="seller-dashboard">
+                                <a class="dropdown-item" href="sellerDashboard.html">Seller Dashboard</a>
+                            </li>
+                            <li class="d-none" id="admin-dashboard">
+                                <a class="dropdown-item" href="AdminPanel.html">Contact Us</a>
+                            </li> 
+                            <li>
+                                <a class="dropdown-item" id="sign-out" href="sign-out.html">Sign Out</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="nav-item ms-2">
-                        <a class="nav-link position-relative" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
+                    <li class="nav-item ms-2 authenticated">
+                        <a class="nav-link position-relative" href="#" data-bs-toggle="modal"
+                            data-bs-target="#cartModal">
                             <i class="fas fa-shopping-cart"></i>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count">
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count">
                                 0
                             </span>
                         </a>

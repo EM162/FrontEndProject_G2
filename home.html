@@ -58,7 +58,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg sticky-top py-3 shadow-sm">
         <div class="container">
-            <a class="navbar-brand fw-bold fs-4" href="index.html">
+            <a class="navbar-brand fw-bold fs-4" href="/home.html">
                 <i class="fas fa-book-reader me-2"></i>BookHaven
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -88,20 +88,18 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
-                                <a class="dropdown-item" href="profile.html">Profile</a>
+                                <a class="dropdown-item" href="userprofile.html">Profile</a>
                             </li>
-                            <li>
-                                <a class="dropdown-item" href="order-history.html">Order History</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="wishlist.html">Wishlist</a>
-                            </li>
+
                             <li><a class="dropdown-item" href="cart.html">Cart</a></li>
                             <li class="d-none" id="admin-dashboard">
                                 <a class="dropdown-item" href="AdminPanel.html">Admin Dashboard</a>
-                            </li>
+                            </li> 
                             <li class="d-none" id="seller-dashboard">
                                 <a class="dropdown-item" href="sellerDashboard.html">Seller Dashboard</a>
+                            </li>
+                            <li >
+                                <a class="dropdown-item" href="contact.html">Contact Us</a>
                             </li>
                             <li>
                                 <a class="dropdown-item" id="sign-out" href="sign-out.html">Sign Out</a>
@@ -181,27 +179,27 @@
                 <p class="text-muted">Find books in your favorite genre</p>
             </div>
             <div class="row g-4">
-                <div class="col-md-4">
+                <a class="col-md-4" href="./categiores.html">
                     <div class="category-card">
                         <i class="fas fa-magic category-icon"></i>
                         <h3>Fiction</h3>
                         <p>Explore magical worlds and compelling stories</p>
                     </div>
-                </div>
-                <div class="col-md-4">
+                </a>
+                <a class="col-md-4" href="./categiores.html">
                     <div class="category-card">
                         <i class="fas fa-brain category-icon"></i>
                         <h3>Non-Fiction</h3>
                         <p>Expand your knowledge and perspectives</p>
                     </div>
-                </div>
-                <div class="col-md-4">
+                </a>
+                <a class="col-md-4" href="./categiores.html">
                     <div class="category-card">
                         <i class="fas fa-graduation-cap category-icon"></i>
                         <h3>Academic</h3>
                         <p>Essential resources for learning</p>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -331,19 +329,9 @@
                         </button>
                     </div>
                     <div class="cart-footer">
-                        <div class="cart-summary">
-                            <div class="cart-total">
-                                <span>Total Amount:</span>
-                                <span class="total-amount">$0.00</span>
-                            </div>
-                            <div class="cart-info">
-                                <i class="fas fa-truck me-2"></i>
-                                <span>Free shipping on orders over $50</span>
-                            </div>
-                        </div>
-                        <button class="btn btn-primary-custom checkout-btn" disabled>
-                            <i class="fas fa-lock me-2"></i>Proceed to Checkout
-                        </button>
+
+                        <a href="./Cart.html" class="btn btn-primary-custom checkout-btn" disabled>
+                            <i class="fas fa-lock me-2"></i>Manage Your Cart </a>
                     </div>
                 </div>
             </div>
@@ -455,26 +443,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Add Swiper JS before your scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
+    <script src="./js/Nav.js"></script>
     <script>
         $(document).ready(async function () {
-            const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-            const users = JSON.parse(localStorage.getItem("users"));
-<<<<<<< HEAD
-            const filterdUser = users?.find((user) => user?.email === currentUser?.email);
-=======
-            const filterdUser = users.find((user) => user?.email === currentUser?.email);
->>>>>>> 8ffdd73e72c67606a1e62f1f14a118b920ae9f45
-            let cart = filterdUser?.cart;
-            if (currentUser) {
-                $(".authenticated").show();
-                $(".not-authenticated").hide();
-                if (currentUser?.role === "seller") $("#seller-dashboard").removeClass("d-none");
-                if (currentUser?.role === "admin") $("#admin-dashboard").removeClass("d-none");
-            } else {
-                $(".authenticated").hide();
-                $(".not-authenticated").show();
-            }
+
             // Function to calculate the total price of items in the cart
             function calculateTotal() {
                 let total = 0;
@@ -505,11 +477,7 @@
                     $(".cart-footer").show();
                 }
             }
-            $("#sign-out").click(function (e) {
-                e.preventDefault();
-                localStorage.removeItem("currentUser");
-                location.reload();
-            });
+
 
             function calculateTotal() {
                 const total = cart?.reduce(
@@ -598,7 +566,7 @@
                     //#.com
                     // Show success toast
                     Toastify({
-                        text: `${book.name} has been added to your cart!`,
+                        text: `${book.title} has been added to your cart!`,
                         duration: 3000,
                         gravity: "bottom",
                         position: "right",
@@ -644,7 +612,7 @@
                 updateCartDisplay();
                 // Show removal toast
                 Toastify({
-                    text: `${removedItem.name} has been removed from your cart!`,
+                    text: `${removedItem.title} has been removed from your cart!`,
                     duration: 3000,
                     gravity: "bottom",
                     position: "right",
@@ -684,51 +652,8 @@
 
             // Initialize cart display
             updateCartDisplay();
-<<<<<<< HEAD
-           
 
-=======
-            // const books = [
-            //     {
-            //         id: 1,
-            //         name: "The Art of Design",
-            //         description: "Master the principles of modern design thinking",
-            //         price: 29.99,
-            //         category: "Design",
-            //         imageUrl:
-            //             "https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3",
-            //     },
-            //     {
-            //         id: 2,
-            //         name: "Creative Coding",
-            //         description: "Learn to code through creative projects",
-            //         price: 34.99,
-            //         category: "Programming",
-            //         imageUrl:
-            //             "https://images.unsplash.com/photo-1550592704-6c76defa9985?ixlib=rb-4.0.3",
-            //     },
-            //     {
-            //         id: 3,
-            //         name: "Digital Marketing",
-            //         description: "Modern strategies for digital marketing success",
-            //         price: 24.99,
-            //         category: "Marketing",
-            //         imageUrl:
-            //             "https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?ixlib=rb-4.0.3",
-            //     },
 
-            //     {
-            //         id: 4,
-            //         name: "Business Strategy",
-            //         description: "Essential guide to modern business strategy",
-            //         price: 39.99,
-            //         category: "Business",
-            //         imageUrl:
-            //             "https://images.unsplash.com/photo-1553484771-371a605b060b?ixlib=rb-4.0.3",
-            //     },
-            // ];
-
->>>>>>> 8ffdd73e72c67606a1e62f1f14a118b920ae9f45
             const featuredContainer = $("#featured-books-container");
             books.forEach((book) => {
                 featuredContainer.append(`

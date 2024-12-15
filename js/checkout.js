@@ -31,23 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
                 <hr>
                 ${productRows}
-                <div class="d-flex justify-content-between">
-                    <span><b>Shipping</b></span>
-                    <div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="shipping" id="freeShipping" value="0" checked>
-                            <label class="form-check-label" for="freeShipping">Free Shipping</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="shipping" id="localShipping" value="15">
-                            <label class="form-check-label" for="localShipping">Local: $15.00</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="shipping" id="flatRate" value="10">
-                            <label class="form-check-label" for="flatRate">Flat Rate: $10.00</label>
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="d-flex justify-content-between total-section">
                     <span>Total</span>
                     <span id="totalAmount">$${totalBooksPrice.toFixed(2)}</span>
@@ -171,9 +155,9 @@ document.addEventListener("DOMContentLoaded", () => {
             isValid = false;
         }
 
-        const shippingRadios = Array.from(document.querySelectorAll('input[name="shipping"]'));
+        // const shippingRadios = Array.from(document.querySelectorAll('input[name="shipping"]'));
         const paymentRadios = Array.from(document.querySelectorAll('input[name="payment"]'));
-        isValid &= validateRadioSelection(shippingRadios, "Please select a shipping method.");
+        // isValid &= validateRadioSelection(shippingRadios, "Please select a shipping method.");
         isValid &= validateRadioSelection(paymentRadios, "Please select a payment method.");
 
         if (isValid) {
@@ -186,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 phone: phoneInput.value.trim(),
                 email: emailInput.value.trim(),
                 notes: notesInput.value.trim(),
-                shippingMethod: document.querySelector('input[name="shipping"]:checked').id,
+                // shippingMethod: document.querySelector('input[name="shipping"]:checked').id,
                 paymentMethod: document.querySelector('input[name="payment"]:checked').id,
             };
 
